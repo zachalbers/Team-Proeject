@@ -5,8 +5,8 @@ import java.util.Arrays;
 
 public class Building {
 
-    int xCoord = 0;
-    int yCoord = 0;
+    double xCoord = 0;
+    double yCoord = 0;
     String buildingName = "";
     String[] connections = {};
 
