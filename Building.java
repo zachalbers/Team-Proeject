@@ -1,7 +1,7 @@
+import java.util.Arrays;
+
 //This class creates the structure for a building.
 //The methods allow properties of the building to be set as well as returned.
-
-import java.util.Arrays;
 
 public class Building {
 
