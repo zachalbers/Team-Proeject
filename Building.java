@@ -10,16 +10,16 @@ public class Building {
     String buildingName = "";
     String[] connections = {};
 
-    public void setCoordinates(int x, int y) {
+    public void setCoordinates(double x, double y) {
         xCoord = x;
         yCoord = y;
     }
 
-    public int getX() {
+    public double getX() {
         return xCoord;
     }
 
-    public int getY() {
+    public double getY() {
         return yCoord;
     }
 

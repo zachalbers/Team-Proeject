@@ -1,6 +1,7 @@
 // This class stores all of the building objects.
 // It can return a building object from a name entered in.
 
+// each point is 10 meters
 
 
 public class AllBuildings {
@@ -36,7 +37,7 @@ public class AllBuildings {
                 Building Kinesiology_B = new Building();
                 Kinesiology_B.setCoordinates(1337, 779);
                 Kinesiology_B.setBuildingName("Kinesiology B");
-                Kinesiology_B.setConnections("MacEwan Student Centre,Kinesiology A");
+                Kinesiology_B.setConnections("MacEwan Student Centre,Kinesiology A,Olympic Oval");
 
                 Building Kinesiology_A = new Building();
                 Kinesiology_A.setCoordinates(1331, 772);
@@ -47,6 +48,11 @@ public class AllBuildings {
                 Hotel_Alma.setCoordinates(1329, 761);
                 Hotel_Alma.setBuildingName("Hotel Alma");
                 Hotel_Alma.setConnections("Kinesiology A");
+
+                Building Olympic_Oval = new Building();
+                Olympic_Oval.setCoordinates(1357, 770);
+                Olympic_Oval.setBuildingName("Olympic Oval");
+                Olympic_Oval.setConnections("Kinesiology B");
 
 
 
@@ -60,6 +66,7 @@ public class AllBuildings {
                         case "Kinesiology A": return Kinesiology_A;
                         case "Kinesiology B": return Kinesiology_B;
                         case "Hotel Alma": return Hotel_Alma;
+                        case "Olympic Oval": return Olympic_Oval;
                         default:
                                 return Default;
                 }
