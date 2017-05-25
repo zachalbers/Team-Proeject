@@ -1,6 +1,7 @@
+import java.util.Scanner;
+
 // This class gets user input for location and destination from the command prompt.
 
-import java.util.Scanner;
 
 public class Travel {
 
