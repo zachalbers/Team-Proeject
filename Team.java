@@ -2,7 +2,7 @@
 // Currently it also contains the pathfinding alogrithm and the distance calculator.
 
 
-// This has been chagned 
+// This has been chagned again
 
 public class Team {
 
