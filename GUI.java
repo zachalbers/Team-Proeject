@@ -31,15 +31,19 @@ public class GUI {
 		//Main menu objects         
 		// The exit button 
 		JButton exit = new JButton("Exit");  
-		exit.setBounds(310,400,100,40); 
-		menupanel.add(exit);  
+		exit.setBounds(310,400,55,20); 
+		  
+		// The GO Button
+		JButton GO = new JButton("GO");  
+		GO.setBounds(310,350,55,20); 
+	
 		
 		
 		
 		// ADDING OBJECTS                  +++++++++++++++++++++++++++++++++++++++++
 		// Main menu adding objects to panel
-		
-		
+		menupanel.add(exit);    // add exit button
+		menupanel.add(GO);      // ad GO button
 		
 		
 		
@@ -49,10 +53,22 @@ public class GUI {
 		
 		//ACTION LISTENERS                 ++++++++++++++++++++++++++++++++++++++++++
 		// Action listeners for main window
+		
+		//Exit button 
 		exit.addActionListener(new ActionListener() {
 		    public void actionPerformed(ActionEvent e)
 		    {
 		    	System.exit(0);
+		    }
+		});
+		
+		//GO button
+		GO.addActionListener(new ActionListener() {
+		    public void actionPerformed(ActionEvent e)
+		    {
+		    	String infoMessage="PROGRAM STARTS";
+				String titleBar = "UniMAP";
+				JOptionPane.showMessageDialog(null, infoMessage,titleBar, JOptionPane.INFORMATION_MESSAGE);
 		    }
 		});
 		
