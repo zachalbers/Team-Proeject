@@ -5,13 +5,19 @@ import java.awt.event.*;
 
 public class GUI {
 
-	public static void gui(){
+
+	String startpoint; String endpoint;
+
+
+
+
+	public void gui(){
 
 
 		//OBJECTS                         ++++++++++++++++++++++++++++++++++++++++++
 		//Main menu objects
 		//Combo box for destination and CurrentLocation
-		String [] buildings = {"Mac Hall","Science B","Kinesiology A","Kinesiology B","Hotel Alma","MacEwan Student Centre"};
+		String [] buildings = {"","Mac Hall","Science B","Kinesiology A","Kinesiology B","Hotel Alma","MacEwan Student Centre"};
 		JComboBox<String> destination = new JComboBox<>(buildings);
 
 		JComboBox<String> currentloc = new JComboBox<>(buildings);
@@ -31,7 +37,7 @@ public class GUI {
 		transportLabel.setBounds(110,380,250,20);
 
 		//Transporation combo box
-		String [] transportmethod = {"Walk","Bike","Skateboard"};
+		String [] transportmethod = {"","Walk","Bike","Skateboard"};
 		JComboBox<String> transport = new JComboBox<>(transportmethod);
 		transport.setBounds(100,400,250,20);
 
@@ -95,7 +101,7 @@ public class GUI {
 			currentloc.addActionListener(new ActionListener() {
 			    public void actionPerformed(ActionEvent e)
 			    {
-			    	String startpoint = (String) currentloc.getSelectedItem();
+			    	startpoint = (String) currentloc.getSelectedItem();
 						String titleBar = "UniMAP";
 						JOptionPane.showMessageDialog(null, "Current Location: " + startpoint,titleBar, JOptionPane.INFORMATION_MESSAGE);
 
@@ -106,7 +112,7 @@ public class GUI {
 				destination.addActionListener(new ActionListener() {
 				    public void actionPerformed(ActionEvent e)
 				    {
-				    	String endpoint = (String) destination.getSelectedItem();
+				    	endpoint = (String) destination.getSelectedItem();
 							String titleBar = "UniMAP";
 							JOptionPane.showMessageDialog(null, "Destination: " + endpoint,titleBar, JOptionPane.INFORMATION_MESSAGE);
 
@@ -140,8 +146,21 @@ public class GUI {
 		    	String infoMessage="PROGRAM STARTS";
 				String titleBar = "UniMAP";
 				JOptionPane.showMessageDialog(null, infoMessage,titleBar, JOptionPane.INFORMATION_MESSAGE);
+
+
+				execute();
+
+
+
 		    }
+
+
 		});
+
+
+
+
+
 
 
 
@@ -162,20 +181,31 @@ public class GUI {
 
 
 
-// THE main method of the code that executes all other methods
-public static void main(String[] args) {
-	// Calling main menu gui() method
-	gui();
+// // THE main method of the code that executes all other methods
+// public static void main(String[] args) {
+// 	// Calling main menu gui() method
+// 	gui();
+//
+// }
+
+
+
+
+
+
+
+public void execute(){
+
+	AllBuildings nextBuildingObj = new AllBuildings();
+	Building locationObj = nextBuildingObj.buildings(startpoint);
+	Building destinationObj = nextBuildingObj.buildings(endpoint);
+
+
+
+	Pathfinder finder = new Pathfinder();
+	finder.pathfind(locationObj, destinationObj, nextBuildingObj);
 
 }
-
-
-
-
-
-
-
-
 
 
 

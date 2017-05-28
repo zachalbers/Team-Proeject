@@ -7,7 +7,7 @@
 public class AllBuildings {
 // Creating Buildings
 
-        public static Building buildings(String name) {
+        public Building buildings(String name) {
 
                 // Default building if there is an error
                 Building Default = new Building();
