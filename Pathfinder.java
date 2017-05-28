@@ -45,7 +45,7 @@ public class Pathfinder {
             for (String name : haveTravelled) {
               nameString += "Got to: " + name + ",";
             }
-            System.out.println(nameString);
+            // System.out.println(nameString);
 
   }
 
