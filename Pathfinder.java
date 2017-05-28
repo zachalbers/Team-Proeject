@@ -5,10 +5,11 @@ import java.util.*;
 
 
 public class Pathfinder {
-
+  List<String> haveTravelled = Collections.synchronizedList(new ArrayList<String>());
+  String nameString = "";
 
   public void pathfind(Building location, Building destination, AllBuildings nextBuilding) {
-            List<String> haveTravelled = Collections.synchronizedList(new ArrayList<String>());
+
 
 
 
@@ -35,11 +36,16 @@ public class Pathfinder {
                               }
 
                       }
-                      System.out.println("Go to " + bestBuilding.getBuildingName());
                       haveTravelled.add(bestBuilding.getBuildingName());
                       currentBuilding = bestBuilding;
+
             }
 
+
+            for (String name : haveTravelled) {
+              nameString += "Got to: " + name + ",";
+            }
+            System.out.println(nameString);
 
   }
 

@@ -3,10 +3,11 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
 
+
 public class GUI {
 
 
-	String startpoint; String endpoint;
+	String startpoint; String endpoint; String names;
 
 
 
@@ -143,12 +144,13 @@ public class GUI {
 		GO.addActionListener(new ActionListener() {
 		    public void actionPerformed(ActionEvent e)
 		    {
-		    	String infoMessage="PROGRAM STARTS";
+					execute();
+
+				String infoMessage= names;
 				String titleBar = "UniMAP";
 				JOptionPane.showMessageDialog(null, infoMessage,titleBar, JOptionPane.INFORMATION_MESSAGE);
 
 
-				execute();
 
 
 
@@ -204,6 +206,8 @@ public void execute(){
 
 	Pathfinder finder = new Pathfinder();
 	finder.pathfind(locationObj, destinationObj, nextBuildingObj);
+	names = finder.nameString;
+
 
 }
 
