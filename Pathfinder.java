@@ -5,47 +5,55 @@ import java.util.*;
 
 
 public class Pathfinder {
-  List<String> haveTravelled = Collections.synchronizedList(new ArrayList<String>());
+
+  List<Building> pathList = Collections.synchronizedList(new ArrayList<Building>());
+  List<Building>  closedPaths= Collections.synchronizedList(new ArrayList<Building>());
   String nameString = "";
 
   public void pathfind(Building location, Building destination, AllBuildings nextBuilding) {
 
 
-
-
             Building currentBuilding = location;
             Building bestBuilding = location;
+            Building neighborObj = location;
             double bestDistance = getDistance(location, destination);
 
             while ( !currentBuilding.getBuildingName().equals(destination.getBuildingName()) ) {
-                      boolean first = true;
+                      Building changeCheck = bestBuilding;
                       for (String neighbor : currentBuilding.getConnections() ) {
-                              Building neighborObj = nextBuilding.buildings(neighbor);
+                              neighborObj = nextBuilding.buildings(neighbor);
 
                               double currentDistance = getDistance(neighborObj, destination);
 
-                              if (haveTravelled.contains(neighborObj.getBuildingName())) {
+
+                              if (closedPaths.contains(neighborObj)) {
                                 continue;
-                              } else if (first) {
-                                bestDistance = currentDistance;
-                                bestBuilding = neighborObj;
-                                first = false;
-                              } else if (currentDistance < bestDistance) {
-                                          bestDistance = currentDistance;
-                                          bestBuilding = neighborObj;
+                              }
+                              if (currentDistance < bestDistance) {
+                                      bestDistance = currentDistance;
+                                      bestBuilding = neighborObj;
                               }
 
                       }
-                      haveTravelled.add(bestBuilding.getBuildingName());
+                      if (changeCheck == bestBuilding) {
+                          closedPaths.add(neighborObj);
+                          pathList.remove(pathList.size()-1);
+                          currentBuilding = pathList.get(pathList.size()-1);
+
+                      } else {
+
+                      pathList.add(bestBuilding);
+                      closedPaths.add(bestBuilding);
                       currentBuilding = bestBuilding;
+                    }
 
             }
 
 
-            for (String name : haveTravelled) {
-              nameString += "Got to: " + name + ",";
+            for (Building obj : pathList) {
+              nameString += "Got to: " + obj.getBuildingName() + ",";
             }
-            // System.out.println(nameString);
+            System.out.println(nameString);
 
   }
 
