@@ -9,22 +9,22 @@ public class GUI {
 
 	String startpoint; String endpoint; String names;
 
-
-
-
 	public void gui(){
 
 
 		//OBJECTS                         ++++++++++++++++++++++++++++++++++++++++++
 		//Main menu objects
 		//Combo box for destination and CurrentLocation
-		String [] buildings = {"","Mac Hall","Science B","Kinesiology A","Kinesiology B","Hotel Alma","MacEwan Student Centre"};
+		String [] buildings = {"","Science A", "Science B", "Mac Hall", "MacEwan Student Centre", "Kinesiology A", "Kinesiology B",
+			"Hotel Alma", "Olympic Oval", "Calgary Centre for Innovative Technology", "Schulich School of Engineering A-G",
+			"Information and Communication Technologies", "Earth Science", "Math Science", "Science Theatres", "Social Science",
+			"Administration", "Professional Faculties", "Education Classroom Block", "Education Tower"};
 		JComboBox<String> destination = new JComboBox<>(buildings);
 
 		JComboBox<String> currentloc = new JComboBox<>(buildings);
 
-		destination.setBounds(500,100,250,20);
-		currentloc.setBounds(100,100,250,20);
+		destination.setBounds(500,100,350,20);
+		currentloc.setBounds(100,100,350,20);
 
 		//MAIN MENU LABELS
 		JLabel currentLabel = new JLabel("Select Current Location: ");
@@ -103,8 +103,6 @@ public class GUI {
 			    public void actionPerformed(ActionEvent e)
 			    {
 			    	startpoint = (String) currentloc.getSelectedItem();
-						String titleBar = "UniMAP";
-						JOptionPane.showMessageDialog(null, "Current Location: " + startpoint,titleBar, JOptionPane.INFORMATION_MESSAGE);
 
 
 			    }
@@ -114,8 +112,6 @@ public class GUI {
 				    public void actionPerformed(ActionEvent e)
 				    {
 				    	endpoint = (String) destination.getSelectedItem();
-							String titleBar = "UniMAP";
-							JOptionPane.showMessageDialog(null, "Destination: " + endpoint,titleBar, JOptionPane.INFORMATION_MESSAGE);
 
 
 				    }

@@ -6,54 +6,57 @@ import java.util.*;
 
 public class Pathfinder {
 
-  List<Building> pathList = Collections.synchronizedList(new ArrayList<Building>());
-  List<Building>  closedPaths= Collections.synchronizedList(new ArrayList<Building>());
+
   String nameString = "";
 
   public void pathfind(Building location, Building destination, AllBuildings nextBuilding) {
 
+          List<String> pathList = Collections.synchronizedList(new ArrayList<String>());
+          List<String>  closedPaths= Collections.synchronizedList(new ArrayList<String>());
 
-            Building currentBuilding = location;
-            Building bestBuilding = location;
-            Building neighborObj = location;
-            double bestDistance = getDistance(location, destination);
+          pathList.add(location.getBuildingName());
+          closedPaths.add(location.getBuildingName());
 
-            while ( !currentBuilding.getBuildingName().equals(destination.getBuildingName()) ) {
-                      Building changeCheck = bestBuilding;
-                      for (String neighbor : currentBuilding.getConnections() ) {
-                              neighborObj = nextBuilding.buildings(neighbor);
-
-                              double currentDistance = getDistance(neighborObj, destination);
+          Building neighborObj = new Building();
+          Building currentBuilding = location;
+          Building bestBuilding = location;
 
 
-                              if (closedPaths.contains(neighborObj)) {
-                                continue;
-                              }
-                              if (currentDistance < bestDistance) {
-                                      bestDistance = currentDistance;
-                                      bestBuilding = neighborObj;
-                              }
 
-                      }
-                      if (changeCheck == bestBuilding) {
-                          closedPaths.add(neighborObj);
-                          pathList.remove(pathList.size()-1);
-                          currentBuilding = pathList.get(pathList.size()-1);
+          while ( !currentBuilding.getBuildingName().equals(destination.getBuildingName()) ) {
+                    String changeCheck = bestBuilding.getBuildingName();
+                    double bestDistance = 100000;
 
-                      } else {
+                    for (String neighbor : currentBuilding.getConnections() ) {
+                            neighborObj = nextBuilding.buildings(neighbor);
+                            double currentDistance = getDistance(neighborObj, destination);
 
-                      pathList.add(bestBuilding);
-                      closedPaths.add(bestBuilding);
-                      currentBuilding = bestBuilding;
+                            if (closedPaths.contains(neighborObj.getBuildingName())) {
+                                    continue;
+                            } else if (currentDistance < bestDistance) {
+                                    bestDistance = currentDistance;
+                                    bestBuilding = neighborObj;
+                            }
                     }
 
-            }
+                    // If the building hasn't changed, then the path will go back a building.
+                    if (changeCheck.equals(bestBuilding.getBuildingName())) {
+                            closedPaths.add(neighborObj.getBuildingName());
+                            pathList.remove(pathList.size()-1);
+                            currentBuilding = nextBuilding.buildings(pathList.get(pathList.size()-1));
 
+                    // Otherwise, it will add the closest building to the path list.
+                    } else {
+                            pathList.add(bestBuilding.getBuildingName());
+                            closedPaths.add(bestBuilding.getBuildingName());
+                            currentBuilding = bestBuilding;
+                    }
+          }
 
-            for (Building obj : pathList) {
-              nameString += "Got to: " + obj.getBuildingName() + ",";
-            }
-            System.out.println(nameString);
+          for (String name : pathList) {
+                  nameString += "Got to: " + name + ",";
+          }
+          System.out.println(nameString);
 
   }
 
