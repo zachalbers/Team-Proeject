@@ -15,5 +15,5 @@ public class Team {
     public static void main(String[] args) {
         Team main = new Team();
         main.start();
-                    }
+    }
 }

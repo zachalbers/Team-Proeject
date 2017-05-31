@@ -41,7 +41,7 @@ public class Pathfinder {
 
                     // If the building hasn't changed, then the path will go back a building.
                     if (changeCheck.equals(bestBuilding.getBuildingName())) {
-                            closedPaths.add(neighborObj.getBuildingName());
+                            closedPaths.add(currentBuilding.getBuildingName());
                             pathList.remove(pathList.size()-1);
                             currentBuilding = nextBuilding.buildings(pathList.get(pathList.size()-1));
 

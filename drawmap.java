@@ -16,7 +16,7 @@ public class drawmap extends JPanel{
 		g.fillRect(25, 65, 100, 30);
 
 		g.setColor(Color.RED);
-		g.drawString("LIAMS SUCKS BOTH THESE RECTANGLES", 25, 120);
+		g.drawString("RECTANGLES", 25, 120);
 
 	}
 
