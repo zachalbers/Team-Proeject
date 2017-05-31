@@ -145,6 +145,7 @@ public class GUI {
 				String infoMessage= names;
 				String titleBar = "UniMAP";
 				JOptionPane.showMessageDialog(null, infoMessage,titleBar, JOptionPane.INFORMATION_MESSAGE);
+				gowindow();
 
 
 
@@ -187,7 +188,11 @@ public class GUI {
 // }
 
 
+public void gowindow(){
+	frame frame1 = new frame();
+	frame1.drawbuildings();
 
+}
 
 
 
