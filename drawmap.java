@@ -11,14 +11,32 @@ public class drawmap extends JPanel{
 		super.paintComponent(g);
 		this.setBackground(Color.WHITE);
 
-		g.setColor(Color.BLUE);
-		g.fillRect(25, 25, 100, 30);
+		AllBuildings map1= new AllBuildings();
 
-		g.setColor(Color.BLACK);
-		g.fillRect(25, 65, 100, 30);
 
-		g.setColor(Color.RED);
-		g.drawString("RECTANGLES", 25, 120);
+
+		for (String currentName : map1.buildingNames) {
+				Building currentB = map1.buildings(currentName);
+
+				int xcoord = (int)currentB.getX();
+				int ycoord = (int)currentB.getY();
+
+				g.setColor(Color.BLUE);
+				g.fillRect(xcoord,ycoord, 3, 3);
+
+
+		}
+
+
+    // Science B
+		// g.setColor(Color.BLUE);
+		// g.fillRect(map1.getX(),map1.getY(), 3, 3);
+		//
+		// g.setColor(Color.BLACK);
+		// g.fillRect(1005, 140, 100, 30);
+		//
+		// g.setColor(Color.RED);
+		// g.drawString("RECTANGLES", 25, 120);
 
 	}
 

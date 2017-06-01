@@ -121,7 +121,7 @@ public class GUI {
 												String infoMessage= names;
 												String titleBar = "UniMAP";
 												JOptionPane.showMessageDialog(null, infoMessage,titleBar, JOptionPane.INFORMATION_MESSAGE);
-												// gowindow();
+												gowindow();
 								}
 					});
 
@@ -130,10 +130,10 @@ public class GUI {
 				}
 
 
-		////public void gowindow(){          /////   not needed for this demo
-		////	frame frame1 = new frame(); /////    not needed for this demo
-		////	frame1.drawbuildings();     /////    not needed for this demo
-		////}				    /////    not needed for this demo
+		public void gowindow(){
+		frame frame1 = new frame();
+		frame1.drawbuildings();
+		}
 
 
 
