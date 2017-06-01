@@ -16,7 +16,7 @@ public class GUI {
 
 
 		// Defining and creating components of the GUI: ****************************************************************************************************
-		
+
 		//Creating Combo box for destination and CurrentLocation
 		// List that contains the options the user can select from the drop down menu for current location and destination
 		String [] buildings = {"","Science A", "Science B", "Mac Hall", "MacEwan Student Centre", "Kinesiology A", "Kinesiology B",
@@ -48,7 +48,7 @@ public class GUI {
 		transportLabel.setLayout(null);
 		transportLabel.setBounds(110,380,250,20);
 
-	
+
 		// Creates the exit and add button on the gui: ********************************************************************************************************
 		// The exit button
 		JButton exit = new JButton("Exit");
@@ -71,14 +71,14 @@ public class GUI {
 
 
 		// Adding all the gui components to the panel :  ******************************************************************************************************
-		menupanel.add(exit);    
-		menupanel.add(GO);    
-		menupanel.add(destination); 
-		menupanel.add(currentloc); 
-		menupanel.add(currentLabel); 
+		menupanel.add(exit);
+		menupanel.add(GO);
+		menupanel.add(destination);
+		menupanel.add(currentloc);
+		menupanel.add(currentLabel);
 		menupanel.add(destinationLabel);
-		menupanel.add(transport); 
-		menupanel.add(transportLabel); 
+		menupanel.add(transport);
+		menupanel.add(transportLabel);
 
 
 
@@ -125,10 +125,10 @@ public class GUI {
 			String infoMessage= names;
 			String titleBar = "UniMAP";
 			JOptionPane.showMessageDialog(null, infoMessage,titleBar, JOptionPane.INFORMATION_MESSAGE);
-			gowindow();
+			// gowindow();
 			}
 			});
-		
+
 		menuwindow.add(menupanel);   // Adding the jpanel to the windows
 
 		}
@@ -136,7 +136,7 @@ public class GUI {
 
 ////public void gowindow(){          /////   not needed for this demo
 ////	frame frame1 = new frame(); /////    not needed for this demo
-////	frame1.drawbuildings();     /////    not needed for this demo 
+////	frame1.drawbuildings();     /////    not needed for this demo
 ////}				    /////    not needed for this demo
 
 
@@ -144,11 +144,8 @@ public class GUI {
 // Method that calls the pathfinding algorithm: *************************************************************************************************************************
 public void execute(){
 
-	AllBuildings nextBuildingObj = new AllBuildings();
-	Building locationObj = nextBuildingObj.buildings(startpoint);
-	Building destinationObj = nextBuildingObj.buildings(endpoint);
 	Pathfinder finder = new Pathfinder();
-	finder.pathfind(locationObj, destinationObj, nextBuildingObj);
+	finder.pathfind(startpoint, endpoint);
 	names = finder.nameString;
 
 
