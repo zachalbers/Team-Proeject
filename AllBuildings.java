@@ -21,97 +21,97 @@ public class AllBuildings {
                 // Creating all the buildings
 
                 Building Science_B = new Building();
-                Science_B.setCoordinates(1295, 794);
+                Science_B.setCoordinates(80, 794);
                 Science_B.setBuildingName("Science B");
                 Science_B.setConnections("Mac Hall,Science A,Earth Science");
 
                 Building Mac_Hall = new Building();
-                Mac_Hall.setCoordinates(1305, 786 );
+                Mac_Hall.setCoordinates(70, 786 );
                 Mac_Hall.setBuildingName("Mac Hall");
                 Mac_Hall.setConnections("MacEwan Student Centre,Science B");
 
                 Building MacEwan_Student_Centre = new Building();
-                MacEwan_Student_Centre.setCoordinates(1318, 782);
+                MacEwan_Student_Centre.setCoordinates(57, 782);
                 MacEwan_Student_Centre.setBuildingName("MacEwan Student Centre");
                 MacEwan_Student_Centre.setConnections("Mac Hall,Kinesiology B");
 
                 Building Kinesiology_B = new Building();
-                Kinesiology_B.setCoordinates(1337, 779);
+                Kinesiology_B.setCoordinates(38, 779);
                 Kinesiology_B.setBuildingName("Kinesiology B");
                 Kinesiology_B.setConnections("MacEwan Student Centre,Kinesiology A,Olympic Oval");
 
                 Building Kinesiology_A = new Building();
-                Kinesiology_A.setCoordinates(1331, 772);
+                Kinesiology_A.setCoordinates(44, 772);
                 Kinesiology_A.setBuildingName("Kinesiology A");
                 Kinesiology_A.setConnections("Kinesiology B,Hotel Alma");
 
                 Building Hotel_Alma = new Building();
-                Hotel_Alma.setCoordinates(1329, 761);
+                Hotel_Alma.setCoordinates(46, 761);
                 Hotel_Alma.setBuildingName("Hotel Alma");
                 Hotel_Alma.setConnections("Kinesiology A");
 
                 Building Olympic_Oval = new Building();
-                Olympic_Oval.setCoordinates(1357, 770);
+                Olympic_Oval.setCoordinates(18, 770);
                 Olympic_Oval.setBuildingName("Olympic Oval");
                 Olympic_Oval.setConnections("Kinesiology B");
 
                 Building Calgary_Centre_for_Innovative_Technology = new Building();
-                Calgary_Centre_for_Innovative_Technology.setCoordinates(1335, 805);
+                Calgary_Centre_for_Innovative_Technology.setCoordinates(40, 805);
                 Calgary_Centre_for_Innovative_Technology.setBuildingName("Calgary Centre for Innovative Technology");
                 Calgary_Centre_for_Innovative_Technology.setConnections("Schulich School of Engineering A-G");
 
                 Building Schulich_School_of_Engineering_A_G = new Building();
-                Schulich_School_of_Engineering_A_G.setCoordinates(1320, 804);
+                Schulich_School_of_Engineering_A_G.setCoordinates(55, 804);
                 Schulich_School_of_Engineering_A_G.setBuildingName("Schulich School of Engineering A-G");
                 Schulich_School_of_Engineering_A_G.setConnections("Calgary Centre for Innovative Technology,Information and Communication Technologies");
 
                 Building Information_and_Communication_Technologies = new Building();
-                Information_and_Communication_Technologies.setCoordinates(1303, 802);
+                Information_and_Communication_Technologies.setCoordinates(72, 802);
                 Information_and_Communication_Technologies.setBuildingName("Information and Communication Technologies");
                 Information_and_Communication_Technologies.setConnections("Schulich School of Engineering A-G,Earth Science");
 
                 Building Earth_Science = new Building();
-                Earth_Science.setCoordinates(1291, 803);
+                Earth_Science.setCoordinates(84, 803);
                 Earth_Science.setBuildingName("Earth Science");
                 Earth_Science.setConnections("Information and Communication Technologies,Science B,Math Science");
 
                 Building Science_A = new Building();
-                Science_A.setCoordinates(1282, 799 );
+                Science_A.setCoordinates(93, 799 );
                 Science_A.setBuildingName("Science A");
                 Science_A.setConnections("Science B,Science Theatres");
 
                 Building Math_Science = new Building();
-                Math_Science.setCoordinates(1279, 800);
+                Math_Science.setCoordinates(96, 800);
                 Math_Science.setBuildingName("Math Science");
                 Math_Science.setConnections("Earth Science,Science Theatres");
 
                 Building Science_Theatres = new Building();
-                Science_Theatres.setCoordinates(1273, 796);
+                Science_Theatres.setCoordinates(102, 796);
                 Science_Theatres.setBuildingName("Science Theatres");
                 Science_Theatres.setConnections("Math Science,Science A,Social Science");
 
                 Building Social_Science = new Building();
-                Social_Science.setCoordinates(1270, 791);
+                Social_Science.setCoordinates(105, 791);
                 Social_Science.setBuildingName("Social Science");
                 Social_Science.setConnections("Science Theatres,Science A,Administration");
 
                 Building Administration = new Building();
-                Administration.setCoordinates(1272, 782);
+                Administration.setCoordinates(103, 782);
                 Administration.setBuildingName("Administration");
                 Administration.setConnections("Social Science,Professional Faculties");
 
                 Building Professional_Faculties = new Building();
-                Professional_Faculties.setCoordinates(1269, 774);
+                Professional_Faculties.setCoordinates(106, 774);
                 Professional_Faculties.setBuildingName("Professional Faculties");
                 Professional_Faculties.setConnections("Administration,Education Classroom Block");
 
                 Building Education_Classroom_Block = new Building();
-                Education_Classroom_Block.setCoordinates(1266, 767);
+                Education_Classroom_Block.setCoordinates(109, 767);
                 Education_Classroom_Block.setBuildingName("Education Classroom Block");
                 Education_Classroom_Block.setConnections("Professional Faculties,Education Tower");
 
                 Building Education_Tower = new Building();
-                Education_Tower.setCoordinates(1261, 771);
+                Education_Tower.setCoordinates(114, 771);
                 Education_Tower.setBuildingName("Education Tower");
                 Education_Tower.setConnections("Education Classroom Block");
 
