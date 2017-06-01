@@ -1,10 +1,12 @@
-
+// imports required libraries
 import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
 
+// Class for making the map   ++++++++++++
 public class drawmap extends JPanel{
 
+	// method that draws the buildings and its names  ++++++++++++++++
 	public void paintComponent(Graphics g){
 		super.paintComponent(g);
 		this.setBackground(Color.WHITE);

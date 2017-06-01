@@ -1,8 +1,10 @@
-
+// imports required modules 
 import javax.swing.JFrame;
 
+// Class for making Jframe and displaying the buildings and building names on the jframe
 public class frame {
-
+	
+	//
 	public void drawbuildings(){
 		JFrame frame = new JFrame("Title");
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -11,13 +13,6 @@ public class frame {
 		frame.setSize(400, 250);
 		frame.setVisible(true);
 	}
-
-
-	// public void run() {
-	// 	frame frame1 = new frame();
-	// 	frame1.drawbuildings();
-	// }
-	//
 
 
 
