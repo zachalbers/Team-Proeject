@@ -9,15 +9,25 @@ public class Pathfinder {
 
   String nameString = "";
 
-  public void pathfind(Building location, Building destination, AllBuildings nextBuilding) {
+  public void pathfind(String locationString, String destinationString) {
 
+          AllBuildings BuildingFiles = new AllBuildings();
+
+          Building location = BuildingFiles.buildings(locationString);
+          Building destination = BuildingFiles.buildings(destinationString);
+
+
+          // Contains the final list of buildings from the location to the destination.
           List<String> pathList = Collections.synchronizedList(new ArrayList<String>());
+          // Contain buildings that have already been travelled on.
           List<String>  closedPaths= Collections.synchronizedList(new ArrayList<String>());
 
           pathList.add(location.getBuildingName());
           closedPaths.add(location.getBuildingName());
 
+
           Building neighborObj = new Building();
+
           Building currentBuilding = location;
           Building bestBuilding = location;
 
@@ -25,10 +35,10 @@ public class Pathfinder {
 
           while ( !currentBuilding.getBuildingName().equals(destination.getBuildingName()) ) {
                     String changeCheck = bestBuilding.getBuildingName();
-                    double bestDistance = 100000;
+                    double bestDistance = 100000; // Infinity
 
                     for (String neighbor : currentBuilding.getConnections() ) {
-                            neighborObj = nextBuilding.buildings(neighbor);
+                            neighborObj = BuildingFiles.buildings(neighbor);
                             double currentDistance = getDistance(neighborObj, destination);
 
                             if (closedPaths.contains(neighborObj.getBuildingName())) {
@@ -43,7 +53,7 @@ public class Pathfinder {
                     if (changeCheck.equals(bestBuilding.getBuildingName())) {
                             closedPaths.add(currentBuilding.getBuildingName());
                             pathList.remove(pathList.size()-1);
-                            currentBuilding = nextBuilding.buildings(pathList.get(pathList.size()-1));
+                            currentBuilding = BuildingFiles.buildings(pathList.get(pathList.size()-1));
 
                     // Otherwise, it will add the closest building to the path list.
                     } else {

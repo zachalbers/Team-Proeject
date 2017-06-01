@@ -199,14 +199,14 @@ public void gowindow(){
 
 public void execute(){
 
-	AllBuildings nextBuildingObj = new AllBuildings();
-	Building locationObj = nextBuildingObj.buildings(startpoint);
-	Building destinationObj = nextBuildingObj.buildings(endpoint);
+	// AllBuildings nextBuildingObj = new AllBuildings();
+	// Building locationObj = nextBuildingObj.buildings(startpoint);
+	// Building destinationObj = nextBuildingObj.buildings(endpoint);
 
 
 
 	Pathfinder finder = new Pathfinder();
-	finder.pathfind(locationObj, destinationObj, nextBuildingObj);
+	finder.pathfind(startpoint, endpoint);
 	names = finder.nameString;
 
 
