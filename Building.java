@@ -6,7 +6,7 @@ import java.util.Arrays;
 public class Building {
 
     int width = 0;
-    int hight = 0;
+    int length = 0;
     double xCoord = 0;
     double yCoord = 0;
     String buildingName = "";
@@ -46,13 +46,13 @@ public class Building {
     }
 
 // return Building hight for map
-    public int getHeight(){
-        return height;
+    public int getLength(){
+        return length;
     }
 
 // sets Height for map
-    public void setHeight(int h){
-        height=h;
+    public void setLength(int l){
+        length=l;
     }
 // return Building width for map
     public int getWidth(){
