@@ -7,6 +7,12 @@ public class Pathfinder {
 
   String nameString = "";
 
+
+  // Contains the final list of buildings from the location to the destination.
+  List<String> pathList = Collections.synchronizedList(new ArrayList<String>());
+  // Contain buildings that have already been travelled on.
+  List<String>  closedPaths= Collections.synchronizedList(new ArrayList<String>());
+
   public void pathfind(String locationString, String destinationString) {
 
           AllBuildings BuildingFiles = new AllBuildings();

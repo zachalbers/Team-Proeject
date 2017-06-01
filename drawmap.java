@@ -3,6 +3,12 @@ import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
 
+
+import java.util.ArrayList;
+
+import java.lang.Object;
+import java.util.*;
+
 // Class for making the map   ++++++++++++
 public class drawmap extends JPanel{
 
@@ -12,6 +18,11 @@ public class drawmap extends JPanel{
 		this.setBackground(Color.WHITE);
 
 		AllBuildings map1= new AllBuildings();
+		Pathfinder path1 = new Pathfinder();
+
+
+  // List<String> pathList2 = Collections.synchronizedList(new ArrayList<String>());
+	// pathList2 = path1.pathList;
 
 
 
@@ -23,17 +34,33 @@ public class drawmap extends JPanel{
 
 				String nameOfBuilding = currentB.getBuildingName();
 
-				//
+				//text for buildings
 				g.setColor(Color.RED);
 				g.drawString(nameOfBuilding, xcoord, ycoord);
 
-
+				//draw pathway from cuurent to destination
 
 				g.setColor(Color.BLUE);
 				g.fillRect(xcoord,ycoord, 20, 20);
-
-
 		}
+
+				System.out.println(path1.pathList.size());
+
+
+			for (int i = 0; i<(path1.pathList.size() - 1);i++ ) {
+								int x1 = (int)map1.buildings(path1.pathList.get(i)).getX();
+								int x2 = (int)map1.buildings(path1.pathList.get(i+1)).getX();
+								int y1 = (int)map1.buildings(path1.pathList.get(i)).getY();
+								int y2 = (int)map1.buildings(path1.pathList.get(i+1)).getY();
+								g.drawLine(x1*10,(800-y1*10),x2*10,(800-y2*10));
+								// System.out.println("getting");
+
+
+			}
+
+
+
+
 
 
     // Science B
