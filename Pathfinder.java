@@ -3,9 +3,7 @@ import java.util.ArrayList;
 import java.lang.Object;
 import java.util.*;
 
-
 public class Pathfinder {
-
 
   String nameString = "";
 
@@ -16,6 +14,10 @@ public class Pathfinder {
           Building location = BuildingFiles.buildings(locationString);
           Building destination = BuildingFiles.buildings(destinationString);
 
+          Building neighborObj = new Building();
+
+          Building currentBuilding = location;
+          Building bestBuilding = location;
 
           // Contains the final list of buildings from the location to the destination.
           List<String> pathList = Collections.synchronizedList(new ArrayList<String>());
@@ -24,14 +26,6 @@ public class Pathfinder {
 
           pathList.add(location.getBuildingName());
           closedPaths.add(location.getBuildingName());
-
-
-          Building neighborObj = new Building();
-
-          Building currentBuilding = location;
-          Building bestBuilding = location;
-
-
 
           while ( !currentBuilding.getBuildingName().equals(destination.getBuildingName()) ) {
                     String changeCheck = bestBuilding.getBuildingName();
@@ -63,13 +57,14 @@ public class Pathfinder {
                     }
           }
 
+          // Creates a String with all the building names in the path.
           for (String name : pathList) {
                   nameString += "Got to: " + name + ",";
           }
           System.out.println(nameString);
-
   }
 
+  // Calculate the distance between two building objects.
   public double getDistance(Building currentB, Building nextB) {
           double x1 = currentB.getX();
           double x2 = nextB.getX();
