@@ -10,6 +10,7 @@ public class Building {
     double xCoord = 0;
     double yCoord = 0;
     String buildingName = "";
+    String abbreviation = "";
     String[] connections = {};
 
 // sets x,y for building location on map
@@ -61,11 +62,11 @@ public class Building {
     public void setWidth(int w){
         width=w;
     }
-// return abbriviation for building
+// return abbreviation for building
     public String getAbbreviation(){
         return abbreviation;
     }
-// sets abbriviations for building objects
+// sets abbreviations for building objects
     public void setAbbreviation(String abbr){
       abbreviation = abbr;
     }
