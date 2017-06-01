@@ -7,7 +7,7 @@
 public class AllBuildings {
 // Creating Buildings
 
-        String [] buildings = {"Science A", "Science B", "Mac Hall", "MacEwan Student Centre", "Kinesiology A", "Kinesiology B",
+        String [] buildingNames = {"Science A", "Science B", "Mac Hall", "MacEwan Student Centre", "Kinesiology A", "Kinesiology B",
           "Hotel Alma", "Olympic Oval", "Calgary Centre for Innovative Technology", "Schulich School of Engineering A-G",
           "Information and Communication Technologies", "Earth Science", "Math Science", "Science Theatres", "Social Science",
           "Administration", "Professional Faculties", "Education Classroom Block", "Education Tower"};
