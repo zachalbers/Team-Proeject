@@ -18,11 +18,19 @@ public class drawmap extends JPanel{
 		for (String currentName : map1.buildingNames) {
 				Building currentB = map1.buildings(currentName);
 
-				int xcoord = (int)currentB.getX();
-				int ycoord = (int)currentB.getY();
+				int xcoord = (int)currentB.getX() * 10;
+				int ycoord = 800 - ((int)currentB.getY() * 10);
+
+				String nameOfBuilding = currentB.getBuildingName();
+
+				//
+				g.setColor(Color.RED);
+				g.drawString(nameOfBuilding, xcoord, ycoord);
+
+
 
 				g.setColor(Color.BLUE);
-				g.fillRect(xcoord,ycoord, 3, 3);
+				g.fillRect(xcoord,ycoord, 20, 20);
 
 
 		}
