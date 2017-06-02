@@ -7,13 +7,10 @@ public class Pathfinder {
 
   String nameString = "";
 
-
-  // Contains the final list of buildings from the location to the destination.
-  List<String> pathList = Collections.synchronizedList(new ArrayList<String>());
-  // Contain buildings that have already been travelled on.
-  List<String>  closedPaths= Collections.synchronizedList(new ArrayList<String>());
+List<String> pathList = Collections.synchronizedList(new ArrayList<String>());
 
   public void pathfind(String locationString, String destinationString) {
+          double finalDistance = 0;
 
           AllBuildings BuildingFiles = new AllBuildings();
 
@@ -26,7 +23,7 @@ public class Pathfinder {
           Building bestBuilding = location;
 
           // Contains the final list of buildings from the location to the destination.
-          List<String> pathList = Collections.synchronizedList(new ArrayList<String>());
+          pathList.clear();
           // Contain buildings that have already been travelled on.
           List<String>  closedPaths= Collections.synchronizedList(new ArrayList<String>());
 
@@ -68,7 +65,14 @@ public class Pathfinder {
                   nameString += "Got to: " + name + ",";
           }
           System.out.println(nameString);
+
+
+          for (int i =0; i<(pathList.size() - 1); i++) {
+              finalDistance += getDistance(BuildingFiles.buildings(pathList.get(i)), BuildingFiles.buildings(pathList.get(i+1)) );
+          }
   }
+
+
 
   // Calculate the distance between two building objects.
   public double getDistance(Building currentB, Building nextB) {

@@ -2,6 +2,7 @@
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
+import java.util.*;
 
 
 // Class for GUI
@@ -9,6 +10,8 @@ public class GUI {
 
 			// Variables for starting , destination and list of buildings user has to go through to go to the destination
 			String startpoint; String endpoint; String names;
+
+			java.util.List<String> pathList2 = Collections.synchronizedList(new ArrayList<String>());
 
 
 			//Method for main menu of gui. It creates the window , a panel , all the buttons , drop down menus and adds all the gui components to the jframe and window.
@@ -131,8 +134,8 @@ public class GUI {
 
 
 		public void gowindow(){
-		frame frame1 = new frame();
-		frame1.drawbuildings();
+				Frame frame1 = new Frame(pathList2);
+				frame1.drawbuildings();
 		}
 
 
@@ -143,6 +146,7 @@ public class GUI {
 				Pathfinder finder = new Pathfinder();
 				finder.pathfind(startpoint, endpoint);
 				names = finder.nameString;
+				pathList2 = finder.pathList;
 			}
 
 
