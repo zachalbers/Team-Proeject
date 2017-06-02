@@ -43,7 +43,9 @@ public class drawmap extends JPanel{
 
 				//draw pathway from cuurent to destination
 
-				g.setColor(Color.RED);
+				// Color Puce = new Color(193, 110, 100);
+
+				g.setColor(new Color(193, 110, 110));
 				g.fillRect(xcoord,ycoord, length*7, width*7);
 		}
 
