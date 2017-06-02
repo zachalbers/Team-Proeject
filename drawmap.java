@@ -19,12 +19,28 @@ public class drawmap extends JPanel{
 	// method that draws the buildings and its names  ++++++++++++++++
 	public void paintComponent(Graphics g){
 		super.paintComponent(g);
-		this.setBackground(Color.YELLOW);
+		this.setBackground(new Color(173, 216, 189));
 
 		AllBuildings map1= new AllBuildings();
 
 
+		Graphics2D g2 = (Graphics2D) g;
+		g2.setStroke(new BasicStroke(10));
 
+
+
+		for (int i = 0; i<(pathList.size() - 1);i++ ) {
+							int x1 = (int)map1.buildings(pathList.get(i)).getX();
+							int x2 = (int)map1.buildings(pathList.get(i+1)).getX();
+							int y1 = (int)map1.buildings(pathList.get(i)).getY();
+							int y2 = (int)map1.buildings(pathList.get(i+1)).getY();
+
+							g.setColor(new Color(198,117, 31));
+							g.drawLine(x1*10,(800-y1*10),x2*10,(800-y2*10));
+
+
+
+		}
 
 
 		for (String currentName : map1.buildingNames) {
@@ -43,25 +59,11 @@ public class drawmap extends JPanel{
 
 				//draw pathway from cuurent to destination
 
-				// Color Puce = new Color(193, 110, 100);
 
-				g.setColor(new Color(193, 110, 110));
+				g.setColor(new Color(99, 104, 108));
 				g.fillRect(xcoord,ycoord, length*7, width*7);
 		}
 
-
-
-
-				for (int i = 0; i<(pathList.size() - 1);i++ ) {
-									int x1 = (int)map1.buildings(pathList.get(i)).getX();
-									int x2 = (int)map1.buildings(pathList.get(i+1)).getX();
-									int y1 = (int)map1.buildings(pathList.get(i)).getY();
-									int y2 = (int)map1.buildings(pathList.get(i+1)).getY();
-									g.drawLine(x1*10,(800-y1*10),x2*10,(800-y2*10));
-
-
-
-				}
 
 
 
@@ -74,7 +76,7 @@ public class drawmap extends JPanel{
 
 
 
-
+// COlor for everythiNg = new Color(193, 110, 110)
 
 
 
