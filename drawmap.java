@@ -15,7 +15,7 @@ public class drawmap extends JPanel{
 	// method that draws the buildings and its names  ++++++++++++++++
 	public void paintComponent(Graphics g){
 		super.paintComponent(g);
-		this.setBackground(Color.WHITE);
+		this.setBackground(Color.YELLOW);
 
 		AllBuildings map1= new AllBuildings();
 		Pathfinder path1 = new Pathfinder();
@@ -31,17 +31,19 @@ public class drawmap extends JPanel{
 
 				int xcoord = (int)currentB.getX() * 10;
 				int ycoord = 800 - ((int)currentB.getY() * 10);
+				int length= (int)currentB.getLength();
+				int width= (int)currentB.getWidth();
 
-				String nameOfBuilding = currentB.getBuildingName();
+				String nameOfBuilding = currentB.getAbbreviation();
 
 				//text for buildings
-				g.setColor(Color.RED);
+				g.setColor(Color.BLACK);
 				g.drawString(nameOfBuilding, xcoord, ycoord);
 
 				//draw pathway from cuurent to destination
 
-				g.setColor(Color.BLUE);
-				g.fillRect(xcoord,ycoord, 20, 20);
+				g.setColor(Color.RED);
+				g.fillRect(xcoord,ycoord, length*7, width*7);
 		}
 
 				System.out.println(path1.pathList.size());
