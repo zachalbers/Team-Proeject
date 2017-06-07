@@ -21,7 +21,7 @@ public class drawmap extends JPanel{
 		super.paintComponent(g);
 		this.setBackground(new Color(173, 216, 189));
 
-		AllBuildings map1= new AllBuildings();
+		MapData map1= new MapData();
 
 
 		Graphics2D g2 = (Graphics2D) g;
@@ -36,18 +36,17 @@ public class drawmap extends JPanel{
 							int y2 = (int)map1.buildings(pathList.get(i+1)).getY();
 
 							g.setColor(new Color(198,117, 31));
-							g.drawLine(x1*10,(800-y1*10),x2*10,(800-y2*10));
-
-
-
+							g.drawLine(x1,(800-y1),x2,(800-y2));
 		}
+
+
 
 
 		for (String currentName : map1.buildingNames) {
 				Building currentB = map1.buildings(currentName);
 
-				int xcoord = (int)currentB.getX() * 10;
-				int ycoord = 800 - ((int)currentB.getY() * 10);
+				int xcoord = (int)currentB.getX();
+				int ycoord = 800 - ((int)currentB.getY());
 				int length= (int)currentB.getLength();
 				int width= (int)currentB.getWidth();
 
@@ -57,6 +56,8 @@ public class drawmap extends JPanel{
 				g.setColor(Color.BLACK);
 				g.drawString(nameOfBuilding, xcoord, ycoord);
 
+
+
 				//draw pathway from cuurent to destination
 
 
@@ -65,13 +66,22 @@ public class drawmap extends JPanel{
 		}
 
 
+		for (String currentName : pathList) {
+				Building currentB = map1.buildings(currentName);
 
+				int xcoord = (int)currentB.getX();
+				int ycoord = 800 - ((int)currentB.getY());
+				int length= (int)currentB.getLength();
+				int width= (int)currentB.getWidth();
 
-
+			g.setColor(Color.RED);
+			g2.setStroke(new BasicStroke(2));
+			g.drawLine(xcoord, ycoord, xcoord, ycoord + width*7);
+			g.drawLine(xcoord, ycoord, xcoord + length*7, ycoord);
+			g.drawLine(xcoord + length*7, ycoord, xcoord + length*7, ycoord + width*7);
+			g.drawLine(xcoord, ycoord + width*7, xcoord + length*7, ycoord + width*7);
 
 	}
-
-
 
 
 
@@ -83,4 +93,5 @@ public class drawmap extends JPanel{
 
 
 
+}
 }

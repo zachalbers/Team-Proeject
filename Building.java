@@ -12,6 +12,7 @@ public class Building {
     String buildingName = "";
     String abbreviation = "";
     String[] connections = {};
+    boolean onPath = false;
 
 // sets x,y for building location on map
     public void setCoordinates(double x, double y) {
@@ -70,5 +71,17 @@ public class Building {
     public void setAbbreviation(String abbr){
       abbreviation = abbr;
     }
+
+
+    public boolean isOnPath() {
+      return onPath;
+    }
+
+    public void putOnPath() {
+      onPath = true;
+    }
+
+    
+
 
 }

@@ -16,7 +16,7 @@ public class Frame {
 
 	public void drawbuildings(){
 		JFrame Frame = new JFrame("Title");
-		Frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		// Frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		drawmap shapes = new drawmap(pathList);
 		Frame.add(shapes);
 		Frame.setSize(1300, 800);

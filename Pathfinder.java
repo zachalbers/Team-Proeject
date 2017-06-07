@@ -12,7 +12,7 @@ List<String> pathList = Collections.synchronizedList(new ArrayList<String>());
   public void pathfind(String locationString, String destinationString) {
           double finalDistance = 0;
 
-          AllBuildings BuildingFiles = new AllBuildings();
+          MapData BuildingFiles = new MapData();
 
           Building location = BuildingFiles.buildings(locationString);
           Building destination = BuildingFiles.buildings(destinationString);
