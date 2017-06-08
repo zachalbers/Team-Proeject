@@ -10,7 +10,7 @@
 //    Connections (the names of the connected buildings separated by a comma)
 //    X Coordinate
 //    Y Coordinate
-//    Height
+//    Height (width)
 //    Length
 // At the end of each building put "END_OF_BUILDING"
 
@@ -37,3 +37,191 @@ MacEwan Student Centre,Science B
 8
 5
 END_OF_BUILDING
+
+
+MacEwan Student Centre
+MSC
+Mac Hall, Kinesiology B
+570
+370
+17
+5
+END_OF_BUILDING
+
+
+Kinesiology B
+KNB
+MacEwan Student Centre,Kinesiology A,Olympic Oval
+380
+340
+17
+8
+END_OF_BUILDING
+
+
+Kinesiology A
+KNA
+Kinesiology B,Hotel Alma
+440
+270
+16
+8
+END_OF_BUILDING
+
+
+Hotel Alma 
+HA
+Kinesiology A
+460
+160
+3
+13
+END_OF_BUILDING
+
+
+Olympic Oval
+OO
+Kinesiology B
+180
+250
+12
+15
+END_OF_BUILDING
+
+
+Calgary Centre for Innovative Technology
+CCIT
+Schulich School of Engineering A-G
+400
+600
+4
+10
+END_OF_BUILDING
+
+
+Schulich School of Engineering A-G
+ENG A-G
+Calgary Centre for Innovative Technology,Information and Communication Technologies
+550
+590
+15
+19
+END_OF_BUILDING
+
+
+Information and Communication Technologies
+ICT
+Schulich School of Engineering A-G,Earth Science
+720
+570
+6
+5
+END_OF_BUILDING
+
+
+Earth Science
+ES
+Information and Communication Technologies,Science B,Math Science
+840
+580
+6
+7
+END_OF_BUILDING
+
+Science A
+SA
+Science B,Science Theatres
+930
+540
+5
+12
+END_OF_BUILDING
+
+
+Math Science
+MS
+Earth Science,Science Theatres
+960
+550
+3
+9
+END_OF_BUILDING
+
+
+Science Theatres
+ST
+Math Science,Science A,Social Science
+1020
+510
+5
+13
+END_OF_BUILDING
+
+
+Social Science
+SS
+Science Theatres,Science A,Administration
+1050
+460
+3
+5
+END_OF_BUILDING
+
+
+Administration
+AD
+Social Science,Professional Faculties
+1030
+370
+5
+8
+END_OF_BUILDING
+
+
+Professional Faculties
+PF
+Administration,Education Classroom Block
+1060
+290
+4
+14
+END_OF_BUILDING
+
+
+Education Classroom Block
+EDC
+Professional Faculties,Education Tower
+1090
+220
+2
+5
+END_OF_BUILDING
+
+
+Education Tower
+EDT
+Education Classroom Block
+1140
+260
+2
+3
+END_OF_BUILDING
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
