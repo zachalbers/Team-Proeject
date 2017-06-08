@@ -5,27 +5,27 @@ import java.lang.Object;
 import java.util.*;
 
 // Class for making the map   ++++++++++++
-public class MapWindow extends JPanel{
+public class MapWindow extends JPanel {
 
 
-	public void drawbuildings(){
+public void drawbuildings(){
 		JFrame Frame = new JFrame("Title");
 		MapWindow shapes = new MapWindow(pathList);
 		Frame.add(shapes);
 		Frame.setSize(1300, 800);
 		Frame.setVisible(true);
-	}
+}
 
 
-	java.util.List<String> pathList = Collections.synchronizedList(new ArrayList<String>());
+java.util.List<String> pathList = Collections.synchronizedList(new ArrayList<String>());
 
 
-	public MapWindow(java.util.List<String> pathList) {
-	this.pathList = pathList;
-	}
+public MapWindow(java.util.List<String> pathList) {
+		this.pathList = pathList;
+}
 
-	// method that draws the buildings and its names  ++++++++++++++++
-	public void paintComponent(Graphics g){
+// method that draws the buildings and its names  ++++++++++++++++
+public void paintComponent(Graphics g){
 		super.paintComponent(g);
 		this.setBackground(new Color(173, 216, 189));
 
@@ -35,18 +35,18 @@ public class MapWindow extends JPanel{
 
 
 		Graphics2D g2 = (Graphics2D) g;
-		g2.setStroke(new BasicStroke(10));
+		g2.setStroke(new BasicStroke(6));
 
 
 
-		for (int i = 0; i<(pathList.size() - 1);i++ ) {
-							int x1 = (int)map1.buildings.get(pathList.get(i)).getX();
-							int x2 = (int)map1.buildings.get(pathList.get(i+1)).getX();
-							int y1 = (int)map1.buildings.get(pathList.get(i)).getY();
-							int y2 = (int)map1.buildings.get(pathList.get(i+1)).getY();
+		for (int i = 0; i<(pathList.size() - 1); i++ ) {
+				int x1 = (int)map1.buildings.get(pathList.get(i)).getX();
+				int x2 = (int)map1.buildings.get(pathList.get(i+1)).getX();
+				int y1 = (int)map1.buildings.get(pathList.get(i)).getY();
+				int y2 = (int)map1.buildings.get(pathList.get(i+1)).getY();
 
-							g.setColor(new Color(198,117, 31));
-							g.drawLine(x1,(800-y1),x2,(800-y2));
+				g.setColor(new Color(198,117, 31));
+				g.drawLine(x1,(800-y1),x2,(800-y2));
 		}
 
 
@@ -84,14 +84,14 @@ public class MapWindow extends JPanel{
 				int length= (int)currentB.getLength();
 				int height= (int)currentB.getHeight();
 
-			g.setColor(Color.RED);
-			g2.setStroke(new BasicStroke(2));
-			g.drawLine(xcoord, ycoord, xcoord, ycoord + height*7);
-			g.drawLine(xcoord, ycoord, xcoord + length*7, ycoord);
-			g.drawLine(xcoord + length*7, ycoord, xcoord + length*7, ycoord + height*7);
-			g.drawLine(xcoord, ycoord + height*7, xcoord + length*7, ycoord + height*7);
+				g.setColor(Color.RED);
+				g2.setStroke(new BasicStroke(2));
+				g.drawLine(xcoord, ycoord, xcoord, ycoord + height*7);
+				g.drawLine(xcoord, ycoord, xcoord + length*7, ycoord);
+				g.drawLine(xcoord + length*7, ycoord, xcoord + length*7, ycoord + height*7);
+				g.drawLine(xcoord, ycoord + height*7, xcoord + length*7, ycoord + height*7);
 
-	}
+		}
 
 
 

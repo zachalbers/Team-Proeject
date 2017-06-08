@@ -5,96 +5,96 @@ import java.util.*;
 
 public class BuildingStructure {
 
-    int height = 0;
-    int length = 0;
-    double xCoord = 0;
-    double yCoord = 0;
-    String buildingName = "";
-    String abbreviation = "";
-    String[] connections = {};
+int height = 0;
+int length = 0;
+double xCoord = 0;
+double yCoord = 0;
+String buildingName = "";
+String abbreviation = "";
+String[] connections = {};
 
 
-    public BuildingStructure(String buildingName, String abbreviation, String connections,
-    String xCoord, String yCoord, String height, String length) {
+public BuildingStructure(String buildingName, String abbreviation, String connections,
+                        String xCoord, String yCoord, String height, String length) {
 
-        setBuildingName(buildingName);
-        setAbbreviation(abbreviation);
-        setConnections(connections);
-        setX(xCoord);
-        setY(yCoord);
-        setHeight(height);
-        setLength(length);
-    }
+    setBuildingName(buildingName);
+    setAbbreviation(abbreviation);
+    setConnections(connections);
+    setX(xCoord);
+    setY(yCoord);
+    setHeight(height);
+    setLength(length);
+}
 
-    public BuildingStructure() {
-      
-    }
+public BuildingStructure() {
+
+}
 
 
 
 // sets x,y for building location on map
-    public void setX(String xCoord) {
-      this.xCoord = Double.parseDouble(xCoord);
-    }
+public void setX(String xCoord) {
+    this.xCoord = Double.parseDouble(xCoord);
+}
 
 
-    public void setY(String yCoord) {
-      this.yCoord = Double.parseDouble(yCoord);
-    }
+public void setY(String yCoord) {
+    this.yCoord = Double.parseDouble(yCoord);
+}
 
 
 // return x coordinate of building
-    public double getX() {
-        return xCoord;
-    }
+public double getX() {
+    return xCoord;
+}
 // return y coordinate of building
-    public double getY() {
-        return yCoord;
-    }
+public double getY() {
+    return yCoord;
+}
 // Give building obj a name to be referanced for input
-    public void setBuildingName(String name) {
-        buildingName = name;
-    }
+public void setBuildingName(String name) {
+    buildingName = name;
+}
 // return name of building
-    public String getBuildingName() {
-        return buildingName;
-    }
+public String getBuildingName() {
+    return buildingName;
+}
 
 // sets building connections for pathfinder
-    public void setConnections(String newConnections) {
-        connections = newConnections.split(",");
-    }
+public void setConnections(String newConnections) {
+    connections = newConnections.split(",");
+}
 
 // return connections for pathfinder
-    public String[] getConnections() {
-        return connections;
-    }
+public String[] getConnections() {
+    return connections;
+}
 
 // return Building hight for map
-    public int getLength(){
-        return length;
-    }
+public int getLength(){
+    return length;
+}
 
 // sets Height for map
-    public void setLength(String length){
-        this.length = Integer.parseInt(length);
-    }
+public void setLength(String length){
+    this.length = Integer.parseInt(length);
+}
 // return Building width for map
-    public int getHeight(){
-        return height;
-    }
+public int getHeight(){
+    return height;
+}
 // sets width for map
-    public void setHeight(String height){
-        this.height = Integer.parseInt(height);
-    }
+public void setHeight(String height){
+    this.height = Integer.parseInt(height);
+}
 // return abbreviation for building
-    public String getAbbreviation(){
-        return abbreviation;
-    }
+public String getAbbreviation(){
+    return abbreviation;
+}
 // sets abbreviations for building objects
-    public void setAbbreviation(String abbreviation){
-      this.abbreviation = abbreviation;
-    }
+public void setAbbreviation(String abbreviation){
+    this.abbreviation = abbreviation;
+}
 
 
 

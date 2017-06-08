@@ -3,42 +3,41 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.*;
 
-
 public class ConfigReader {
 
-    java.util.HashMap<String,BuildingStructure> buildings = new HashMap<String,BuildingStructure>();
-    java.util.List<String> cb = Collections.synchronizedList(new ArrayList<String>());
+java.util.HashMap<String,BuildingStructure> buildings = new HashMap<String,BuildingStructure>();
+java.util.List<String> cb = Collections.synchronizedList(new ArrayList<String>());
 
-    public void readFile() {
-        try {
-            FileReader reader = new FileReader("Config.txt");
-            BufferedReader bufferedReader = new BufferedReader(reader);
+public void readFile() {
+    try {
+        FileReader reader = new FileReader("Config.txt");
+        BufferedReader bufferedReader = new BufferedReader(reader);
 
-            String line;
-            // Current Building list.
+        String line;
+        // Current Building list.
 
-            while ((line = bufferedReader.readLine()) != null) {
+        while ((line = bufferedReader.readLine()) != null) {
 
-                if ( line.startsWith("//") || (line.equals("")) ){
-                  continue;
-                }
-
-                if (line.equals("END_OF_BUILDING")) {
-                    String name = cb.get(0);
-                    buildings.put(name, new BuildingStructure(cb.get(0),cb.get(1),cb.get(2),cb.get(3),cb.get(4),cb.get(5),cb.get(6)) );
-                    cb.clear();
-                } else {
-                    cb.add(line);
-                }
-
+            if ( line.startsWith("//") || (line.equals("")) ) {
+                continue;
             }
 
-            reader.close();
+            if (line.equals("END_OF_BUILDING")) {
+                String name = cb.get(0);
+                buildings.put(name, new BuildingStructure(cb.get(0),cb.get(1),cb.get(2),cb.get(3),cb.get(4),cb.get(5),cb.get(6)) );
+                cb.clear();
+            } else {
+                cb.add(line);
+            }
 
-        } catch (IOException e) {
-            e.printStackTrace();
         }
 
+        reader.close();
+
+    } catch (IOException e) {
+        e.printStackTrace();
     }
+
+}
 
 }
