@@ -70,6 +70,7 @@ public class MapWindow extends JPanel{
 
 				//draw pathway from cuurent to destination
 
+
 				g.setColor(new Color(99, 104, 108));
 				g.fillRect(xcoord,ycoord, length*7, height*7);
 		}

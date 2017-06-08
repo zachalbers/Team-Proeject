@@ -15,10 +15,12 @@ public class GUI {
 			JComboBox<String> currentbox;JComboBox<String> destinationbox;JComboBox<String> transportbox;
 			JFrame MenuWindow; JPanel MenuPanel;
 
-			String [] buildings = {"","Science A", "Science B", "Mac Hall", "MacEwan Student Centre", "Kinesiology A", "Kinesiology B",
-					"Hotel Alma", "Olympic Oval", "Calgary Centre for Innovative Technology", "Schulich School of Engineering A-G",
-					"Information and Communication Technologies", "Earth Science", "Math Science", "Science Theatres", "Social Science",
-					"Administration", "Professional Faculties", "Education Classroom Block", "Education Tower"};
+
+			ConfigReader map2 = new ConfigReader();
+			Set<String> b;
+			String[] buildings;
+
+
 			String [] transportmethod = {"","Walk","Bike","Skateboard"};
 			java.util.List<String> pathList2 = Collections.synchronizedList(new ArrayList<String>());
 
@@ -73,6 +75,14 @@ public class GUI {
 			}
 
 			public void makedropdownmenu(){
+
+
+				map2.readFile();
+				b = map2.buildings.keySet();
+				buildings = b.toArray(new String[b.size()]);
+
+
+
 				JComboBox<String> destination = new JComboBox<>(buildings);
 				destination.setBounds(500,100,350,20);
 				this.destinationbox=destination;
