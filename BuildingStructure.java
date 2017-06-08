@@ -26,6 +26,10 @@ public class BuildingStructure {
         setLength(length);
     }
 
+    public BuildingStructure() {
+      
+    }
+
 
 
 // sets x,y for building location on map

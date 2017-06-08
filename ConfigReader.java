@@ -33,26 +33,12 @@ public class ConfigReader {
 
             }
 
-
             reader.close();
 
         } catch (IOException e) {
             e.printStackTrace();
         }
 
-        for (String name : buildings.keySet() ) {
-          BuildingStructure currentB = buildings.get(name);
-          System.out.println(currentB.getBuildingName());
-
-        }
-
-
     }
-
-
-
-
-
-
 
 }

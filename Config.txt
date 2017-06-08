@@ -41,7 +41,7 @@ END_OF_BUILDING
 
 MacEwan Student Centre
 MSC
-Mac Hall, Kinesiology B
+Mac Hall,Kinesiology B
 570
 370
 17
@@ -69,7 +69,7 @@ Kinesiology B,Hotel Alma
 END_OF_BUILDING
 
 
-Hotel Alma 
+Hotel Alma
 HA
 Kinesiology A
 460
@@ -206,22 +206,3 @@ Education Classroom Block
 2
 3
 END_OF_BUILDING
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

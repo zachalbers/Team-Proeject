@@ -12,15 +12,16 @@ List<String> pathList = Collections.synchronizedList(new ArrayList<String>());
   public void pathfind(String locationString, String destinationString) {
           double finalDistance = 0;
 
-          MapData BuildingFiles = new MapData();
+          ConfigReader BuildingFiles = new ConfigReader();
+          BuildingFiles.readFile();
 
-          Building location = BuildingFiles.buildings(locationString);
-          Building destination = BuildingFiles.buildings(destinationString);
+          BuildingStructure location = BuildingFiles.buildings.get(locationString);
+          BuildingStructure destination = BuildingFiles.buildings.get(destinationString);
 
-          Building neighborObj = new Building();
+          BuildingStructure neighborObj = location;
 
-          Building currentBuilding = location;
-          Building bestBuilding = location;
+          BuildingStructure currentBuilding = location;
+          BuildingStructure bestBuilding = location;
 
           // Contains the final list of buildings from the location to the destination.
           pathList.clear();
@@ -35,7 +36,7 @@ List<String> pathList = Collections.synchronizedList(new ArrayList<String>());
                     double bestDistance = 100000; // Infinity
 
                     for (String neighbor : currentBuilding.getConnections() ) {
-                            neighborObj = BuildingFiles.buildings(neighbor);
+                            neighborObj = BuildingFiles.buildings.get(neighbor);
                             double currentDistance = getDistance(neighborObj, destination);
 
                             if (closedPaths.contains(neighborObj.getBuildingName())) {
@@ -50,7 +51,7 @@ List<String> pathList = Collections.synchronizedList(new ArrayList<String>());
                     if (changeCheck.equals(bestBuilding.getBuildingName())) {
                             closedPaths.add(currentBuilding.getBuildingName());
                             pathList.remove(pathList.size()-1);
-                            currentBuilding = BuildingFiles.buildings(pathList.get(pathList.size()-1));
+                            currentBuilding = BuildingFiles.buildings.get(pathList.get(pathList.size()-1));
 
                     // Otherwise, it will add the closest building to the path list.
                     } else {
@@ -67,15 +68,15 @@ List<String> pathList = Collections.synchronizedList(new ArrayList<String>());
           System.out.println(nameString);
 
 
-          for (int i =0; i<(pathList.size() - 1); i++) {
-              finalDistance += getDistance(BuildingFiles.buildings(pathList.get(i)), BuildingFiles.buildings(pathList.get(i+1)) );
-          }
+          // for (int i =0; i<(pathList.size() - 1); i++) {
+          //     finalDistance += getDistance(BuildingFiles.buildings.get(pathList.get(i)), BuildingFiles.buildings.get(pathList.get(i+1)) );
+          // }
   }
 
 
 
   // Calculate the distance between two building objects.
-  public double getDistance(Building currentB, Building nextB) {
+  public double getDistance(BuildingStructure currentB, BuildingStructure nextB) {
           double x1 = currentB.getX();
           double x2 = nextB.getX();
           double y1 = currentB.getY();
