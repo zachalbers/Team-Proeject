@@ -1,7 +1,7 @@
 // This class stores all of the building objects.
 // It can return a building object from a name entered in.
 
-// each point is 10 meters
+// each point is 1 meter
 
 
 public class MapData {

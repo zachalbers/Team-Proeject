@@ -1,11 +1,11 @@
-import java.util.Arrays;
+import java.util.*;
 
 //This class creates the structure for a building.
 //The methods allow properties of the building to be set as well as returned.
 
-public class Building {
+public class BuildingStructure {
 
-    int width = 0;
+    int height = 0;
     int length = 0;
     double xCoord = 0;
     double yCoord = 0;
@@ -13,11 +13,32 @@ public class Building {
     String abbreviation = "";
     String[] connections = {};
 
-// sets x,y for building location on map
-    public void setCoordinates(double x, double y) {
-        xCoord = x;
-        yCoord = y;
+
+    public BuildingStructure(String buildingName, String abbreviation, String connections,
+    String xCoord, String yCoord, String height, String length) {
+
+        setBuildingName(buildingName);
+        setAbbreviation(abbreviation);
+        setConnections(connections);
+        setX(xCoord);
+        setY(yCoord);
+        setHeight(height);
+        setLength(length);
     }
+
+
+
+// sets x,y for building location on map
+    public void setX(String xCoord) {
+      this.xCoord = Double.parseDouble(xCoord);
+    }
+
+
+    public void setY(String yCoord) {
+      this.yCoord = Double.parseDouble(yCoord);
+    }
+
+
 // return x coordinate of building
     public double getX() {
         return xCoord;
@@ -51,24 +72,24 @@ public class Building {
     }
 
 // sets Height for map
-    public void setLength(int l){
-        length=l;
+    public void setLength(String length){
+        this.length = Integer.parseInt(length);
     }
 // return Building width for map
-    public int getWidth(){
-        return width;
+    public int getHeight(){
+        return height;
     }
 // sets width for map
-    public void setWidth(int w){
-        width=w;
+    public void setHeight(String height){
+        this.height = Integer.parseInt(height);
     }
 // return abbreviation for building
     public String getAbbreviation(){
         return abbreviation;
     }
 // sets abbreviations for building objects
-    public void setAbbreviation(String abbr){
-      abbreviation = abbr;
+    public void setAbbreviation(String abbreviation){
+      this.abbreviation = abbreviation;
     }
 
 

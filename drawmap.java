@@ -21,6 +21,7 @@ public class drawmap extends JPanel{
 		super.paintComponent(g);
 		this.setBackground(new Color(173, 216, 189));
 
+
 		MapData map1= new MapData();
 
 

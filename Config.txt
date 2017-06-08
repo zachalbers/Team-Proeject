@@ -1,0 +1,39 @@
+//        Instructions for Config file
+
+
+
+// All blank lines and lines beginning with "//" are ignored
+// Create each building in the following format, with each property on a new line:
+
+//    Building Name
+//    Abbreviation
+//    Connections (the names of the connected buildings separated by a comma)
+//    X Coordinate
+//    Y Coordinate
+//    Height
+//    Length
+// At the end of each building put "END_OF_BUILDING"
+
+
+
+// Start of building files
+
+
+Science B
+SB
+Mac Hall,Science A,Earth Science
+800
+490
+8
+10
+END_OF_BUILDING
+
+
+Mac Hall
+MC
+MacEwan Student Centre,Science B
+700
+410
+8
+5
+END_OF_BUILDING
