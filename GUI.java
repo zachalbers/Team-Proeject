@@ -1,124 +1,158 @@
-// imports required libraries
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
 import java.util.*;
+import javax.swing.ImageIcon;
+import javax.swing.Icon;
 
 
-// Class for GUI
 public class GUI {
 
-			// Variables for starting , destination and list of buildings user has to go through to go to the destination
+
 			String startpoint; String endpoint; String names;
+			JButton go;JButton EXIT;
+			JLabel currentlabel;JLabel destinationlabel;JLabel transportlabel;
+			JComboBox<String> currentbox;JComboBox<String> destinationbox;JComboBox<String> transportbox;
+			JFrame MenuWindow; JPanel MenuPanel;
 
-			java.util.List<String> pathList2 = Collections.synchronizedList(new ArrayList<String>());
-
-
-			//Method for main menu of gui. It creates the window , a panel , all the buttons , drop down menus and adds all the gui components to the jframe and window.
-			public void gui(){
-
-
-				// Defining and creating components of the GUI: ****************************************************************************************************
-
-				//Creating Combo box for destination and CurrentLocation
-				// List that contains the options the user can select from the drop down menu for current location and destination
-				String [] buildings = {"","Science A", "Science B", "Mac Hall", "MacEwan Student Centre", "Kinesiology A", "Kinesiology B",
+			String [] buildings = {"","Science A", "Science B", "Mac Hall", "MacEwan Student Centre", "Kinesiology A", "Kinesiology B",
 					"Hotel Alma", "Olympic Oval", "Calgary Centre for Innovative Technology", "Schulich School of Engineering A-G",
 					"Information and Communication Technologies", "Earth Science", "Math Science", "Science Theatres", "Social Science",
 					"Administration", "Professional Faculties", "Education Classroom Block", "Education Tower"};
-
-				JComboBox<String> destination = new JComboBox<>(buildings);           // makes combo box destination
-
-				JComboBox<String> currentloc = new JComboBox<>(buildings);	      // makes combo box currentlocation
-
-				destination.setBounds(500,100,350,20);
-				currentloc.setBounds(100,100,350,20);
-
-				//Transporation method combo box
-				String [] transportmethod = {"","Walk","Bike","Skateboard"};
-				JComboBox<String> transport = new JComboBox<>(transportmethod);
-				transport.setBounds(100,400,250,20);
+			String [] transportmethod = {"","Walk","Bike","Skateboard"};
+			java.util.List<String> pathList2 = Collections.synchronizedList(new ArrayList<String>());
 
 
-				//Creating the labels of the main menu: ***************************************************************************************************************
-				JLabel currentLabel = new JLabel("Select Current Location: ");
-				currentLabel.setLayout(null);
-				currentLabel.setBounds(110,77,250,20);
-				JLabel destinationLabel = new JLabel("Select Destination: ");
-				destinationLabel.setLayout(null);
-				destinationLabel.setBounds(510,77,250,20);
-				JLabel transportLabel = new JLabel("Method Of Transportation: ");
-				transportLabel.setLayout(null);
-				transportLabel.setBounds(110,380,250,20);
 
-
-				// Creates the exit and add button on the gui: ********************************************************************************************************
-				// The exit button
-				JButton exit = new JButton("Exit");
-				exit.setBounds(710,450,55,20);
-
-				// The GO Button
-				JButton GO = new JButton("GO");
-				GO.setBounds(710,400,55,20);
-
-				//Creating the window for the main menu:      *********************************************************************************************************
+			public void initializescreen(){
 				JFrame menuwindow = new JFrame("UniMAP");
 				menuwindow.setVisible(true);
 				menuwindow.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-				menuwindow.setSize(850,600);
+				menuwindow.setSize(1000,600);
+				this.MenuWindow=menuwindow;
 
-				// Creating the jpanel over the mainwindow to place all the gui components to put into: ***************************************************************
+
 				JPanel menupanel = new JPanel();
+				this.MenuPanel=menupanel;
 				menupanel.setBackground(Color.WHITE);
 				menupanel.setLayout(null);
 
 
-				// Adding all the gui components to the panel :  ******************************************************************************************************
-				menupanel.add(exit);
-				menupanel.add(GO);
-				menupanel.add(destination);
-				menupanel.add(currentloc);
-				menupanel.add(currentLabel);
-				menupanel.add(destinationLabel);
-				menupanel.add(transport);
-				menupanel.add(transportLabel);
+			}
+
+
+			public void startgui(){
+				MenuWindow.add(MenuPanel);
+			}
+
+
+			public void makebutton(){
+				JButton GO = new JButton("GO");
+				GO.setBounds(910,400,55,20);
+				this.go = GO;
+
+				JButton exit = new JButton("Exit");
+				exit.setBounds(910,450,55,20);
+				this.EXIT=exit;
+
+			}
+
+			public void makelabels(){
+				JLabel currentLabel = new JLabel("Select Current Location: ");
+				currentLabel.setLayout(null);
+				currentLabel.setBounds(110,77,250,20);
+				this.currentlabel=currentLabel;
+				JLabel destinationLabel = new JLabel("Select Destination: ");
+				destinationLabel.setLayout(null);
+				destinationLabel.setBounds(510,77,250,20);
+				this.destinationlabel=destinationLabel;
+				JLabel transportLabel = new JLabel("Method Of Transportation: ");
+				transportLabel.setLayout(null);
+				transportLabel.setBounds(110,380,250,20);
+				this.transportlabel=transportLabel;
+			}
+
+			public void makedropdownmenu(){
+				JComboBox<String> destination = new JComboBox<>(buildings);
+				destination.setBounds(500,100,350,20);
+				this.destinationbox=destination;
+				JComboBox<String> currentloc = new JComboBox<>(buildings);
+				currentloc.setBounds(100,100,350,20);
+				this.currentbox=currentloc;
+				JComboBox<String> transport = new JComboBox<>(transportmethod);
+				transport.setBounds(100,400,250,20);
+				this.transportbox=transport;
+			}
 
 
 
-				//Action listeners for the buttons and drop down menus on the GUI: *************************************************************************************
+			public void addcomponents(){
+				MenuPanel.add(EXIT);
+				MenuPanel.add(go);
+				MenuPanel.add(destinationbox);
+				MenuPanel.add(currentbox);
+				MenuPanel.add(currentlabel);
+				MenuPanel.add(destinationlabel);
+				MenuPanel.add(transportbox);
+				MenuPanel.add(transportlabel);
+			}
 
-				// action listener for dropdown current location:
-					currentloc.addActionListener(new ActionListener() {
+
+			public void gowindow(){
+				MapWindow window = new MapWindow(pathList2);
+				window.drawbuildings();
+			}
+
+
+
+			public void execute(){
+
+				Pathfinder finder = new Pathfinder();
+				finder.pathfind(startpoint, endpoint);
+				names = finder.nameString;
+				pathList2 = finder.pathList;
+			}
+
+
+
+			public void actionlisteners(){
+
+
+
+
+
+
+					currentbox.addActionListener(new ActionListener() {
 							    public void actionPerformed(ActionEvent e) {
-							  				startpoint = (String) currentloc.getSelectedItem();
+							  				startpoint = (String) currentbox.getSelectedItem();
 									}
 					});
 
-				// action listener for dropdown destination:
-					destination.addActionListener(new ActionListener() {
+
+					destinationbox.addActionListener(new ActionListener() {
 					    public void actionPerformed(ActionEvent e) {
-						 					endpoint = (String) destination.getSelectedItem();
+						 					endpoint = (String) destinationbox.getSelectedItem();
 						 	}
 					});
 
-				// action listener for Transporation dropdown
-					transport.addActionListener(new ActionListener() {
+
+					transportbox.addActionListener(new ActionListener() {
 					      public void actionPerformed(ActionEvent e) {
-						 String goMethod = (String) transport.getSelectedItem();
+						 String goMethod = (String) transportbox.getSelectedItem();
 					         String titleBar = "UniMAP";
 						 JOptionPane.showMessageDialog(null, "Your transport method is: " + goMethod,titleBar, JOptionPane.INFORMATION_MESSAGE);
 		                                 }
 						});
 
-				//action listener for exit button
-				exit.addActionListener(new ActionListener() {
+
+				EXIT.addActionListener(new ActionListener() {
 				    public void actionPerformed(ActionEvent e) {
 				    			System.exit(0);
 				    }
 				});
 
-				//action listener for GO button
-				GO.addActionListener(new ActionListener() {
+
+				go.addActionListener(new ActionListener() {
 				    		public void actionPerformed(ActionEvent e) {
 												execute();
 												String infoMessage= names;
@@ -128,26 +162,13 @@ public class GUI {
 								}
 					});
 
-				menuwindow.add(menupanel);   // Adding the jpanel to the windows
 
 				}
 
 
-		public void gowindow(){
-				Frame frame1 = new Frame(pathList2);
-				frame1.drawbuildings();
-		}
 
 
 
-		// Method that calls the pathfinding algorithm: *************************************************************************************************************************
-			public void execute(){
-
-				Pathfinder finder = new Pathfinder();
-				finder.pathfind(startpoint, endpoint);
-				names = finder.nameString;
-				pathList2 = finder.pathList;
-			}
 
 
 

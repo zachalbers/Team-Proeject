@@ -5,14 +5,22 @@ import java.lang.Object;
 import java.util.*;
 
 // Class for making the map   ++++++++++++
-public class drawmap extends JPanel{
+public class MapWindow extends JPanel{
 
+
+	public void drawbuildings(){
+		JFrame Frame = new JFrame("Title");
+		drawmap shapes = new drawmap(pathList);
+		Frame.add(shapes);
+		Frame.setSize(1300, 800);
+		Frame.setVisible(true);
+	}
 
 
 	java.util.List<String> pathList = Collections.synchronizedList(new ArrayList<String>());
 
 
-	public drawmap(java.util.List<String> pathList) {
+	public MapWindow(java.util.List<String> pathList) {
 	this.pathList = pathList;
 	}
 
