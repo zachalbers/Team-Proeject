@@ -54,8 +54,8 @@ KNB
 MacEwan Student Centre/Kinesiology A/Olympic Oval
 380
 340
-119
 56
+119
 END_OF_BUILDING
 
 
@@ -64,8 +64,8 @@ KNA
 Kinesiology B/Hotel Alma
 440
 270
-112
 56
+112
 END_OF_BUILDING
 
 
@@ -173,15 +173,15 @@ AD
 Social Science/Professional Faculties
 1030
 370
-35
 56
+35
 END_OF_BUILDING
 
 
 Professional Faculties
 PF
 Administration/Education Classroom Block
-1060
+962
 290
 28
 98
@@ -191,7 +191,7 @@ END_OF_BUILDING
 Education Classroom Block
 EDC
 Professional Faculties/Education Tower
-1090
+992
 220
 14
 35
@@ -201,7 +201,7 @@ END_OF_BUILDING
 Education Tower
 EDT
 Education Classroom Block
-1140
+1038
 260
 14
 21

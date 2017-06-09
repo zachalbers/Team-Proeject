@@ -31,6 +31,7 @@ public MapWindow(java.util.List<String> pathList, HashMap<String,BuildingStructu
 
 // method that draws the buildings and its names  ++++++++++++++++
 public void paintComponent(Graphics g){
+
 		super.paintComponent(g);
 		this.setBackground(new Color(173, 216, 189));
 
@@ -39,7 +40,8 @@ public void paintComponent(Graphics g){
 
 
 		Graphics2D g2 = (Graphics2D) g;
-		g2.setStroke(new BasicStroke(6));
+		// g2.setStroke(new BasicStroke(6));
+		g2.rotate(Math.toRadians(-10));
 
 
 		// Draws a line between all the buildings on the path list.
@@ -49,8 +51,9 @@ public void paintComponent(Graphics g){
 				int y1 = (int)buildings.get(pathList.get(i)).getY();
 				int y2 = (int)buildings.get(pathList.get(i+1)).getY();
 
-				g.setColor(new Color(198,117, 31));
-				g.drawLine(x1,(800-y1),x2,(800-y2));
+				g2.setStroke(new BasicStroke(6));
+				g2.setColor(new Color(198,117, 31));
+				g2.drawLine(x1,(800-y1),x2,(800-y2));
 		}
 
 
@@ -67,16 +70,16 @@ public void paintComponent(Graphics g){
 				String nameOfBuilding = currentB.getAbbreviation();
 
 				//text for buildings
-				g.setColor(Color.BLACK);
-				g.drawString(nameOfBuilding, xcoord, ycoord);
+				g2.setColor(Color.BLACK);
+				g2.drawString(nameOfBuilding, xcoord, ycoord);
 
 
 
 				//draw pathway from cuurent to destination
 
 
-				g.setColor(new Color(99, 104, 108));
-				g.fillRect(xcoord,ycoord, length, height);
+				g2.setColor(new Color(99, 104, 108));
+				g2.fillRect(xcoord,ycoord, length, height);
 		}
 
 		// Draws the outline of the buildings
@@ -88,12 +91,12 @@ public void paintComponent(Graphics g){
 				int length= (int)currentB.getLength();
 				int height= (int)currentB.getHeight();
 
-				g.setColor(Color.RED);
-				g2.setStroke(new BasicStroke(2));
-				g.drawLine(xcoord, ycoord, xcoord, ycoord + height);
-				g.drawLine(xcoord, ycoord, xcoord + length, ycoord);
-				g.drawLine(xcoord + length, ycoord, xcoord + length, ycoord + height);
-				g.drawLine(xcoord, ycoord + height, xcoord + length, ycoord + height);
+				g2.setColor(Color.RED);
+			  g2.setStroke(new BasicStroke(2));
+				g2.drawLine(xcoord, ycoord, xcoord, ycoord + height);
+				g2.drawLine(xcoord, ycoord, xcoord + length, ycoord);
+				g2.drawLine(xcoord + length, ycoord, xcoord + length, ycoord + height);
+				g2.drawLine(xcoord, ycoord + height, xcoord + length, ycoord + height);
 
 		}
 
