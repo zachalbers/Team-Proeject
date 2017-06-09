@@ -5,36 +5,38 @@ import java.util.*;
 import javax.swing.ImageIcon;
 import javax.swing.Icon;
 
-
+// Class for managing the user interface . Whatever is displayed on the main menu is initiated in this class.
 public class GUI {
 
-
+// instance variables
 String startpoint; String endpoint; String names;
 JButton go; JButton EXIT;
 JLabel currentlabel; JLabel destinationlabel; JLabel transportlabel;
 JComboBox<String> currentbox; JComboBox<String> destinationbox; JComboBox<String> transportbox;
 JFrame MenuWindow; JPanel MenuPanel;
 
-
+// list of buildings for dropdown menu location which is read from the mapfile:
 ConfigReader map2 = new ConfigReader();
-Set<String> b = map2.buildings.keySet();
-String[] buildingNames = b.toArray(new String[b.size()]);
+Set<String> b;
+String[] buildings;
 
-
-
+// list for transport method dropdown menu:
 String [] transportmethod = {"","Walk","Bike","Skateboard"};
-java.util.List<String> pathList = Collections.synchronizedList(new ArrayList<String>());
+//java.util.List<String> pathList2 = Collections.synchronizedList(new ArrayList<String>());
 
-public GUI{
+// constructor for gui:
+public GUI(){
 	makebutton();
 	makedropdownmenu();
 	makelabels();
 	initializescreen();
+
 	addcomponents();
 	actionlisteners();
 	startgui();
 }
 
+// Initiates the window and panel over the window that contains all the components of the gui:
 public void initializescreen(){
 		JFrame menuwindow = new JFrame("UniMAP");
 		menuwindow.setVisible(true);
@@ -51,12 +53,12 @@ public void initializescreen(){
 
 }
 
-
+//Initiates panel into window
 public void startgui(){
 		MenuWindow.add(MenuPanel);
 }
 
-
+//initiates buttons
 public void makebutton(){
 		JButton GO = new JButton("GO");
 		GO.setBounds(910,400,55,20);
@@ -67,7 +69,7 @@ public void makebutton(){
 		this.EXIT=exit;
 
 }
-
+// initiates labels
 public void makelabels(){
 		JLabel currentLabel = new JLabel("Select Current Location: ");
 		currentLabel.setLayout(null);
@@ -82,17 +84,20 @@ public void makelabels(){
 		transportLabel.setBounds(110,380,250,20);
 		this.transportlabel=transportLabel;
 }
-
+// reads the file and adds buldings to drop down menu
 public void makedropdownmenu(){
 
 
+		map2.readFile();
+		b = map2.buildings.keySet();
+		buildings = b.toArray(new String[b.size()]);
 
 
 
-		JComboBox<String> destination = new JComboBox<>(buildingNames);
+		JComboBox<String> destination = new JComboBox<>(buildings);
 		destination.setBounds(500,100,350,20);
 		this.destinationbox=destination;
-		JComboBox<String> currentloc = new JComboBox<>(buildingNames);
+		JComboBox<String> currentloc = new JComboBox<>(buildings);
 		currentloc.setBounds(100,100,350,20);
 		this.currentbox=currentloc;
 		JComboBox<String> transport = new JComboBox<>(transportmethod);
@@ -101,7 +106,7 @@ public void makedropdownmenu(){
 }
 
 
-
+//adds all the compoe=nents to the panel
 public void addcomponents(){
 		MenuPanel.add(EXIT);
 		MenuPanel.add(go);
@@ -113,24 +118,29 @@ public void addcomponents(){
 		MenuPanel.add(transportlabel);
 }
 
-
+//
 public void gowindow(){
-		MapWindow window = new MapWindow(pathList, map2.buildings);
-		window.drawbuildings();
+		MapWindow window = new MapWindow(pathList,buildings);
 }
 
 
 
-public void getPath(){
+public void execute(){
 
-
-		Pathfinder finder = new Pathfinder(map2.buildings);
-		pathList = finder.pathfind(startpoint, endpoint);
+		Pathfinder finder = new Pathfinder();
+		finder.pathfind(startpoint, endpoint);
+		names = finder.nameString;
+		pathList2 = finder.pathList;
 }
 
 
 
 public void actionlisteners(){
+
+
+
+
+
 
 		currentbox.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e) {
@@ -165,7 +175,7 @@ public void actionlisteners(){
 
 		go.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e) {
-						getPath();
+						execute();
 						String infoMessage= names;
 						String titleBar = "UniMAP";
 						JOptionPane.showMessageDialog(null, infoMessage,titleBar, JOptionPane.INFORMATION_MESSAGE);
