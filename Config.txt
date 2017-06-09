@@ -24,8 +24,8 @@ SB
 Mac Hall/Science A/Earth Science
 800
 490
-8
-10
+56
+70
 END_OF_BUILDING
 
 
@@ -34,8 +34,8 @@ MC
 MacEwan Student Centre/Science B
 700
 410
-8
-5
+56
+35
 END_OF_BUILDING
 
 
@@ -44,8 +44,8 @@ MSC
 Mac Hall/Kinesiology B
 570
 370
-17
-5
+119
+35
 END_OF_BUILDING
 
 
@@ -54,8 +54,8 @@ KNB
 MacEwan Student Centre/Kinesiology A/Olympic Oval
 380
 340
-17
-8
+119
+56
 END_OF_BUILDING
 
 
@@ -64,8 +64,8 @@ KNA
 Kinesiology B/Hotel Alma
 440
 270
-16
-8
+112
+56
 END_OF_BUILDING
 
 
@@ -74,8 +74,8 @@ HA
 Kinesiology A
 480
 120
-6
-8
+42
+56
 END_OF_BUILDING
 
 
@@ -84,8 +84,8 @@ OO
 Kinesiology B
 180
 250
-12
-15
+84
+105
 END_OF_BUILDING
 
 
@@ -94,8 +94,8 @@ CCIT
 Schulich School of Engineering A-G
 400
 600
-4
-10
+28
+70
 END_OF_BUILDING
 
 
@@ -104,8 +104,8 @@ ENG A-G
 Calgary Centre for Innovative Technology/Information and Communication Technologies
 550
 590
-15
-19
+105
+133
 END_OF_BUILDING
 
 
@@ -114,8 +114,8 @@ ICT
 Schulich School of Engineering A-G/Earth Science
 720
 570
-6
-5
+42
+35
 END_OF_BUILDING
 
 
@@ -124,8 +124,8 @@ ES
 Information and Communication Technologies/Science B/Math Science
 840
 580
-6
-7
+42
+49
 END_OF_BUILDING
 
 Science A
@@ -133,8 +133,8 @@ SA
 Science B/Science Theatres
 930
 540
-5
-12
+35
+84
 END_OF_BUILDING
 
 
@@ -143,8 +143,8 @@ MS
 Earth Science/Science Theatres
 960
 550
-3
-9
+21
+63
 END_OF_BUILDING
 
 
@@ -153,8 +153,8 @@ ST
 Math Science/Science A/Social Science
 1020
 510
-5
-13
+35
+91
 END_OF_BUILDING
 
 
@@ -163,8 +163,8 @@ SS
 Science Theatres/Science A/Administration
 1050
 460
-3
-5
+21
+35
 END_OF_BUILDING
 
 
@@ -173,8 +173,8 @@ AD
 Social Science/Professional Faculties
 1030
 370
-5
-8
+35
+56
 END_OF_BUILDING
 
 
@@ -183,8 +183,8 @@ PF
 Administration/Education Classroom Block
 1060
 290
-4
-14
+28
+98
 END_OF_BUILDING
 
 
@@ -193,8 +193,8 @@ EDC
 Professional Faculties/Education Tower
 1090
 220
-2
-5
+14
+35
 END_OF_BUILDING
 
 
@@ -203,6 +203,6 @@ EDT
 Education Classroom Block
 1140
 260
-2
-3
+14
+21
 END_OF_BUILDING

@@ -24,6 +24,7 @@ java.util.HashMap<String,BuildingStructure> buildings = new HashMap<String,Build
 public MapWindow(java.util.List<String> pathList, HashMap<String,BuildingStructure> buildings) {
 		this.pathList = pathList;
 		this.buildings = buildings;
+		drawbuildings()
 }
 
 
@@ -75,7 +76,7 @@ public void paintComponent(Graphics g){
 
 
 				g.setColor(new Color(99, 104, 108));
-				g.fillRect(xcoord,ycoord, length*7, height*7);
+				g.fillRect(xcoord,ycoord, length, height);
 		}
 
 		// Draws the outline of the buildings
@@ -89,10 +90,10 @@ public void paintComponent(Graphics g){
 
 				g.setColor(Color.RED);
 				g2.setStroke(new BasicStroke(2));
-				g.drawLine(xcoord, ycoord, xcoord, ycoord + height*7);
-				g.drawLine(xcoord, ycoord, xcoord + length*7, ycoord);
-				g.drawLine(xcoord + length*7, ycoord, xcoord + length*7, ycoord + height*7);
-				g.drawLine(xcoord, ycoord + height*7, xcoord + length*7, ycoord + height*7);
+				g.drawLine(xcoord, ycoord, xcoord, ycoord + height);
+				g.drawLine(xcoord, ycoord, xcoord + length, ycoord);
+				g.drawLine(xcoord + length, ycoord, xcoord + length, ycoord + height);
+				g.drawLine(xcoord, ycoord + height, xcoord + length, ycoord + height);
 
 		}
 
