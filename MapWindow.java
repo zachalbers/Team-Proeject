@@ -10,7 +10,7 @@ public class MapWindow extends JPanel {
 
 public void drawbuildings(){
 		JFrame Frame = new JFrame("Title");
-		MapWindow shapes = new MapWindow(pathList);
+		MapWindow shapes = new MapWindow(pathList, buildings);
 		Frame.add(shapes);
 		Frame.setSize(1300, 800);
 		Frame.setVisible(true);
@@ -18,11 +18,15 @@ public void drawbuildings(){
 
 
 java.util.List<String> pathList = Collections.synchronizedList(new ArrayList<String>());
+java.util.HashMap<String,BuildingStructure> buildings = new HashMap<String,BuildingStructure>();
 
 
-public MapWindow(java.util.List<String> pathList) {
+public MapWindow(java.util.List<String> pathList, HashMap<String,BuildingStructure> buildings) {
 		this.pathList = pathList;
+		this.buildings = buildings;
 }
+
+
 
 // method that draws the buildings and its names  ++++++++++++++++
 public void paintComponent(Graphics g){
@@ -30,20 +34,19 @@ public void paintComponent(Graphics g){
 		this.setBackground(new Color(173, 216, 189));
 
 
-		ConfigReader map1= new ConfigReader();
-		map1.readFile();
+
 
 
 		Graphics2D g2 = (Graphics2D) g;
 		g2.setStroke(new BasicStroke(6));
 
 
-
+		// Draws a line between all the buildings on the path list.
 		for (int i = 0; i<(pathList.size() - 1); i++ ) {
-				int x1 = (int)map1.buildings.get(pathList.get(i)).getX();
-				int x2 = (int)map1.buildings.get(pathList.get(i+1)).getX();
-				int y1 = (int)map1.buildings.get(pathList.get(i)).getY();
-				int y2 = (int)map1.buildings.get(pathList.get(i+1)).getY();
+				int x1 = (int)buildings.get(pathList.get(i)).getX();
+				int x2 = (int)buildings.get(pathList.get(i+1)).getX();
+				int y1 = (int)buildings.get(pathList.get(i)).getY();
+				int y2 = (int)buildings.get(pathList.get(i+1)).getY();
 
 				g.setColor(new Color(198,117, 31));
 				g.drawLine(x1,(800-y1),x2,(800-y2));
@@ -51,9 +54,9 @@ public void paintComponent(Graphics g){
 
 
 
-
-		for (String currentName : map1.buildings.keySet()) {
-				BuildingStructure currentB = map1.buildings.get(currentName);
+		// Draws all buildings
+		for (String currentName : buildings.keySet()) {
+				BuildingStructure currentB = buildings.get(currentName);
 
 				int xcoord = (int)currentB.getX();
 				int ycoord = 800 - ((int)currentB.getY());
@@ -75,9 +78,9 @@ public void paintComponent(Graphics g){
 				g.fillRect(xcoord,ycoord, length*7, height*7);
 		}
 
-
+		// Draws the outline of the buildings
 		for (String currentName : pathList) {
-				BuildingStructure currentB = map1.buildings.get(currentName);
+				BuildingStructure currentB = buildings.get(currentName);
 
 				int xcoord = (int)currentB.getX();
 				int ycoord = 800 - ((int)currentB.getY());

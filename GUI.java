@@ -16,13 +16,18 @@ JComboBox<String> currentbox; JComboBox<String> destinationbox; JComboBox<String
 JFrame MenuWindow; JPanel MenuPanel;
 
 
+
+
+
+
 ConfigReader map2 = new ConfigReader();
-Set<String> b;
-String[] buildings;
+Set<String> b = map2.buildings.keySet();
+String[] buildingNames = b.toArray(new String[b.size()]);
+
 
 
 String [] transportmethod = {"","Walk","Bike","Skateboard"};
-java.util.List<String> pathList2 = Collections.synchronizedList(new ArrayList<String>());
+java.util.List<String> pathList = Collections.synchronizedList(new ArrayList<String>());
 
 
 
@@ -77,16 +82,13 @@ public void makelabels(){
 public void makedropdownmenu(){
 
 
-		map2.readFile();
-		b = map2.buildings.keySet();
-		buildings = b.toArray(new String[b.size()]);
 
 
 
-		JComboBox<String> destination = new JComboBox<>(buildings);
+		JComboBox<String> destination = new JComboBox<>(buildingNames);
 		destination.setBounds(500,100,350,20);
 		this.destinationbox=destination;
-		JComboBox<String> currentloc = new JComboBox<>(buildings);
+		JComboBox<String> currentloc = new JComboBox<>(buildingNames);
 		currentloc.setBounds(100,100,350,20);
 		this.currentbox=currentloc;
 		JComboBox<String> transport = new JComboBox<>(transportmethod);
@@ -109,28 +111,22 @@ public void addcomponents(){
 
 
 public void gowindow(){
-		MapWindow window = new MapWindow(pathList2);
+		MapWindow window = new MapWindow(pathList, map2.buildings);
 		window.drawbuildings();
 }
 
 
 
-public void execute(){
+public void getPath(){
 
-		Pathfinder finder = new Pathfinder();
-		finder.pathfind(startpoint, endpoint);
-		names = finder.nameString;
-		pathList2 = finder.pathList;
+
+		Pathfinder finder = new Pathfinder(map2.buildings);
+		pathList = finder.pathfind(startpoint, endpoint);
 }
 
 
 
 public void actionlisteners(){
-
-
-
-
-
 
 		currentbox.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e) {
@@ -165,7 +161,7 @@ public void actionlisteners(){
 
 		go.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e) {
-						execute();
+						getPath();
 						String infoMessage= names;
 						String titleBar = "UniMAP";
 						JOptionPane.showMessageDialog(null, infoMessage,titleBar, JOptionPane.INFORMATION_MESSAGE);

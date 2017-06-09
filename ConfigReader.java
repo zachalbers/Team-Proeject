@@ -8,7 +8,12 @@ public class ConfigReader {
 java.util.HashMap<String,BuildingStructure> buildings = new HashMap<String,BuildingStructure>();
 java.util.List<String> cb = Collections.synchronizedList(new ArrayList<String>());
 
-public void readFile() {
+public ConfigReader() {
+  readFile();
+}
+
+
+public HashMap<String,BuildingStructure> readFile() {
     try {
         FileReader reader = new FileReader("Config.txt");
         BufferedReader bufferedReader = new BufferedReader(reader);
@@ -38,6 +43,8 @@ public void readFile() {
         e.printStackTrace();
     }
 
+
+return buildings;
 }
 
 }

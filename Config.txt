@@ -3,11 +3,11 @@
 
 
 // All blank lines and lines beginning with "//" are ignored
-// Create each building in the following format, with each property on a new line:
+// Create each building in the following format/ with each property on a new line:
 
 //    Building Name
 //    Abbreviation
-//    Connections (the names of the connected buildings separated by a comma)
+//    Connections (the names of the connected buildings separated by a "/")
 //    X Coordinate
 //    Y Coordinate
 //    Height (width)
@@ -21,7 +21,7 @@
 
 Science B
 SB
-Mac Hall,Science A,Earth Science
+Mac Hall/Science A/Earth Science
 800
 490
 8
@@ -31,7 +31,7 @@ END_OF_BUILDING
 
 Mac Hall
 MC
-MacEwan Student Centre,Science B
+MacEwan Student Centre/Science B
 700
 410
 8
@@ -41,7 +41,7 @@ END_OF_BUILDING
 
 MacEwan Student Centre
 MSC
-Mac Hall,Kinesiology B
+Mac Hall/Kinesiology B
 570
 370
 17
@@ -51,7 +51,7 @@ END_OF_BUILDING
 
 Kinesiology B
 KNB
-MacEwan Student Centre,Kinesiology A,Olympic Oval
+MacEwan Student Centre/Kinesiology A/Olympic Oval
 380
 340
 17
@@ -61,7 +61,7 @@ END_OF_BUILDING
 
 Kinesiology A
 KNA
-Kinesiology B,Hotel Alma
+Kinesiology B/Hotel Alma
 440
 270
 16
@@ -72,10 +72,10 @@ END_OF_BUILDING
 Hotel Alma
 HA
 Kinesiology A
-460
-160
-3
-13
+480
+120
+6
+8
 END_OF_BUILDING
 
 
@@ -101,7 +101,7 @@ END_OF_BUILDING
 
 Schulich School of Engineering A-G
 ENG A-G
-Calgary Centre for Innovative Technology,Information and Communication Technologies
+Calgary Centre for Innovative Technology/Information and Communication Technologies
 550
 590
 15
@@ -111,7 +111,7 @@ END_OF_BUILDING
 
 Information and Communication Technologies
 ICT
-Schulich School of Engineering A-G,Earth Science
+Schulich School of Engineering A-G/Earth Science
 720
 570
 6
@@ -121,7 +121,7 @@ END_OF_BUILDING
 
 Earth Science
 ES
-Information and Communication Technologies,Science B,Math Science
+Information and Communication Technologies/Science B/Math Science
 840
 580
 6
@@ -130,7 +130,7 @@ END_OF_BUILDING
 
 Science A
 SA
-Science B,Science Theatres
+Science B/Science Theatres
 930
 540
 5
@@ -140,7 +140,7 @@ END_OF_BUILDING
 
 Math Science
 MS
-Earth Science,Science Theatres
+Earth Science/Science Theatres
 960
 550
 3
@@ -150,7 +150,7 @@ END_OF_BUILDING
 
 Science Theatres
 ST
-Math Science,Science A,Social Science
+Math Science/Science A/Social Science
 1020
 510
 5
@@ -160,7 +160,7 @@ END_OF_BUILDING
 
 Social Science
 SS
-Science Theatres,Science A,Administration
+Science Theatres/Science A/Administration
 1050
 460
 3
@@ -170,7 +170,7 @@ END_OF_BUILDING
 
 Administration
 AD
-Social Science,Professional Faculties
+Social Science/Professional Faculties
 1030
 370
 5
@@ -180,7 +180,7 @@ END_OF_BUILDING
 
 Professional Faculties
 PF
-Administration,Education Classroom Block
+Administration/Education Classroom Block
 1060
 290
 4
@@ -190,7 +190,7 @@ END_OF_BUILDING
 
 Education Classroom Block
 EDC
-Professional Faculties,Education Tower
+Professional Faculties/Education Tower
 1090
 220
 2

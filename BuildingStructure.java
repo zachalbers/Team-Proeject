@@ -62,7 +62,7 @@ public String getBuildingName() {
 
 // sets building connections for pathfinder
 public void setConnections(String newConnections) {
-    connections = newConnections.split(",");
+    connections = newConnections.split("/");
 }
 
 // return connections for pathfinder

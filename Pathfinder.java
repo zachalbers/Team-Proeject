@@ -5,21 +5,28 @@ import java.util.*;
 
 public class Pathfinder {
 
-String nameString = "";
 
+
+public Pathfinder(HashMap<String,BuildingStructure> buildings) {
+  this.buildings = buildings;
+}
+
+
+java.util.HashMap<String,BuildingStructure> buildings = new HashMap<String,BuildingStructure>();
 List<String> pathList = Collections.synchronizedList(new ArrayList<String>());
 
-public void pathfind(String locationString, String destinationString) {
+public List<String> pathfind(String locationString, String destinationString) {
+
     double finalDistance = 0;
 
-    ConfigReader BuildingFiles = new ConfigReader();
-    BuildingFiles.readFile();
 
-    BuildingStructure location = BuildingFiles.buildings.get(locationString);
-    BuildingStructure destination = BuildingFiles.buildings.get(destinationString);
+
+
+
+    BuildingStructure location = buildings.get(locationString);
+    BuildingStructure destination = buildings.get(destinationString);
 
     BuildingStructure neighborObj = location;
-
     BuildingStructure currentBuilding = location;
     BuildingStructure bestBuilding = location;
 
@@ -36,7 +43,7 @@ public void pathfind(String locationString, String destinationString) {
         double bestDistance = 100000;     // Infinity
 
         for (String neighbor : currentBuilding.getConnections() ) {
-            neighborObj = BuildingFiles.buildings.get(neighbor);
+            neighborObj = buildings.get(neighbor);
             double currentDistance = getDistance(neighborObj, destination);
 
             if (closedPaths.contains(neighborObj.getBuildingName())) {
@@ -51,7 +58,7 @@ public void pathfind(String locationString, String destinationString) {
         if (changeCheck.equals(bestBuilding.getBuildingName())) {
             closedPaths.add(currentBuilding.getBuildingName());
             pathList.remove(pathList.size()-1);
-            currentBuilding = BuildingFiles.buildings.get(pathList.get(pathList.size()-1));
+            currentBuilding = buildings.get(pathList.get(pathList.size()-1));
 
             // Otherwise, it will add the closest building to the path list.
         } else {
@@ -61,15 +68,10 @@ public void pathfind(String locationString, String destinationString) {
         }
     }
 
-    // Creates a String with all the building names in the path.
-    for (String name : pathList) {
-        nameString += "Got to: " + name + ",";
-    }
-    System.out.println(nameString);
 
-
+    return pathList;
     // for (int i =0; i<(pathList.size() - 1); i++) {
-    //     finalDistance += getDistance(BuildingFiles.buildings.get(pathList.get(i)), BuildingFiles.buildings.get(pathList.get(i+1)) );
+    //     finalDistance += getDistance(buildings.buildings.get(pathList.get(i)), buildings.buildings.get(pathList.get(i+1)) );
     // }
 }
 
