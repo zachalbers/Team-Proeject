@@ -9,14 +9,6 @@ public class Team {
 
 public void start() {
     GUI userInfo = new GUI();
-    userInfo.makebutton();
-    userInfo.makedropdownmenu();
-    userInfo.makelabels();
-    userInfo.initializescreen();
-
-    userInfo.addcomponents();
-    userInfo.actionlisteners();
-    userInfo.startgui();
 }
 
 public static void main(String[] args) {

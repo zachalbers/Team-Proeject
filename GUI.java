@@ -16,10 +16,6 @@ JComboBox<String> currentbox; JComboBox<String> destinationbox; JComboBox<String
 JFrame MenuWindow; JPanel MenuPanel;
 
 
-
-
-
-
 ConfigReader map2 = new ConfigReader();
 Set<String> b = map2.buildings.keySet();
 String[] buildingNames = b.toArray(new String[b.size()]);
@@ -29,7 +25,15 @@ String[] buildingNames = b.toArray(new String[b.size()]);
 String [] transportmethod = {"","Walk","Bike","Skateboard"};
 java.util.List<String> pathList = Collections.synchronizedList(new ArrayList<String>());
 
-
+public GUI{
+	makebutton();
+	makedropdownmenu();
+	makelabels();
+	initializescreen();
+	addcomponents();
+	actionlisteners();
+	startgui();
+}
 
 public void initializescreen(){
 		JFrame menuwindow = new JFrame("UniMAP");
