@@ -24,7 +24,7 @@ java.util.HashMap<String,BuildingStructure> buildings = new HashMap<String,Build
 public MapWindow(java.util.List<String> pathList, HashMap<String,BuildingStructure> buildings) {
 		this.pathList = pathList;
 		this.buildings = buildings;
-
+		
 }
 
 
