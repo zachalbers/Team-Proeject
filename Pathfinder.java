@@ -66,6 +66,8 @@ public List<String> pathfind(String locationString, String destinationString) {
             closedPaths.add(bestBuilding.getBuildingName());
             currentBuilding = bestBuilding;
         }
+        // For error checking:
+        // System.out.println(currentBuilding.getBuildingName());
     }
 
 

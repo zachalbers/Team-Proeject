@@ -15,7 +15,7 @@ public ConfigReader() {
 
 public HashMap<String,BuildingStructure> readFile() {
     try {
-        FileReader reader = new FileReader("Config.txt");
+        FileReader reader = new FileReader("Config2.txt");
         BufferedReader bufferedReader = new BufferedReader(reader);
 
         String line;

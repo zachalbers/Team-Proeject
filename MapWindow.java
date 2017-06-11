@@ -24,7 +24,7 @@ java.util.HashMap<String,BuildingStructure> buildings = new HashMap<String,Build
 public MapWindow(java.util.List<String> pathList, HashMap<String,BuildingStructure> buildings) {
 		this.pathList = pathList;
 		this.buildings = buildings;
-		
+
 }
 
 
@@ -40,16 +40,16 @@ public void paintComponent(Graphics g){
 
 
 		Graphics2D g2 = (Graphics2D) g;
-		// g2.setStroke(new BasicStroke(6));
-		g2.rotate(Math.toRadians(-10));
+
+		// g2.rotate(Math.toRadians(-10));
 
 
 		// Draws a line between all the buildings on the path list.
 		for (int i = 0; i<(pathList.size() - 1); i++ ) {
-				int x1 = (int)buildings.get(pathList.get(i)).getX();
-				int x2 = (int)buildings.get(pathList.get(i+1)).getX();
-				int y1 = (int)buildings.get(pathList.get(i)).getY();
-				int y2 = (int)buildings.get(pathList.get(i+1)).getY();
+				int x1 = (int)buildings.get(pathList.get(i)).getX() + buildings.get(pathList.get(i)).getLength()/2;
+				int x2 = (int)buildings.get(pathList.get(i+1)).getX() + buildings.get(pathList.get(i+1)).getLength()/2;
+				int y1 = (int)buildings.get(pathList.get(i)).getY() - buildings.get(pathList.get(i)).getHeight()/2;
+				int y2 = (int)buildings.get(pathList.get(i+1)).getY() - buildings.get(pathList.get(i+1)).getHeight()/2;
 
 				g2.setStroke(new BasicStroke(6));
 				g2.setColor(new Color(198,117, 31));
