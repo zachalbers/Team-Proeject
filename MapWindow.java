@@ -8,32 +8,47 @@ import java.util.*;
 public class MapWindow extends JPanel {
 
 
+
+
+java.util.List<String> pathList = Collections.synchronizedList(new ArrayList<String>());
+java.util.HashMap<String,BuildingStructure> buildings = new HashMap<String,BuildingStructure>();
+java.util.List<String> settings = Collections.synchronizedList(new ArrayList<String>());
+
+String[] bgColor; String[] bdColor; String[] pColor;
+
+
+public MapWindow(java.util.List<String> pathList, HashMap<String,BuildingStructure> buildings, java.util.List<String> settings) {
+		this.pathList = pathList;
+		this.buildings = buildings;
+		this.settings = settings;
+		setSettings();
+
+}
+
+
+
+public void setSettings(){
+	bgColor = settings.get(0).split(" ");
+	bdColor = settings.get(1).split(" ");
+	pColor = settings.get(2).split(" ");
+}
+
+
+
+
 public void drawbuildings(){
 		JFrame Frame = new JFrame("Title");
-		MapWindow shapes = new MapWindow(pathList, buildings);
+		MapWindow shapes = new MapWindow(pathList, buildings, settings);
 		Frame.add(shapes);
 		Frame.setSize(1300, 800);
 		Frame.setVisible(true);
 }
 
-
-java.util.List<String> pathList = Collections.synchronizedList(new ArrayList<String>());
-java.util.HashMap<String,BuildingStructure> buildings = new HashMap<String,BuildingStructure>();
-
-
-public MapWindow(java.util.List<String> pathList, HashMap<String,BuildingStructure> buildings) {
-		this.pathList = pathList;
-		this.buildings = buildings;
-
-}
-
-
-
 // method that draws the buildings and its names  ++++++++++++++++
 public void paintComponent(Graphics g){
 
 		super.paintComponent(g);
-		this.setBackground(new Color(173, 216, 189));
+		this.setBackground(new Color( Integer.parseInt(bgColor[0]), Integer.parseInt(bgColor[1]), Integer.parseInt(bgColor[2]) ));
 
 
 
@@ -52,7 +67,7 @@ public void paintComponent(Graphics g){
 				int y2 = (int)buildings.get(pathList.get(i+1)).getY() - buildings.get(pathList.get(i+1)).getHeight()/2;
 
 				g2.setStroke(new BasicStroke(6));
-				g2.setColor(new Color(198,117, 31));
+				g2.setColor(new Color( Integer.parseInt(pColor[0]), Integer.parseInt(pColor[1]), Integer.parseInt(pColor[2]) ));
 				g2.drawLine(x1,(800-y1),x2,(800-y2));
 		}
 
@@ -78,7 +93,7 @@ public void paintComponent(Graphics g){
 				//draw pathway from cuurent to destination
 
 
-				g2.setColor(new Color(99, 104, 108));
+				g2.setColor(new Color( Integer.parseInt(bdColor[0]), Integer.parseInt(bdColor[1]), Integer.parseInt(bdColor[2]) ));
 				g2.fillRect(xcoord,ycoord, length, height);
 		}
 
@@ -108,7 +123,8 @@ public void paintComponent(Graphics g){
 
 
 
-
-
 }
+
+
+
 }

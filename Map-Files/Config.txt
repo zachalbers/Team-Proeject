@@ -46,15 +46,21 @@ END_OF_BUILDING
 
 
 
+END_OF_All_BUILDINGS
 
 
+// Start of settings
 
 
+// Enter the building color as a HEX code:
+20 20 20
+
+// Enter the path color as a HEX code:
+10 10 10
+
+// Enter the background color as a Hex code:
+100 100 100
 
 
-
-
-
-
-
-
+// Is there a map legend? (true/false)
+true

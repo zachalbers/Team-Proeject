@@ -11,7 +11,7 @@ public class GUI {
 
 
 	public String getFileName(){
-		
+
 	File folder = new File("./Map-Files");
   File[] listOfFiles = folder.listFiles();
 
@@ -129,7 +129,7 @@ public void addcomponents(){
 
 // draws the buildings on the mapwindow:
 public void gowindow(){
-		MapWindow window = new MapWindow(pathList, mapData.buildings);
+		MapWindow window = new MapWindow(pathList, mapData.buildings, mapData.settings);
 		window.drawbuildings();
 }
 

@@ -6,7 +6,8 @@ import java.util.*;
 public class MapData {
 
 java.util.HashMap<String,BuildingStructure> buildings = new HashMap<String,BuildingStructure>();
-java.util.List<String> cb = Collections.synchronizedList(new ArrayList<String>());
+java.util.List<String> settings = Collections.synchronizedList(new ArrayList<String>());
+
 String mapName;
 
 public MapData(String mapName) {
@@ -15,7 +16,10 @@ public MapData(String mapName) {
 }
 
 
-public HashMap<String,BuildingStructure> readFile() {
+public void readFile() {
+    java.util.List<String> cb = Collections.synchronizedList(new ArrayList<String>());
+    boolean readingSettings = false;
+
     try {
         FileReader reader = new FileReader("./Map-Files/" + mapName);
         BufferedReader bufferedReader = new BufferedReader(reader);
@@ -28,6 +32,16 @@ public HashMap<String,BuildingStructure> readFile() {
             if ( line.startsWith("//") || (line.equals("")) ) {
                 continue;
             }
+
+            if (line.equals("END_OF_All_BUILDINGS")) {
+              readingSettings = true;
+              continue;
+            }
+
+            if (readingSettings) {
+                settings.add(line);
+            }
+
 
             if (line.equals("END_OF_BUILDING")) {
                 String name = cb.get(0);
@@ -46,7 +60,6 @@ public HashMap<String,BuildingStructure> readFile() {
     }
 
 
-return buildings;
 }
 
 }

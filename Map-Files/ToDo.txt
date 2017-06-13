@@ -4,8 +4,60 @@ To Do List
 
 Class Diagram
 
+User txt files also sets Map Legend settings, as well as building colors, background colors, and path color.
 
 
+put abbreviations of building names in the middle of the building
+
+
+
+
+Map Legend:
+- Color of Path
+- Start Location
+- End Destination
+
+-Time to travel
+	- Walk Time
+	- Run Time
+	- SkateBoard Time
+
+- Busy times
+	- Green Yellow or Red
+
+
+
+-Icons:
+	- ATM
+	- Food
+	- Library
+	- Hotel
+	- Bathrooms
+	- Theatre
+	- Tourist Attraction
+	- Train
+	- Parking
+	- Wifi
+	- Shop
+	- Medical Services
+	- Gym
+
+
+
+(Optional)
+Animated train.
+
+
+
+
+
+
+ “time” 
+
+
+low traffic “”
+medium traffic “”
+high traffic “”
 
 
 
