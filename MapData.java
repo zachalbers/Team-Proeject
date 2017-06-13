@@ -3,13 +3,13 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.*;
 
-public class ConfigReader {
+public class MapData {
 
 java.util.HashMap<String,BuildingStructure> buildings = new HashMap<String,BuildingStructure>();
 java.util.List<String> cb = Collections.synchronizedList(new ArrayList<String>());
 String mapName;
 
-public ConfigReader(String mapName) {
+public MapData(String mapName) {
   this.mapName = mapName;
   readFile();
 }

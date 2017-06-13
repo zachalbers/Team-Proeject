@@ -30,7 +30,7 @@ public class GUI {
 
 
 //instance variables
-ConfigReader mapData = new ConfigReader(getFileName());
+MapData mapData = new MapData(getFileName());
 String[] buildingNames = mapData.buildings.keySet().toArray(new String[mapData.buildings.keySet().size()]);
 java.util.List<String> pathList = Collections.synchronizedList(new ArrayList<String>());
 
