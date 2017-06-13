@@ -4,7 +4,8 @@ To Do List
 
 Class Diagram
 
-User txt files also sets Map Legend settings, as well as building colors, background colors, and path color.
+User txt files also sets Map Legend settings, as well 
+(DONE) as building colors, background colors, and path color.
 
 
 put abbreviations of building names in the middle of the building

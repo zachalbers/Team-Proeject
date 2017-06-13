@@ -6,7 +6,7 @@ import java.util.*;
 public class MapData {
 
 java.util.HashMap<String,BuildingStructure> buildings = new HashMap<String,BuildingStructure>();
-java.util.List<String> settings = Collections.synchronizedList(new ArrayList<String>());
+java.util.List<String[]> settings = Collections.synchronizedList(new ArrayList<String[]>());
 
 String mapName;
 
@@ -33,13 +33,14 @@ public void readFile() {
                 continue;
             }
 
+
             if (line.equals("END_OF_All_BUILDINGS")) {
               readingSettings = true;
               continue;
             }
-
             if (readingSettings) {
-                settings.add(line);
+                String[] currentLine = line.split(" ");
+                settings.add(currentLine);
             }
 
 

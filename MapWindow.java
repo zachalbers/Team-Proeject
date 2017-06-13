@@ -12,12 +12,12 @@ public class MapWindow extends JPanel {
 
 java.util.List<String> pathList = Collections.synchronizedList(new ArrayList<String>());
 java.util.HashMap<String,BuildingStructure> buildings = new HashMap<String,BuildingStructure>();
-java.util.List<String> settings = Collections.synchronizedList(new ArrayList<String>());
+java.util.List<String[]> settings = Collections.synchronizedList(new ArrayList<String[]>());
 
 String[] bgColor; String[] bdColor; String[] pColor;
 
 
-public MapWindow(java.util.List<String> pathList, HashMap<String,BuildingStructure> buildings, java.util.List<String> settings) {
+public MapWindow(java.util.List<String> pathList, HashMap<String,BuildingStructure> buildings, java.util.List<String[]> settings) {
 		this.pathList = pathList;
 		this.buildings = buildings;
 		this.settings = settings;
@@ -28,12 +28,12 @@ public MapWindow(java.util.List<String> pathList, HashMap<String,BuildingStructu
 
 
 public void setSettings(){
-	bdColor = settings.get(0).split(" ");
-	pColor = settings.get(1).split(" ");
-	bgColor = settings.get(2).split(" ");
+	bdColor = settings.get(0);
+	pColor = settings.get(1);
+	bgColor = settings.get(2);
 }
 
-
+// public void drawMapLegend
 
 
 public void drawbuildings(){
@@ -54,9 +54,9 @@ public void paintComponent(Graphics g){
 
 
 
+
 		Graphics2D g2 = (Graphics2D) g;
 
-		// g2.rotate(Math.toRadians(-10));
 
 
 		// Draws a line between all the buildings on the path list.
