@@ -7,15 +7,17 @@ public class ConfigReader {
 
 java.util.HashMap<String,BuildingStructure> buildings = new HashMap<String,BuildingStructure>();
 java.util.List<String> cb = Collections.synchronizedList(new ArrayList<String>());
+String mapName;
 
-public ConfigReader() {
+public ConfigReader(String mapName) {
+  this.mapName = mapName;
   readFile();
 }
 
 
 public HashMap<String,BuildingStructure> readFile() {
     try {
-        FileReader reader = new FileReader("./Map-Files/Config.txt");
+        FileReader reader = new FileReader("./Map-Files/" + mapName);
         BufferedReader bufferedReader = new BufferedReader(reader);
 
         String line;

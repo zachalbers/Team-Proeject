@@ -4,12 +4,33 @@ import java.awt.event.*;
 import java.util.*;
 import javax.swing.ImageIcon;
 import javax.swing.Icon;
+import java.io.*;
 
 
 public class GUI {
 
+
+	public String getFileName(){
+		
+	File folder = new File("./Map-Files");
+  File[] listOfFiles = folder.listFiles();
+
+  System.out.println("");
+  for (File x : listOfFiles) {
+    System.out.println(x.getName());
+  }
+
+  Scanner keyboard = new Scanner(System.in);
+  System.out.println("");
+  System.out.print("Enter name of Map File: ");
+  String fileName = keyboard.nextLine();
+	return fileName;
+}
+
+
+
 //instance variables
-ConfigReader mapData = new ConfigReader();
+ConfigReader mapData = new ConfigReader(getFileName());
 String[] buildingNames = mapData.buildings.keySet().toArray(new String[mapData.buildings.keySet().size()]);
 java.util.List<String> pathList = Collections.synchronizedList(new ArrayList<String>());
 

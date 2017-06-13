@@ -5,6 +5,10 @@
 // All blank lines and lines beginning with "//" are ignored
 // Create each building in the following format/ with each property on a new line:
 
+// length of the window is 1300
+// height is 800
+
+
 //    Building Name
 //    Abbreviation
 //    Connections (the names of the connected buildings separated by a "/")
@@ -19,190 +23,38 @@
 // Start of building files
 
 
-Science B
-SB
-Mac Hall/Science A/Earth Science
-800
-490
-56
-70
+
+
+b1
+Some Building
+b2
+200
+200
+80
+80
 END_OF_BUILDING
 
 
-Mac Hall
-MC
-MacEwan Student Centre/Science B
-700
-410
-56
-35
-END_OF_BUILDING
-
-
-MacEwan Student Centre
-MSC
-Mac Hall/Kinesiology B
-570
-370
-119
-35
-END_OF_BUILDING
-
-
-Kinesiology B
-KNB
-MacEwan Student Centre/Kinesiology A/Olympic Oval
-380
-340
-56
-119
-END_OF_BUILDING
-
-
-Kinesiology A
-KNA
-Kinesiology B/Hotel Alma
-440
-270
-56
-112
-END_OF_BUILDING
-
-
-Hotel Alma
-HA
-Kinesiology A
-480
-120
-42
-56
-END_OF_BUILDING
-
-
-Olympic Oval
-OO
-Kinesiology B
-180
-250
-84
-105
-END_OF_BUILDING
-
-
-Calgary Centre for Innovative Technology
-CCIT
-Schulich School of Engineering A-G
+b2
+Another Building
+b1
 400
-600
-28
-70
+400
+80
+80
 END_OF_BUILDING
 
 
-Schulich School of Engineering A-G
-ENG A-G
-Calgary Centre for Innovative Technology/Information and Communication Technologies
-550
-590
-105
-133
-END_OF_BUILDING
 
 
-Information and Communication Technologies
-ICT
-Schulich School of Engineering A-G/Earth Science
-720
-570
-42
-35
-END_OF_BUILDING
 
 
-Earth Science
-ES
-Information and Communication Technologies/Science B/Math Science
-840
-580
-42
-49
-END_OF_BUILDING
-
-Science A
-SA
-Science B/Science Theatres
-930
-540
-35
-84
-END_OF_BUILDING
 
 
-Math Science
-MS
-Earth Science/Science Theatres
-960
-550
-21
-63
-END_OF_BUILDING
 
 
-Science Theatres
-ST
-Math Science/Science A/Social Science
-1020
-510
-35
-91
-END_OF_BUILDING
 
 
-Social Science
-SS
-Science Theatres/Science A/Administration
-1050
-460
-21
-35
-END_OF_BUILDING
 
 
-Administration
-AD
-Social Science/Professional Faculties
-1030
-370
-56
-35
-END_OF_BUILDING
 
-
-Professional Faculties
-PF
-Administration/Education Classroom Block
-962
-290
-28
-98
-END_OF_BUILDING
-
-
-Education Classroom Block
-EDC
-Professional Faculties/Education Tower
-992
-220
-14
-35
-END_OF_BUILDING
-
-
-Education Tower
-EDT
-Education Classroom Block
-1038
-260
-14
-21
-END_OF_BUILDING

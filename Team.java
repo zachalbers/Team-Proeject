@@ -27,9 +27,15 @@ public static void main(String[] args) {
   File folder = new File("./Map-Files");
   File[] listOfFiles = folder.listFiles();
 
+  System.out.println("");
   for (File x : listOfFiles) {
     System.out.println(x.getName());
   }
+
+  Scanner keyboard = new Scanner(System.in);
+  System.out.println("");
+  System.out.print("Enter name of Map File: ");
+  String FileName = keyboard.nextLine();
 
 
 
