@@ -9,16 +9,19 @@ import javax.swing.Icon;
 public class GUI {
 
 //instance variables
+ConfigReader mapData = new ConfigReader();
+String[] buildingNames = mapData.buildings.keySet().toArray(new String[mapData.buildings.keySet().size()]);
+java.util.List<String> pathList = Collections.synchronizedList(new ArrayList<String>());
+
 String startpoint; String endpoint; String names;
+String [] transportmethod = {"","Walk","Bike","Skateboard"};
 JButton go; JButton EXIT;
 JLabel currentlabel; JLabel destinationlabel; JLabel transportlabel;
 JComboBox<String> currentbox; JComboBox<String> destinationbox; JComboBox<String> transportbox;
 JFrame MenuWindow; JPanel MenuPanel;
-ConfigReader map2 = new ConfigReader();
-Set<String> b = map2.buildings.keySet();
-String[] buildingNames = b.toArray(new String[b.size()]);
-String [] transportmethod = {"","Walk","Bike","Skateboard"};
-java.util.List<String> pathList = Collections.synchronizedList(new ArrayList<String>());
+
+
+
 
 // contructor for GUI:
 public GUI(){
@@ -30,6 +33,9 @@ public GUI(){
 	actionlisteners();
 	startgui();
 }
+
+
+
 
 //initializes the screen:
 public void initializescreen(){
@@ -102,13 +108,13 @@ public void addcomponents(){
 
 // draws the buildings on the mapwindow:
 public void gowindow(){
-		MapWindow window = new MapWindow(pathList, map2.buildings);
+		MapWindow window = new MapWindow(pathList, mapData.buildings);
 		window.drawbuildings();
 }
 
 //gets the buildings user has to go through from start to end point
 public void getPath(){
-		Pathfinder finder = new Pathfinder(map2.buildings);
+		Pathfinder finder = new Pathfinder(mapData.buildings);
 		pathList = finder.pathfind(startpoint, endpoint);
 }
 
