@@ -28,9 +28,9 @@ public MapWindow(java.util.List<String> pathList, HashMap<String,BuildingStructu
 
 
 public void setSettings(){
-	bgColor = settings.get(0).split(" ");
-	bdColor = settings.get(1).split(" ");
-	pColor = settings.get(2).split(" ");
+	bdColor = settings.get(0).split(" ");
+	pColor = settings.get(1).split(" ");
+	bgColor = settings.get(2).split(" ");
 }
 
 

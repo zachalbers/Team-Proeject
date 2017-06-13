@@ -206,3 +206,28 @@ Education Classroom Block
 14
 21
 END_OF_BUILDING
+
+
+
+
+
+END_OF_All_BUILDINGS
+
+
+// Start of settings
+
+
+// Enter the building color as a HEX code:
+138 143 63
+
+// Enter the path color as a HEX code:
+0 0 255
+
+// Enter the background color as a Hex code:
+0 255 0
+
+
+// Is there a map legend? (true/false)
+true
+
+
