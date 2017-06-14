@@ -32,7 +32,7 @@ public class GUI {
 
 
 //instance variables
-// MapData mapData = new MapData(getFileName());
+//MapData mapData = new MapData(getFileName());
 MapData mapData = new MapData("Uni.txt");
 
 

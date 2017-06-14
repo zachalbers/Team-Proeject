@@ -27,7 +27,9 @@ Boolean willDraw;
 public MapWindow(java.util.List<String> pathList, HashMap<String,BuildingStructure> buildings, java.util.List<String[]> settings) {
 		this.pathList = pathList;
 		this.buildings = buildings;
-		this.settings = settings;
+		for (String[] line: settings) {
+		this.settings.add(line);
+		}
 		setSettings();
 
 
@@ -63,27 +65,27 @@ public void paintComponent(Graphics g){
 		g.fillRect(0, 0, 1300, 800);
 
 
-		// Graphics2D g2 = (Graphics2D) g;
+		Graphics2D g2 = (Graphics2D) g;
 
 
 
 		System.out.println("part 3");
 
 		// Draws a line between all the buildings on the path list.
-		drawPath(g);
+		drawPath(g2);
 
 		// // Draws all buildings
-		drawAllBuildings(g);
+		drawAllBuildings(g2);
 
 
 		// Draws the outline of the buildings
-		drawOutline(g);
+		drawOutline(g2);
 
 
 
 
 		if (willDraw) {
-				drawMapLegend(g);
+				drawMapLegend(g2);
 		}
 
 
@@ -95,7 +97,7 @@ public void paintComponent(Graphics g){
 
 
 
-public void drawAllBuildings(Graphics g2) {
+public void drawAllBuildings(Graphics2D g2) {
 		for (String currentName : buildings.keySet()) {
 				BuildingStructure currentB = buildings.get(currentName);
 
@@ -115,7 +117,7 @@ public void drawAllBuildings(Graphics g2) {
 	}
 }
 
-public void drawOutline(Graphics g2) {
+public void drawOutline(Graphics2D g2) {
 		for (String currentName : pathList) {
 				BuildingStructure currentB = buildings.get(currentName);
 
@@ -125,7 +127,7 @@ public void drawOutline(Graphics g2) {
 				int height= (int)currentB.getHeight();
 
 				g2.setColor(Color.RED);
-				// g2.setStroke(new BasicStroke(2));
+				g2.setStroke(new BasicStroke(2));
 				g2.drawLine(xcoord, ycoord, xcoord, ycoord + height);
 				g2.drawLine(xcoord, ycoord, xcoord + length, ycoord);
 				g2.drawLine(xcoord + length, ycoord, xcoord + length, ycoord + height);
@@ -133,7 +135,7 @@ public void drawOutline(Graphics g2) {
 		}
 }
 
-public void drawPath(Graphics g2) {
+public void drawPath(Graphics2D g2) {
 
 	for (int i = 0; i<(pathList.size() - 1); i++ ) {
 			int x1 = (int)buildings.get(pathList.get(i)).getX() + buildings.get(pathList.get(i)).getLength()/2;
@@ -141,7 +143,7 @@ public void drawPath(Graphics g2) {
 			int y1 = (int)buildings.get(pathList.get(i)).getY() - buildings.get(pathList.get(i)).getHeight()/2;
 			int y2 = (int)buildings.get(pathList.get(i+1)).getY() - buildings.get(pathList.get(i+1)).getHeight()/2;
 
-			// g2.setStroke(new BasicStroke(6));
+			g2.setStroke(new BasicStroke(6));
 			g2.setColor(pathColor);
 			g2.drawLine(x1,(800-y1),x2,(800-y2));
 	}
