@@ -163,11 +163,11 @@ public void drawMapLegend(Graphics g2) {
 
 
 	g2.setColor(pathColor);
-	g2.fillRect(LX + 100, LY + 11, 10, 10);
+	g2.fillRect(LX + 10, LY + 11, 30, 7);
 
 
 	g2.setColor(Color.BLACK);
-	g2.drawString("Color of Path:", LX + 10, LY + 20);
+	g2.drawString("Path", LX + 50, LY + 20);
 	g2.drawString("Your Current Location is: " + pathList.get(0), LX + 10, LY + 40);
 	g2.drawString("Your Destination is: " + pathList.get(pathList.size() - 1), LX + 10, LY + 60);
 

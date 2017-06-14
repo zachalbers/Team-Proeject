@@ -231,7 +231,7 @@ END_OF_All_BUILDINGS
 true
 
 //Add parameters for Map legend location from top left corner (x y length height)
-0 50 250 480
+0 50 300 480
 
 currentlocation.jpg 200 200
 
