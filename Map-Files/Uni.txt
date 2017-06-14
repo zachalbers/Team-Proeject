@@ -231,9 +231,11 @@ END_OF_All_BUILDINGS
 true
 
 //Add parameters for Map legend location from top left corner (x y length height)
-0 50 300 480
+0 50 300 280
 
 shop.png 400 400
+
+theatre.png 300 200
 
 
 
