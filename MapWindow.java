@@ -131,6 +131,7 @@ public void drawPath(Graphics2D g2) {
 public void drawMapLegend(Graphics g2) {
 		int LX = Integer.parseInt(settings.get(0)[0]);
 		int LY = Integer.parseInt(settings.get(0)[1]);
+		BuildingStructure locationBuilding = buildings.get(pathList.get(0));
 
 		g2.setColor(Color.WHITE);
 		g2.fillRect(LX, LY, Integer.parseInt(settings.get(0)[2]), Integer.parseInt(settings.get(0)[3]));
@@ -151,11 +152,12 @@ public void drawMapLegend(Graphics g2) {
 		for (String[] iconData: settings) {
 				imageList.put(iconData[0], new ImageIcon("./Icon-Files/" + iconData[0]) );
 				imageList.get(iconData[0]).paintIcon(this, g2, Integer.parseInt(iconData[1]), 800 - Integer.parseInt(iconData[2]) );
+			}
+
+		imageList.get("currentlocation.png").paintIcon(this, g2, (int)locationBuilding.getX(), 780 - (int)locationBuilding.getY() );
 
 
 
-
-		}
 }
 
 
