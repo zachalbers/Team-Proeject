@@ -10,10 +10,6 @@ public class MapWindow extends JPanel {
 
 
 java.util.HashMap<String, ImageIcon> imageList = new HashMap<String, ImageIcon>();
-
-
-
-
 java.util.List<String> pathList = Collections.synchronizedList(new ArrayList<String>());
 java.util.HashMap<String,BuildingStructure> buildings = new HashMap<String,BuildingStructure>();
 java.util.List<String[]> settings = Collections.synchronizedList(new ArrayList<String[]>());
@@ -32,10 +28,7 @@ public MapWindow(java.util.List<String> pathList, HashMap<String,BuildingStructu
 		}
 		setSettings();
 
-
 }
-
-
 
 public void setSettings(){
 
@@ -66,47 +59,33 @@ public void paintComponent(Graphics g){
 
 
 		Graphics2D g2 = (Graphics2D) g;
-
-
-
 		System.out.println("part 3");
 
-		// Draws a line between all the buildings on the path list.
+		// Draws a line between all the buildings on the path.
 		drawPath(g2);
 
-		// // Draws all buildings
+		// // Draws all buildings.
 		drawAllBuildings(g2);
 
-
-		// Draws the outline of the buildings
+		// Draws the outline of the buildings.
 		drawOutline(g2);
 
-
-
-
+		// Draws Map Legend if available.
 		if (willDraw) {
 				drawMapLegend(g2);
 		}
-
-
-		}
-
-
-
-
-
+}
 
 
 public void drawAllBuildings(Graphics2D g2) {
 		for (String currentName : buildings.keySet()) {
 				BuildingStructure currentB = buildings.get(currentName);
+				String nameOfBuilding = currentB.getAbbreviation();
 
 				int xcoord = (int)currentB.getX();
 				int ycoord = 800 - ((int)currentB.getY());
 				int length= (int)currentB.getLength();
 				int height= (int)currentB.getHeight();
-
-				String nameOfBuilding = currentB.getAbbreviation();
 
 				//text for buildings
 				g2.setColor(Color.BLACK);
@@ -114,7 +93,7 @@ public void drawAllBuildings(Graphics2D g2) {
 
 				g2.setColor(buildingColor);
 				g2.fillRect(xcoord,ycoord, length, height);
-	}
+		}
 }
 
 public void drawOutline(Graphics2D g2) {
@@ -136,59 +115,48 @@ public void drawOutline(Graphics2D g2) {
 }
 
 public void drawPath(Graphics2D g2) {
+		for (int i = 0; i<(pathList.size() - 1); i++ ) {
+				int x1 = (int)buildings.get(pathList.get(i)).getX() + buildings.get(pathList.get(i)).getLength()/2;
+				int x2 = (int)buildings.get(pathList.get(i+1)).getX() + buildings.get(pathList.get(i+1)).getLength()/2;
+				int y1 = (int)buildings.get(pathList.get(i)).getY() - buildings.get(pathList.get(i)).getHeight()/2;
+				int y2 = (int)buildings.get(pathList.get(i+1)).getY() - buildings.get(pathList.get(i+1)).getHeight()/2;
 
-	for (int i = 0; i<(pathList.size() - 1); i++ ) {
-			int x1 = (int)buildings.get(pathList.get(i)).getX() + buildings.get(pathList.get(i)).getLength()/2;
-			int x2 = (int)buildings.get(pathList.get(i+1)).getX() + buildings.get(pathList.get(i+1)).getLength()/2;
-			int y1 = (int)buildings.get(pathList.get(i)).getY() - buildings.get(pathList.get(i)).getHeight()/2;
-			int y2 = (int)buildings.get(pathList.get(i+1)).getY() - buildings.get(pathList.get(i+1)).getHeight()/2;
-
-			g2.setStroke(new BasicStroke(6));
-			g2.setColor(pathColor);
-			g2.drawLine(x1,(800-y1),x2,(800-y2));
-	}
-
+				g2.setStroke(new BasicStroke(6));
+				g2.setColor(pathColor);
+				g2.drawLine(x1,(800-y1),x2,(800-y2));
+		}
 }
 
 
 public void drawMapLegend(Graphics g2) {
+		int LX = Integer.parseInt(settings.get(0)[0]);
+		int LY = Integer.parseInt(settings.get(0)[1]);
 
-	int LX = Integer.parseInt(settings.get(0)[0]);
-	int LY = Integer.parseInt(settings.get(0)[1]);
-
-	g2.setColor(Color.WHITE);
-	g2.fillRect(LX, LY, Integer.parseInt(settings.get(0)[2]), Integer.parseInt(settings.get(0)[3]));
-	settings.remove(0);
-
-
-
-	g2.setColor(pathColor);
-	g2.fillRect(LX + 10, LY + 11, 30, 7);
-
-
-	g2.setColor(Color.BLACK);
-	g2.drawString("Path", LX + 50, LY + 20);
-	g2.drawString("Your Current Location is: " + pathList.get(0), LX + 10, LY + 40);
-	g2.drawString("Your Destination is: " + pathList.get(pathList.size() - 1), LX + 10, LY + 60);
+		g2.setColor(Color.WHITE);
+		g2.fillRect(LX, LY, Integer.parseInt(settings.get(0)[2]), Integer.parseInt(settings.get(0)[3]));
+		settings.remove(0);
 
 
 
+		g2.setColor(pathColor);
+		g2.fillRect(LX + 10, LY + 11, 30, 7);
 
 
+		g2.setColor(Color.BLACK);
+		g2.drawString("Path", LX + 50, LY + 20);
+		g2.drawString("Your Current Location is: " + pathList.get(0), LX + 10, LY + 40);
+		g2.drawString("Your Destination is: " + pathList.get(pathList.size() - 1), LX + 10, LY + 60);
 
 
-
-	for (String[] iconData: settings) {
-
-		imageList.put(iconData[0], new ImageIcon("./Icon-Files/" + iconData[0]) );
-		imageList.get(iconData[0]).paintIcon(this, g2, Integer.parseInt(iconData[1]), 800 - Integer.parseInt(iconData[2]) );
+		for (String[] iconData: settings) {
+				imageList.put(iconData[0], new ImageIcon("./Icon-Files/" + iconData[0]) );
+				imageList.get(iconData[0]).paintIcon(this, g2, Integer.parseInt(iconData[1]), 800 - Integer.parseInt(iconData[2]) );
 
 
 
 
-	}
+		}
 }
-
 
 
 
