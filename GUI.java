@@ -32,7 +32,10 @@ public class GUI {
 
 
 //instance variables
-MapData mapData = new MapData(getFileName());
+// MapData mapData = new MapData(getFileName());
+MapData mapData = new MapData("Config.txt");
+
+
 String[] buildingNames = mapData.buildings.keySet().toArray(new String[mapData.buildings.keySet().size()]);
 java.util.List<String> pathList = Collections.synchronizedList(new ArrayList<String>());
 
@@ -139,6 +142,7 @@ public void gowindow(){
 		Frame.add(window);
 		Frame.setSize(1300, 800);
 		Frame.setVisible(true);
+
 
 
 

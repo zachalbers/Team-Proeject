@@ -230,4 +230,5 @@ END_OF_All_BUILDINGS
 // Is there a map legend? (true/false)
 true
 
+Shop.jpg 200 200
 

@@ -1053,7 +1053,6 @@ END_OF_BUILDING
 
 
 
-
 END_OF_All_BUILDINGS
 
 
@@ -1067,11 +1066,12 @@ END_OF_All_BUILDINGS
 193 110 110
 
 // Enter the background color as a Hex code:
-138 45 63
+0 200 0
 
 
 // Is there a map legend? (true/false)
-true
+false
+
 
 
 
