@@ -62,4 +62,19 @@ END_OF_All_BUILDINGS
 100 100 100
 
 // Is there a map legend? (true/false)
-true
+//true
+
+
+// Add icons sadfasdfsadf
+
+
+Shop.jpg 100 100
+
+Shop.jpg 200 200
+
+Shop.jpg 300 300
+
+
+Restaurant.jpg 400 400
+
+Restaurant.jpg 900 400

@@ -10,6 +10,8 @@ import java.io.*;
 public class GUI {
 
 
+
+
 	public String getFileName(){
 
 	File folder = new File("./Map-Files");
@@ -129,8 +131,18 @@ public void addcomponents(){
 
 // draws the buildings on the mapwindow:
 public void gowindow(){
+
+
+
+	 	JFrame Frame = new JFrame("Title");
 		MapWindow window = new MapWindow(pathList, mapData.buildings, mapData.settings);
-		window.drawbuildings();
+		Frame.add(window);
+		Frame.setSize(1300, 800);
+		Frame.setVisible(true);
+
+
+
+
 }
 
 //gets the buildings user has to go through from start to end point
