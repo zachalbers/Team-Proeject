@@ -161,7 +161,7 @@ public void drawMapLegend(Graphics g2) {
 
 
 	g2.setColor(pathColor);
-	g2.fillRect(LX + 100, LY + 12, 10, 10);
+	g2.fillRect(LX + 100, LY + 11, 10, 10);
 
 
 	g2.setColor(Color.BLACK);

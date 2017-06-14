@@ -33,7 +33,7 @@ public class GUI {
 
 //instance variables
 // MapData mapData = new MapData(getFileName());
-MapData mapData = new MapData("Config.txt");
+MapData mapData = new MapData("Uni.txt");
 
 
 String[] buildingNames = mapData.buildings.keySet().toArray(new String[mapData.buildings.keySet().size()]);

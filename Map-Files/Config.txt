@@ -81,4 +81,4 @@ true
 
 //Restaurant.jpg 450 450
 
-traffic_signal.png 450 450
+currentlocation.png 450 450
