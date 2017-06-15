@@ -231,7 +231,7 @@ END_OF_All_BUILDINGS
 true
 
 //Add parameters for Map legend location from top left corner (x y length height)
-0 50 300 280
+0 50 350 280
 
 
 
@@ -239,6 +239,8 @@ true
 
 food.png 220 250
 train.png 500 500
+
+atm.png 400 400
 
 
 

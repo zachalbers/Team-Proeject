@@ -142,6 +142,7 @@ public void drawMapLegend(Graphics g2) {
 	int LX = Integer.parseInt(settings.get(0)[0]);
 	int LY = Integer.parseInt(settings.get(0)[1]);
 	BuildingStructure locationBuilding = buildings.get(pathList.get(0));
+	BuildingStructure destinationBuilding = buildings.get(pathList.get(pathList.size()-1));
 
 	// Draws parameter
 	g2.setColor(Color.BLACK);
@@ -209,13 +210,14 @@ public void drawMapLegend(Graphics g2) {
 	g2.drawString("Train", LX + 148, LY + 237);
 
 
-	// Draws all of the 
+	// Draws all of the images in the config file.
 	for (String[] iconData: settings) {
 		imageList.get(iconData[0]).paintIcon(this, g2, Integer.parseInt(iconData[1]), 800 - Integer.parseInt(iconData[2]) );
 	}
 
+	// Draws
 	imageList.get("currentlocation.png").paintIcon(this, g2, (int)locationBuilding.getX(), 780 - (int)locationBuilding.getY() );
-
+	imageList.get("destination.png").paintIcon(this, g2, (int)destinationBuilding.getX(), 780 - (int)destinationBuilding.getY() );
 
 
 }
