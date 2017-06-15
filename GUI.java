@@ -9,39 +9,12 @@ import javax.swing.DefaultListCellRenderer;
 public class GUI {
 
 
-
-
-	public String getFileName(){
-
-	File folder = new File("./Map-Files");
-  File[] listOfFiles = folder.listFiles();
-
-  System.out.println("");
-  for (File x : listOfFiles) {
-    System.out.println(x.getName());
-  }
-
-  Scanner keyboard = new Scanner(System.in);
-  System.out.println("");
-  System.out.print("Enter name of Map File: ");
-  String fileName = keyboard.nextLine();
-	return fileName;
-}
-
-
-
 //instance variables
- //MapData mapData = new MapData(getFileName());
-MapData mapData = new MapData("Uni.txt");
-
-
+MapData mapData = new MapData(getFileName());
+//MapData mapData = new MapData("Uni.txt");
 String[] buildingNames = mapData.buildings.keySet().toArray(new String[mapData.buildings.keySet().size()]);
 java.util.List<String> pathList = Collections.synchronizedList(new ArrayList<String>());
-
-String startpoint = buildingNames[0];
-String endpoint = buildingNames[0];
-String names;
-String travelMethod = "Walk";
+String startpoint=buildingNames[0]; String endpoint=buildingNames[0]; String names; String travelMethod="Walk";
 String [] transportmethod = {"Walk", "Run","Skate","Bike",};
 JButton go; JButton EXIT;
 JLabel currentlabel; JLabel destinationlabel; JLabel transportlabel;
@@ -49,13 +22,9 @@ ImageIcon goimage;ImageIcon exitimage;ImageIcon walkicon;ImageIcon runicon;Image
 ImageIcon curicon;ImageIcon desicon;
 JLabel golabel;JLabel exitlabel;JLabel walklabel;JLabel runlabel;JLabel skatelabel;JLabel questionlabel;JLabel uofclabel;
 JLabel cur;JLabel des;
-
-
 JComboBox<String> currentbox; JComboBox<String> destinationbox; JComboBox<String> transportbox;
 JFrame MenuWindow; JPanel MenuPanel;
 Double finalDistance;
-
-
 
 
 // contructor for GUI:
@@ -70,6 +39,20 @@ public GUI(){
 }
 
 
+//Prompts the user to enter what map they want to use . and returns the name of the map as a String
+public String getFileName(){
+	File folder = new File("./Map-Files");
+  File[] listOfFiles = folder.listFiles();
+	System.out.println("");
+  for (File x : listOfFiles) {
+  System.out.println(x.getName());
+  }
+	Scanner keyboard = new Scanner(System.in);
+  System.out.println("");
+  System.out.print("Enter name of Map File: ");
+  String fileName = keyboard.nextLine();
+	return fileName;
+}
 
 
 //initializes the screen:
@@ -197,22 +180,14 @@ public void addcomponents(){
 		MenuPanel.add(des);
 }
 
-// draws the buildings on the mapwindow:
+// initializes the map window when user clicks go button :
 public void gowindow(){
-
-
-
-	 	JFrame Frame = new JFrame("Title");
+		JFrame Frame = new JFrame("Title");
 		MapWindow window = new MapWindow(pathList, mapData.buildings, mapData.settings, getDistance());
 		Frame.add(window);
 		Frame.setSize(1300, 800);
 		Frame.setVisible(true);
 		Frame.setResizable(false);
-
-
-
-
-
 }
 
 //gets the buildings user has to go through from start to end point
@@ -222,12 +197,11 @@ public void getPath(){
 		finalDistance = finder.getFinalDistance();
 }
 
-
+// Calculates the time the user takes depending on the travel method they select and returns the time as a String
 public String getDistance(){
 	int minutes;
 	int seconds;
 	String time;
-
 	switch (travelMethod) {
 		case "Walk" : seconds = (int)(finalDistance / 1.4);
 									break;
@@ -239,16 +213,14 @@ public String getDistance(){
 									break;
 		default : seconds = 0;
 	}
-
 	minutes = seconds / 60;
 	seconds = seconds % 60;
 	time = travelMethod + " time: " + Integer.toString(minutes) + " min " + Integer.toString(seconds) + " sec";
 	return time;
-
-
 }
 
-// manages action listeners for the components of the gui
+
+// Manages action listeners for the components of the gui
 public void actionlisteners(){
 		currentbox.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e) {
