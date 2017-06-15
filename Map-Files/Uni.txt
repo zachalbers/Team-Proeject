@@ -218,13 +218,13 @@ END_OF_All_BUILDINGS
 
 
 // Enter the building color as a HEX code:
-138 143 63
+38 44 60
 
 // Enter the path color as a HEX code:
-0 0 255
+213 130 41
 
 // Enter the background color as a Hex code:
-0 255 0
+195 229 208
 
 
 // Is there a map legend? (true/false)
@@ -237,7 +237,8 @@ true
 
 
 
-theatre.png 300 200
+food.png 220 250
+train.png 500 500
 
 
 
