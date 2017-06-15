@@ -3,6 +3,7 @@ import java.awt.event.*;
 import javax.swing.*;
 import java.lang.Object;
 import java.util.*;
+import java.io.*;
 
 // Class for making the map   ++++++++++++
 public class MapWindow extends JPanel {
@@ -27,6 +28,7 @@ public MapWindow(java.util.List<String> pathList, HashMap<String,BuildingStructu
 		this.settings.add(line);
 		}
 		setSettings();
+		getIcons();
 
 }
 
@@ -46,6 +48,18 @@ public void setSettings(){
 	settings.remove(2);
 	settings.remove(1);
 	settings.remove(0);
+}
+
+public void getIcons(){
+
+		File folder = new File("./Icon-Files");
+		File[] listOfFiles = folder.listFiles();
+
+
+		for (File file : listOfFiles) {
+				imageList.put(file.getName(), new ImageIcon("./Icon-Files/" + file.getName()) );
+		}
+
 }
 
 
@@ -133,24 +147,34 @@ public void drawMapLegend(Graphics g2) {
 		int LY = Integer.parseInt(settings.get(0)[1]);
 		BuildingStructure locationBuilding = buildings.get(pathList.get(0));
 
+		// Draws parameter
+		g2.setColor(Color.BLACK);
+		g2.fillRect(LX-3, LY-3, Integer.parseInt(settings.get(0)[2])+6, Integer.parseInt(settings.get(0)[3])+6 );
 		g2.setColor(Color.WHITE);
 		g2.fillRect(LX, LY, Integer.parseInt(settings.get(0)[2]), Integer.parseInt(settings.get(0)[3]));
 		settings.remove(0);
 
+		// Draw legend contents
+		g2.setFont(new Font("Algerian", Font.BOLD, 16));
+		g2.setColor(Color.BLACK);
+		g2.drawString("Map Legend", LX + 50, LY + 15);
 
+
+		g2.setFont(new Font("Time Roman", Font.PLAIN, 14));
 
 		g2.setColor(pathColor);
-		g2.fillRect(LX + 10, LY + 11, 30, 7);
-
-
+		g2.fillRect(LX + 10, LY + 30, 30, 7);
 		g2.setColor(Color.BLACK);
-		g2.drawString("Path", LX + 50, LY + 20);
-		g2.drawString("Your Current Location is: " + pathList.get(0), LX + 10, LY + 40);
-		g2.drawString("Your Destination is: " + pathList.get(pathList.size() - 1), LX + 10, LY + 60);
+		g2.drawString("Path", LX + 50, LY + 40);
+
+		imageList.get("currentlocation.png").paintIcon(this, g2, LX + 10, LY +50);
+		g2.drawString("Location", LX + 40, LY + 70);
+
+		imageList.get("destination.png").paintIcon(this, g2, LX + 120, LY +50);
+		g2.drawString("Destination", LX + 150, LY + 70);
 
 
 		for (String[] iconData: settings) {
-				imageList.put(iconData[0], new ImageIcon("./Icon-Files/" + iconData[0]) );
 				imageList.get(iconData[0]).paintIcon(this, g2, Integer.parseInt(iconData[1]), 800 - Integer.parseInt(iconData[2]) );
 			}
 
