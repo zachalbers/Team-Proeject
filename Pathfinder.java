@@ -14,10 +14,11 @@ public Pathfinder(HashMap<String,BuildingStructure> buildings) {
 
 java.util.HashMap<String,BuildingStructure> buildings = new HashMap<String,BuildingStructure>();
 List<String> pathList = Collections.synchronizedList(new ArrayList<String>());
+double finalDistance;
 
 public List<String> pathfind(String locationString, String destinationString) {
 
-    double finalDistance = 0;
+    finalDistance = 0;
 
 
 
@@ -91,5 +92,17 @@ public double getDistance(BuildingStructure currentB, BuildingStructure nextB) {
 
     return Math.sqrt( (difX + difY) );
 }
+
+public double getFinalDistance() {
+
+  for (int i =0; i<(pathList.size() - 1); i++) {
+      finalDistance += getDistance(buildings.get(pathList.get(i)), buildings.get(pathList.get(i+1)) );
+  }
+
+  return  finalDistance;
+}
+
+
+
 
 }

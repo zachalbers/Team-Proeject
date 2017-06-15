@@ -1,5 +1,3 @@
-package teamproject;
-
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
@@ -15,7 +13,7 @@ public class GUI {
 
 	public String getFileName(){
 
-	File folder = new File("C:/Users/Mahir Shahriar/Documents/GitHub/Team-Project/Map-Files");
+	File folder = new File("./Map-Files");
   File[] listOfFiles = folder.listFiles();
 
   System.out.println("");
@@ -40,8 +38,8 @@ MapData mapData = new MapData("Uni.txt");
 String[] buildingNames = mapData.buildings.keySet().toArray(new String[mapData.buildings.keySet().size()]);
 java.util.List<String> pathList = Collections.synchronizedList(new ArrayList<String>());
 
-String startpoint; String endpoint; String names;
-String [] transportmethod = {"Walk","Bike","Skateboard"};
+String startpoint; String endpoint; String names; String travelMethod;
+String [] transportmethod = {"Walk", "Run","Skateboard","Bike",};
 JButton go; JButton EXIT;
 JLabel currentlabel; JLabel destinationlabel; JLabel transportlabel;
 ImageIcon goimage;ImageIcon exitimage;ImageIcon walkicon;ImageIcon runicon;ImageIcon skateicon;ImageIcon questionicon;ImageIcon uofcicon;
@@ -52,6 +50,7 @@ JLabel cur;JLabel des;
 
 JComboBox<String> currentbox; JComboBox<String> destinationbox; JComboBox<String> transportbox;
 JFrame MenuWindow; JPanel MenuPanel;
+Double finalDistance;
 
 
 
@@ -82,7 +81,7 @@ public void initializescreen(){
 		this.MenuPanel=menupanel;
 		menupanel.setBackground(Color.WHITE);
 		menupanel.setLayout(null);
-		
+
 	}
 
 // adds the panel that contains all components to the window:
@@ -98,7 +97,7 @@ public void makebutton(){
 		GO.setContentAreaFilled(false);
 		GO.setBorderPainted(false);
 		this.go = GO;
-		goimage = new ImageIcon("C:/guiicons/go.jpg");
+		goimage = new ImageIcon("./Gui-Icon-Files/go.jpg");
 		golabel = new JLabel(goimage);
 		golabel.setLayout(null);
 		golabel.setBounds(110,375,130,130);
@@ -108,7 +107,7 @@ public void makebutton(){
 		exit.setContentAreaFilled(false);
 		exit.setBorderPainted(false);
 		this.EXIT=exit;
-		exitimage = new ImageIcon("C:/guiicons/exitbutton.png");
+		exitimage = new ImageIcon("./Gui-Icon-Files/exitbutton.png");
 		exitlabel = new JLabel(exitimage);
 		exitlabel.setLayout(null);
 		exitlabel.setBounds(110,515,130,130);
@@ -131,31 +130,31 @@ public void makelabels(){
 		transportLabel.setBounds(300,380,350,20);
 		transportLabel.setFont(new Font("Algerian", Font.BOLD, 20));
 		this.transportlabel=transportLabel;
-		walkicon = new ImageIcon("C:/guiicons/walk.jpg");
+		walkicon = new ImageIcon("./Gui-Icon-Files/walk.jpg");
 		walklabel = new JLabel(walkicon);
 		walklabel.setLayout(null);
 		walklabel.setBounds(300,430,80,80);
-		runicon = new ImageIcon("C:/guiicons/run.jpg");
+		runicon = new ImageIcon("./Gui-Icon-Files/run.jpg");
 		runlabel = new JLabel(runicon);
 		runlabel.setLayout(null);
 		runlabel.setBounds(400,430,80,80);
-		skateicon = new ImageIcon("C:/guiicons/skateboard.jpg");
+		skateicon = new ImageIcon("./Gui-Icon-Files/skateboard.jpg");
 		skatelabel = new JLabel(skateicon);
 		skatelabel.setLayout(null);
 		skatelabel.setBounds(500,430,80,80);
-		questionicon = new ImageIcon("C:/guiicons/questionmark.jpg");
+		questionicon = new ImageIcon("./Gui-Icon-Files/questionmark.jpg");
 		questionlabel = new JLabel(questionicon);
 		questionlabel.setLayout(null);
 		questionlabel.setBounds(600,430,80,80);
-		uofcicon = new ImageIcon("C:/guiicons/logo2.png");
+		uofcicon = new ImageIcon("./Gui-Icon-Files/logo2.png");
 		uofclabel = new JLabel(uofcicon);
 		uofclabel.setLayout(null);
 		uofclabel.setBounds(840,75,450,560);
-		curicon = new ImageIcon("C:/guiicons/currentloc.png");
+		curicon = new ImageIcon("./Gui-Icon-Files/currentloc.png");
 		cur = new JLabel(curicon);
 		cur.setLayout(null);
 		cur.setBounds(720,100,78,78);
-		desicon = new ImageIcon("C:/guiicons/des.jpg");
+		desicon = new ImageIcon("./Gui-Icon-Files/des.jpg");
 		des = new JLabel(desicon);
 		des.setLayout(null);
 		des.setBounds(720,230,78,78);
@@ -201,7 +200,7 @@ public void gowindow(){
 
 
 	 	JFrame Frame = new JFrame("Title");
-		MapWindow window = new MapWindow(pathList, mapData.buildings, mapData.settings);
+		MapWindow window = new MapWindow(pathList, mapData.buildings, mapData.settings, getDistance());
 		Frame.add(window);
 		Frame.setSize(1300, 800);
 		Frame.setVisible(true);
@@ -216,6 +215,27 @@ public void gowindow(){
 public void getPath(){
 		Pathfinder finder = new Pathfinder(mapData.buildings);
 		pathList = finder.pathfind(startpoint, endpoint);
+		finalDistance = finder.getFinalDistance();
+}
+
+
+public String getDistance(){
+	int minutes;
+	int seconds;
+	String time;
+
+	switch (travelMethod) {
+		case "Walk" : seconds = (int)(finalDistance / 1.4);
+									break;
+		default : seconds = 0;
+	}
+
+	minutes = seconds / 60;
+	seconds = seconds % 60;
+	time = "Travel time is: "Integer.toString(minutes) + " min " + Integer.toString(seconds) + " sec";
+	return time;
+
+
 }
 
 // manages action listeners for the components of the gui
@@ -232,10 +252,7 @@ public void actionlisteners(){
 		});
 		transportbox.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e) {
-						String goMethod = (String) transportbox.getSelectedItem();
-						String titleBar = "UniMAP";
-						JOptionPane.showMessageDialog(null, "Your transport method is: " +
-							goMethod,titleBar, JOptionPane.INFORMATION_MESSAGE);
+						travelMethod = (String) transportbox.getSelectedItem();
 				}
 		});
 		EXIT.addActionListener(new ActionListener() {

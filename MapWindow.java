@@ -16,17 +16,21 @@ java.util.HashMap<String,BuildingStructure> buildings = new HashMap<String,Build
 java.util.List<String[]> settings = Collections.synchronizedList(new ArrayList<String[]>());
 Color backgroundColor; Color pathColor; Color buildingColor;
 Boolean willDraw;
+String time;
 
 
 
 
 
-public MapWindow(java.util.List<String> pathList, HashMap<String,BuildingStructure> buildings, java.util.List<String[]> settings) {
+public MapWindow(java.util.List<String> pathList, HashMap<String,BuildingStructure> buildings, java.util.List<String[]> settings, String time) {
 		this.pathList = pathList;
 		this.buildings = buildings;
 		for (String[] line: settings) {
-		this.settings.add(line);
+				this.settings.add(line);
 		}
+		this.time = time;
+
+		System.out.println(time);
 		setSettings();
 		getIcons();
 
@@ -73,7 +77,6 @@ public void paintComponent(Graphics g){
 
 
 		Graphics2D g2 = (Graphics2D) g;
-		System.out.println("part 3");
 
 		// Draws a line between all the buildings on the path.
 		drawPath(g2);
