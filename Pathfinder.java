@@ -5,10 +5,8 @@ import java.util.*;
 
 public class Pathfinder {
 
-
-
 public Pathfinder(HashMap<String,BuildingStructure> buildings) {
-  this.buildings = buildings;
+	this.buildings = buildings;
 }
 
 
@@ -16,13 +14,11 @@ java.util.HashMap<String,BuildingStructure> buildings = new HashMap<String,Build
 List<String> pathList = Collections.synchronizedList(new ArrayList<String>());
 double finalDistance;
 
+
+// Returns a list of all the building names the path goes through
 public List<String> pathfind(String locationString, String destinationString) {
 
     finalDistance = 0;
-
-
-
-
 
     BuildingStructure location = buildings.get(locationString);
     BuildingStructure destination = buildings.get(destinationString);
@@ -67,18 +63,10 @@ public List<String> pathfind(String locationString, String destinationString) {
             closedPaths.add(bestBuilding.getBuildingName());
             currentBuilding = bestBuilding;
         }
-        // For error checking:
-        // System.out.println(currentBuilding.getBuildingName());
     }
 
-
     return pathList;
-    // for (int i =0; i<(pathList.size() - 1); i++) {
-    //     finalDistance += getDistance(buildings.buildings.get(pathList.get(i)), buildings.buildings.get(pathList.get(i+1)) );
-    // }
 }
-
-
 
 // Calculate the distance between two building objects.
 public double getDistance(BuildingStructure currentB, BuildingStructure nextB) {
@@ -86,20 +74,17 @@ public double getDistance(BuildingStructure currentB, BuildingStructure nextB) {
     double x2 = nextB.getX();
     double y1 = currentB.getY();
     double y2 = nextB.getY();
-
     double difX = Math.pow( (x1 - x2), 2.0);
     double difY = Math.pow( (y1 - y2), 2.0);
-
     return Math.sqrt( (difX + difY) );
 }
 
+// Returns the distance from the start position to the final destintaion.
 public double getFinalDistance() {
-
-  for (int i =0; i<(pathList.size() - 1); i++) {
-      finalDistance += getDistance(buildings.get(pathList.get(i)), buildings.get(pathList.get(i+1)) );
-  }
-
-  return  finalDistance;
+    for (int i =0; i<(pathList.size() - 1); i++) {
+        finalDistance += getDistance(buildings.get(pathList.get(i)), buildings.get(pathList.get(i+1)) );
+ 	}
+  	return  finalDistance;
 }
 
 

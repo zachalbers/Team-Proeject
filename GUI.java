@@ -38,7 +38,10 @@ MapData mapData = new MapData("Uni.txt");
 String[] buildingNames = mapData.buildings.keySet().toArray(new String[mapData.buildings.keySet().size()]);
 java.util.List<String> pathList = Collections.synchronizedList(new ArrayList<String>());
 
-String startpoint; String endpoint; String names; String travelMethod;
+String startpoint = buildingNames[0];
+String endpoint = buildingNames[0];
+String names;
+String travelMethod = "Walk";
 String [] transportmethod = {"Walk", "Run","Skate","Bike",};
 JButton go; JButton EXIT;
 JLabel currentlabel; JLabel destinationlabel; JLabel transportlabel;
