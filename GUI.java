@@ -39,7 +39,7 @@ String[] buildingNames = mapData.buildings.keySet().toArray(new String[mapData.b
 java.util.List<String> pathList = Collections.synchronizedList(new ArrayList<String>());
 
 String startpoint; String endpoint; String names; String travelMethod;
-String [] transportmethod = {"Walk", "Run","Skateboard","Bike",};
+String [] transportmethod = {"Walk", "Run","Skate","Bike",};
 JButton go; JButton EXIT;
 JLabel currentlabel; JLabel destinationlabel; JLabel transportlabel;
 ImageIcon goimage;ImageIcon exitimage;ImageIcon walkicon;ImageIcon runicon;ImageIcon skateicon;ImageIcon questionicon;ImageIcon uofcicon;
@@ -227,12 +227,18 @@ public String getDistance(){
 	switch (travelMethod) {
 		case "Walk" : seconds = (int)(finalDistance / 1.4);
 									break;
+		case "Run" : seconds = (int)(finalDistance / 2.69);
+									break;
+		case "Skate" : seconds = (int)(finalDistance / 3.2);
+									break;
+		case "Bike" : seconds = (int)(finalDistance / 4.29);
+									break;
 		default : seconds = 0;
 	}
 
 	minutes = seconds / 60;
 	seconds = seconds % 60;
-	time = "Travel time is: "Integer.toString(minutes) + " min " + Integer.toString(seconds) + " sec";
+	time = travelMethod + " time: " + Integer.toString(minutes) + " min " + Integer.toString(seconds) + " sec";
 	return time;
 
 
