@@ -215,7 +215,7 @@ public void drawMapLegend(Graphics g2) {
 		imageList.get(iconData[0]).paintIcon(this, g2, Integer.parseInt(iconData[1]), 800 - Integer.parseInt(iconData[2]) );
 	}
 
-	// Draws
+	// Draws icons at location and destination.
 	imageList.get("currentlocation.png").paintIcon(this, g2, (int)locationBuilding.getX(), 780 - (int)locationBuilding.getY() );
 	imageList.get("destination.png").paintIcon(this, g2, (int)destinationBuilding.getX(), 780 - (int)destinationBuilding.getY() );
 

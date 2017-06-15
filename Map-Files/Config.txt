@@ -66,7 +66,7 @@ true
 
 
 //Add parameters for Map legend location from top left corner (x y length height)
-0 50 250 480
+900 50 400 480
 
 
 
