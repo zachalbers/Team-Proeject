@@ -1,10 +1,11 @@
+package teamproject;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
 import java.util.*;
-import javax.swing.ImageIcon;
-import javax.swing.Icon;
 import java.io.*;
+import javax.swing.DefaultListCellRenderer;
 
 
 public class GUI {
@@ -14,7 +15,7 @@ public class GUI {
 
 	public String getFileName(){
 
-	File folder = new File("./Map-Files");
+	File folder = new File("C:/Users/Mahir Shahriar/Documents/GitHub/Team-Project/Map-Files");
   File[] listOfFiles = folder.listFiles();
 
   System.out.println("");
@@ -32,7 +33,7 @@ public class GUI {
 
 
 //instance variables
-//MapData mapData = new MapData(getFileName());
+ //MapData mapData = new MapData(getFileName());
 MapData mapData = new MapData("Uni.txt");
 
 
@@ -40,9 +41,15 @@ String[] buildingNames = mapData.buildings.keySet().toArray(new String[mapData.b
 java.util.List<String> pathList = Collections.synchronizedList(new ArrayList<String>());
 
 String startpoint; String endpoint; String names;
-String [] transportmethod = {"","Walk","Bike","Skateboard"};
+String [] transportmethod = {"Walk","Bike","Skateboard"};
 JButton go; JButton EXIT;
 JLabel currentlabel; JLabel destinationlabel; JLabel transportlabel;
+ImageIcon goimage;ImageIcon exitimage;ImageIcon walkicon;ImageIcon runicon;ImageIcon skateicon;ImageIcon questionicon;ImageIcon uofcicon;
+ImageIcon curicon;ImageIcon desicon;
+JLabel golabel;JLabel exitlabel;JLabel walklabel;JLabel runlabel;JLabel skatelabel;JLabel questionlabel;JLabel uofclabel;
+JLabel cur;JLabel des;
+
+
 JComboBox<String> currentbox; JComboBox<String> destinationbox; JComboBox<String> transportbox;
 JFrame MenuWindow; JPanel MenuPanel;
 
@@ -65,15 +72,17 @@ public GUI(){
 
 //initializes the screen:
 public void initializescreen(){
-		JFrame menuwindow = new JFrame("UniMAP");
+		JFrame menuwindow = new JFrame("UNIMAP - Helping you Find your Way");
 		menuwindow.setVisible(true);
 		menuwindow.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		menuwindow.setSize(1000,600);
+		menuwindow.setSize(1400,700);
+		menuwindow.setResizable(false);
 		this.MenuWindow=menuwindow;
 		JPanel menupanel = new JPanel();
 		this.MenuPanel=menupanel;
 		menupanel.setBackground(Color.WHITE);
 		menupanel.setLayout(null);
+		
 	}
 
 // adds the panel that contains all components to the window:
@@ -83,40 +92,85 @@ public void startgui(){
 
 // makes the button components of the gui
 public void makebutton(){
-		JButton GO = new JButton("GO");
-		GO.setBounds(910,400,55,20);
+		JButton GO = new JButton("");
+		GO.setBounds(110,375,110,110);
+		GO.setOpaque(false);
+		GO.setContentAreaFilled(false);
+		GO.setBorderPainted(false);
 		this.go = GO;
-		JButton exit = new JButton("Exit");
-		exit.setBounds(910,450,55,20);
+		goimage = new ImageIcon("C:/guiicons/go.jpg");
+		golabel = new JLabel(goimage);
+		golabel.setLayout(null);
+		golabel.setBounds(110,375,130,130);
+		JButton exit = new JButton("");
+		exit.setBounds(115,519,110,110);
+		exit.setOpaque(false);
+		exit.setContentAreaFilled(false);
+		exit.setBorderPainted(false);
 		this.EXIT=exit;
+		exitimage = new ImageIcon("C:/guiicons/exitbutton.png");
+		exitlabel = new JLabel(exitimage);
+		exitlabel.setLayout(null);
+		exitlabel.setBounds(110,515,130,130);
 	}
 
 // makes the label components of the gui
 public void makelabels(){
-		JLabel currentLabel = new JLabel("Select Current Location: ");
+		JLabel currentLabel = new JLabel("Current Location: ");
 		currentLabel.setLayout(null);
 		currentLabel.setBounds(110,77,250,20);
+		currentLabel.setFont(new Font("Algerian", Font.BOLD, 20));
 		this.currentlabel=currentLabel;
-		JLabel destinationLabel = new JLabel("Select Destination: ");
+		JLabel destinationLabel = new JLabel("Destination: ");
 		destinationLabel.setLayout(null);
-		destinationLabel.setBounds(510,77,250,20);
+		destinationLabel.setBounds(110,195,250,20);
 		this.destinationlabel=destinationLabel;
+		destinationlabel.setFont(new Font("Algerian", Font.BOLD, 20));
 		JLabel transportLabel = new JLabel("Method Of Transportation: ");
 		transportLabel.setLayout(null);
-		transportLabel.setBounds(110,380,250,20);
+		transportLabel.setBounds(300,380,350,20);
+		transportLabel.setFont(new Font("Algerian", Font.BOLD, 20));
 		this.transportlabel=transportLabel;
+		walkicon = new ImageIcon("C:/guiicons/walk.jpg");
+		walklabel = new JLabel(walkicon);
+		walklabel.setLayout(null);
+		walklabel.setBounds(300,430,80,80);
+		runicon = new ImageIcon("C:/guiicons/run.jpg");
+		runlabel = new JLabel(runicon);
+		runlabel.setLayout(null);
+		runlabel.setBounds(400,430,80,80);
+		skateicon = new ImageIcon("C:/guiicons/skateboard.jpg");
+		skatelabel = new JLabel(skateicon);
+		skatelabel.setLayout(null);
+		skatelabel.setBounds(500,430,80,80);
+		questionicon = new ImageIcon("C:/guiicons/questionmark.jpg");
+		questionlabel = new JLabel(questionicon);
+		questionlabel.setLayout(null);
+		questionlabel.setBounds(600,430,80,80);
+		uofcicon = new ImageIcon("C:/guiicons/logo2.png");
+		uofclabel = new JLabel(uofcicon);
+		uofclabel.setLayout(null);
+		uofclabel.setBounds(840,75,450,560);
+		curicon = new ImageIcon("C:/guiicons/currentloc.png");
+		cur = new JLabel(curicon);
+		cur.setLayout(null);
+		cur.setBounds(720,100,78,78);
+		desicon = new ImageIcon("C:/guiicons/des.jpg");
+		des = new JLabel(desicon);
+		des.setLayout(null);
+		des.setBounds(720,230,78,78);
 }
 
 // makes the dropdown components of the gui
 public void makedropdownmenu(){
 		JComboBox<String> destination = new JComboBox<>(buildingNames);
-		destination.setBounds(500,100,350,20);
+		destination.setBounds(110,230,600,78);
 		this.destinationbox=destination;
 		JComboBox<String> currentloc = new JComboBox<>(buildingNames);
-		currentloc.setBounds(100,100,350,20);
+		currentloc.setBounds(110,100,600,78);
 		this.currentbox=currentloc;
 		JComboBox<String> transport = new JComboBox<>(transportmethod);
-		transport.setBounds(100,400,250,20);
+		transport.setBounds(300,550,380,65);
 		this.transportbox=transport;
 }
 
@@ -130,6 +184,15 @@ public void addcomponents(){
 		MenuPanel.add(destinationlabel);
 		MenuPanel.add(transportbox);
 		MenuPanel.add(transportlabel);
+		MenuPanel.add(golabel);
+		MenuPanel.add(exitlabel);
+		MenuPanel.add(walklabel);
+		MenuPanel.add(runlabel);
+		MenuPanel.add(skatelabel);
+		MenuPanel.add(questionlabel);
+		MenuPanel.add(uofclabel);
+		MenuPanel.add(cur);
+		MenuPanel.add(des);
 }
 
 // draws the buildings on the mapwindow:
