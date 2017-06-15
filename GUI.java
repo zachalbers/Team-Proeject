@@ -204,6 +204,7 @@ public void gowindow(){
 		Frame.add(window);
 		Frame.setSize(1300, 800);
 		Frame.setVisible(true);
+		Frame.setResizable(false);
 
 
 
