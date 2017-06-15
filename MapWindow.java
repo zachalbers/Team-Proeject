@@ -167,10 +167,10 @@ public void drawMapLegend(Graphics g2) {
 		g2.setColor(Color.BLACK);
 		g2.drawString("Path", LX + 50, LY + 40);
 
-		imageList.get("currentlocation.png").paintIcon(this, g2, LX + 10, LY +50);
+		imageList.get("currentlocation2.png").paintIcon(this, g2, LX + 10, LY +50);
 		g2.drawString("Location", LX + 40, LY + 70);
 
-		imageList.get("destination.png").paintIcon(this, g2, LX + 120, LY +50);
+		imageList.get("destination2.png").paintIcon(this, g2, LX + 120, LY +50);
 		g2.drawString("Destination", LX + 150, LY + 70);
 
 
