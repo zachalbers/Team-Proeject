@@ -35,35 +35,40 @@ public List<String> pathfind(String locationString, String destinationString) {
     pathList.add(location.getBuildingName());
     closedPaths.add(location.getBuildingName());
 
-    while ( !currentBuilding.getBuildingName().equals(destination.getBuildingName()) ) {
-        String changeCheck = bestBuilding.getBuildingName();
-        double bestDistance = 100000;     // Infinity
+	try {
+	    while ( !currentBuilding.getBuildingName().equals(destination.getBuildingName()) ) {
+	        String changeCheck = bestBuilding.getBuildingName();
+	        double bestDistance = 100000;     // Infinity
 
-        for (String neighbor : currentBuilding.getConnections() ) {
-            neighborObj = buildings.get(neighbor);
-            double currentDistance = getDistance(neighborObj, destination);
+	        for (String neighbor : currentBuilding.getConnections() ) {
+	            neighborObj = buildings.get(neighbor);
+	            double currentDistance = getDistance(neighborObj, destination);
 
-            if (closedPaths.contains(neighborObj.getBuildingName())) {
-                continue;
-            } else if (currentDistance < bestDistance) {
-                bestDistance = currentDistance;
-                bestBuilding = neighborObj;
-            }
-        }
+	            if (closedPaths.contains(neighborObj.getBuildingName())) {
+	                continue;
+	            } else if (currentDistance < bestDistance) {
+	                bestDistance = currentDistance;
+	                bestBuilding = neighborObj;
+	            }
+	        }
 
-        // If the building hasn't changed, then the path will go back a building.
-        if (changeCheck.equals(bestBuilding.getBuildingName())) {
-            closedPaths.add(currentBuilding.getBuildingName());
-            pathList.remove(pathList.size()-1);
-            currentBuilding = buildings.get(pathList.get(pathList.size()-1));
+	        // If the building hasn't changed, then the path will go back a building.
+	        if (changeCheck.equals(bestBuilding.getBuildingName())) {
+	            closedPaths.add(currentBuilding.getBuildingName());
+	            pathList.remove(pathList.size()-1);
+	            currentBuilding = buildings.get(pathList.get(pathList.size()-1));
 
-            // Otherwise, it will add the closest building to the path list.
-        } else {
-            pathList.add(bestBuilding.getBuildingName());
-            closedPaths.add(bestBuilding.getBuildingName());
-            currentBuilding = bestBuilding;
-        }
-    }
+	            // Otherwise, it will add the closest building to the path list.
+	        } else {
+	            pathList.add(bestBuilding.getBuildingName());
+	            closedPaths.add(bestBuilding.getBuildingName());
+	            currentBuilding = bestBuilding;
+	        }
+	    }
+	} catch (ArrayIndexOutOfBoundsException e) {
+		System.out.println("Error: Cannot find connection at building " + currentBuilding.getBuildingName() );
+		System.exit(0);
+	}
 
     return pathList;
 }

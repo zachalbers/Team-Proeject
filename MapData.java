@@ -20,6 +20,7 @@ public void readFile() {
     java.util.List<String> cb = Collections.synchronizedList(new ArrayList<String>());
     boolean readingSettings = false;
     String line;
+	int lineCount = 0;
 
     try {
         FileReader reader = new FileReader("./Map-Files/" + mapName);
@@ -27,7 +28,7 @@ public void readFile() {
 
         // Will read every line until the end of the file is reached
         while ((line = bufferedReader.readLine()) != null) {
-
+			lineCount++;
             // Blank lines and comments will be skipped.
             if ( line.startsWith("//") || (line.equals("")) ) {
                 continue;
@@ -45,7 +46,11 @@ public void readFile() {
 
             // Creates all of the building objects.
             if (line.equals("END_OF_BUILDING")) {
-                String name = cb.get(0);
+				if (cb.size() != 7) {
+					throw new Exception("Wrong length of parameters for buildings in " + mapName);
+				}
+
+				String name = cb.get(0);
                 buildings.put(name, new BuildingStructure(cb.get(0),cb.get(1),cb.get(2),cb.get(3),cb.get(4),cb.get(5),cb.get(6)) );
                 cb.clear();
             } else {
@@ -55,10 +60,22 @@ public void readFile() {
         }
 
         reader.close();
+		if (buildings.size() == 0) {
+			throw new Exception("Incorrect Format. No buildings found in " + mapName);
+		}
+		if (settings.size() < 4) {
+			throw new Exception("Incorrect Format. Not enough setting parameters in " + mapName);
+		}
+
 
     } catch (IOException e) {
-        e.printStackTrace();
-    }
+		System.out.println("Error: "+ e.getMessage() +" at line " + lineCount);
+		System.exit(0);
+    } catch (Exception e) {
+		System.out.println("Error: "+ e.getMessage() +" at line " + lineCount);
+		System.exit(0);
+
+	}
 
 
 }

@@ -65,7 +65,6 @@ public void getIcons(){
 // method that draws the buildings and its names  ++++++++++++++++
 public void paintComponent(Graphics g){
 
-	super.paintComponent(g);
 
 	g.setColor(backgroundColor);
 	g.fillRect(0, 0, 1300, 800);

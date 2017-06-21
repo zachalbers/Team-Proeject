@@ -4,6 +4,7 @@ import java.awt.event.*;
 import java.util.*;
 import java.io.*;
 import javax.swing.DefaultListCellRenderer;
+import javax.swing.filechooser.FileNameExtensionFilter;
 
 
 public class GUI {
@@ -11,7 +12,6 @@ public class GUI {
 
 //instance variables
 MapData mapData = new MapData(getFileName());
-//MapData mapData = new MapData("Uni.txt");
 String[] buildingNames = mapData.buildings.keySet().toArray(new String[mapData.buildings.keySet().size()]);
 java.util.List<String> pathList = Collections.synchronizedList(new ArrayList<String>());
 String startpoint=buildingNames[0]; String endpoint=buildingNames[0]; String names; String travelMethod="Walk";
@@ -41,18 +41,30 @@ public GUI(){
 
 //Prompts the user to enter what map they want to use . and returns the name of the map as a String
 public String getFileName(){
-	File folder = new File("./Map-Files");
-  File[] listOfFiles = folder.listFiles();
-	System.out.println("");
-  for (File x : listOfFiles) {
-  System.out.println(x.getName());
-  }
-	Scanner keyboard = new Scanner(System.in);
-  System.out.println("");
-  System.out.print("Enter name of Map File: ");
-  String fileName = keyboard.nextLine();
-	return fileName;
-}
+
+	  JFileChooser fc= new JFileChooser();
+	  FileNameExtensionFilter filter = new FileNameExtensionFilter(".txt", "txt");
+	  fc.setFileFilter(filter);
+	  fc.setCurrentDirectory(new File("./Map-Files"));
+	  fc.setDialogTitle("Choose map file");
+	  fc.setApproveButtonText("Select Map");
+	  fc.setAcceptAllFileFilterUsed(false);
+
+	  int ret = fc.showOpenDialog(null);
+
+	  if (ret== JFileChooser.APPROVE_OPTION)
+	  {
+		  File file = fc.getSelectedFile();
+		  String filename= file.getAbsolutePath();
+		  return file.getName();
+	  } else if(ret== JFileChooser.CANCEL_OPTION){
+		  System.exit(0);
+		  return null;
+	  }
+	  else
+		 System.exit(0);
+		  return null;
+  	  }
 
 
 //initializes the screen:
