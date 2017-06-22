@@ -26,7 +26,7 @@ public class GUI {
 MapData mapData = new MapData(getFileName());
 String[] buildingNames = mapData.buildings.keySet().toArray(new String[mapData.buildings.keySet().size()]);
 java.util.List<String> pathList = Collections.synchronizedList(new ArrayList<String>());
-String startpoint=buildingNames[0]; String endpoint=buildingNames[0]; String names; String travelMethod="Walk";
+String startpoint; String endpoint; String names; String travelMethod="Walk";
 String [] transportmethod = {"Walk", "Run","Skate","Bike",};
 JButton go; JButton EXIT;
 JLabel currentlabel; JLabel destinationlabel; JLabel transportlabel;
@@ -171,6 +171,9 @@ public void makelabels(){
 
 // makes the dropdown components of the gui
 public void makedropdownmenu(){
+		Arrays.sort(buildingNames);
+		startpoint=buildingNames[0];
+		endpoint=buildingNames[0];
 		JComboBox<String> destination = new JComboBox<>(buildingNames);
 		destination.setBounds(110,230,600,78);
 		this.destinationbox=destination;
