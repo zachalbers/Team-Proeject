@@ -41,7 +41,6 @@ Double finalDistance;
 
 // contructor for GUI:
 public GUI(){
-	mapMotherFucker();
 	makebutton();
 	makedropdownmenu();
 	makelabels();
@@ -49,19 +48,6 @@ public GUI(){
 	addcomponents();
 	actionlisteners();
 	startgui();
-}
-
-
-public void mapMotherFucker() {
-
-       try{
-      AudioInputStream audioInputStream =AudioSystem.getAudioInputStream(this.getClass().getResource("./the_map.wav"));
-     Clip clip = AudioSystem.getClip();
-     clip.open(audioInputStream);
-     clip.start();
-    }
-   catch(Exception ex)
-   {  }
 }
 
 //Prompts the user to enter what map they want to use . and returns the name of the map as a String
