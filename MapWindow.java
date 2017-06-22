@@ -20,9 +20,6 @@ Boolean willDraw;
 String time;
 
 
-
-
-
 public MapWindow(java.util.List<String> pathList, HashMap<String,BuildingStructure> buildings, java.util.List<String[]> settings,String time) {
 	this.pathList = pathList;
 	this.buildings = buildings;
@@ -47,6 +44,7 @@ public void setSettings(){
 	pathColor = new Color( Integer.parseInt(pColor[0]), Integer.parseInt(pColor[1]), Integer.parseInt(pColor[2]) );
 	backgroundColor = new Color( Integer.parseInt(bgColor[0]), Integer.parseInt(bgColor[1]), Integer.parseInt(bgColor[2]) );
 
+	// Not the most efficient way, but removing these makes iterating through icons much easier.
 	settings.remove(3);
 	settings.remove(2);
 	settings.remove(1);
@@ -62,7 +60,7 @@ public void getIcons(){
 }
 
 
-// method that draws the buildings and its names  ++++++++++++++++
+// method that draws the buildings and its names
 public void paintComponent(Graphics g){
 
 
@@ -73,7 +71,6 @@ public void paintComponent(Graphics g){
 
 	// Draws a line between all the buildings on the path.
 	drawPath(g2);
-
 
 	// Draws the outline of the buildings.
 	drawOutline(g2);
@@ -135,7 +132,6 @@ public void drawPath(Graphics2D g2) {
 		g2.drawLine(x1,(800-y1),x2,(800-y2));
 	}
 }
-
 
 public void drawMapLegend(Graphics g2) {
 	int LX = Integer.parseInt(settings.get(0)[0]);
@@ -217,7 +213,6 @@ public void drawMapLegend(Graphics g2) {
 	// Draws icons at location and destination.
 	imageList.get("currentlocation.png").paintIcon(this, g2, (int)locationBuilding.getX(), 780 - (int)locationBuilding.getY() );
 	imageList.get("destination.png").paintIcon(this, g2, (int)destinationBuilding.getX(), 780 - (int)destinationBuilding.getY() );
-
 
 }
 
