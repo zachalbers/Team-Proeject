@@ -7,6 +7,18 @@ import javax.swing.DefaultListCellRenderer;
 import javax.swing.filechooser.FileNameExtensionFilter;
 
 
+
+
+
+
+
+
+
+import javax.sound.sampled.AudioInputStream;
+import javax.sound.sampled.AudioSystem;
+import javax.sound.sampled.Clip;
+
+
 public class GUI {
 
 
@@ -29,6 +41,7 @@ Double finalDistance;
 
 // contructor for GUI:
 public GUI(){
+	mapMotherFucker();
 	makebutton();
 	makedropdownmenu();
 	makelabels();
@@ -38,6 +51,18 @@ public GUI(){
 	startgui();
 }
 
+
+public void mapMotherFucker() {
+
+       try{
+      AudioInputStream audioInputStream =AudioSystem.getAudioInputStream(this.getClass().getResource("./the_map.wav"));
+     Clip clip = AudioSystem.getClip();
+     clip.open(audioInputStream);
+     clip.start();
+    }
+   catch(Exception ex)
+   {  }
+}
 
 //Prompts the user to enter what map they want to use . and returns the name of the map as a String
 public String getFileName(){
