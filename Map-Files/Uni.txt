@@ -387,10 +387,10 @@ hotel.png 430 310
 //Science B
 //toilet.png 0 0
 
-MT
+//MT
 //toilet.png 0 0
 
-MH
+//MH
 //toilet.png 0 0
 
 //theatre.png 0 0

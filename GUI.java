@@ -17,7 +17,7 @@ public class GUI {
 MapData mapData = new MapData(getFileName());
 
 String[] buildingNames = mapData.buildings.keySet().toArray(new String[mapData.buildings.keySet().size()]);
-String soundfilepath;
+
 java.util.List<String> pathList = Collections.synchronizedList(new ArrayList<String>());
 String [] transportmethod = {"Walk", "Run","Skate","Bike",};
 String startpoint; String endpoint; String names; String travelMethod="Walk";
@@ -38,7 +38,6 @@ Double finalDistance;
 
 // constructor for GUI:
 public GUI(){
-	playsound("./Sounds/the_map.wav");
 	makeButtons();
 	makeDropdownMenu();
 	makeLabels();
@@ -72,19 +71,6 @@ public String getFileName(){
 		 return null;
   	  }
 
-
-public void playsound(String soundfilepath) {
-
-    try{
-   this.soundfilepath = soundfilepath;
-   AudioInputStream audioInputStream =AudioSystem.getAudioInputStream(new File(soundfilepath).getAbsoluteFile());
-  Clip clip = AudioSystem.getClip();
-  clip.open(audioInputStream);
-  clip.start();
- }
-catch(Exception ex)
-{ System.out.println("There is an error with the audio file"); }
-}
 
 //gets the buildings user has to go through from start to end point
 public void getPath(){
@@ -276,24 +262,17 @@ public void actionListeners(){
 
 	EXIT.addActionListener(new ActionListener() {
 		public void actionPerformed(ActionEvent e) {
-			playsound("./Sounds/exitbutton.wav");
-			try {
-			 Thread.sleep(1000);
-			}
-			 catch (InterruptedException e1) {
-			 e1.printStackTrace();
-		 }
 			System.exit(0);
 		}
 	});
 
 	go.addActionListener(new ActionListener() {
 		public void actionPerformed(ActionEvent e) {
-			playsound("./Sounds/letsgo.wav");
 			getPath();
 			openWindow();
 		}
 	});
+
 }
 
 // Main method of the program
