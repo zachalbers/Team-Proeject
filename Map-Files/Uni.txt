@@ -379,21 +379,22 @@ shop.png 570 490
 hotel.png 430 310
 
 //ENG A-G
-//toilet.png 0 0
+toilet.png 580 710
 
 //OO
-//toilet.png 0 0
+toilet.png 310 460
 
 //Science B
-//toilet.png 0 0
+toilet.png 790 580
 
 //MT
-//toilet.png 0 0
+toilet.png 800 415
 
 //MH
-//toilet.png 0 0
+toilet.png 725 530
 
-//theatre.png 0 0
+//ST
+theatre.png 950 570
 
 //TFDL
 library.png 740 435
