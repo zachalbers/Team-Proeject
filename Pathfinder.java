@@ -1,3 +1,5 @@
+package unimap;
+
 import java.util.ArrayList;
 
 import java.lang.Object;
@@ -10,9 +12,9 @@ public Pathfinder(HashMap<String,BuildingStructure> buildings) {
 }
 
 
-java.util.HashMap<String,BuildingStructure> buildings = new HashMap<String,BuildingStructure>();
-List<String> pathList = Collections.synchronizedList(new ArrayList<String>());
-double finalDistance;
+private java.util.HashMap<String,BuildingStructure> buildings = new HashMap<String,BuildingStructure>();
+private List<String> pathList = Collections.synchronizedList(new ArrayList<String>());
+private double finalDistance;
 
 
 // Returns a list of all the building names the path goes through
@@ -74,7 +76,7 @@ public List<String> pathfind(String locationString, String destinationString) {
 }
 
 // Calculate the distance between two building objects.
-public double getDistance(BuildingStructure currentB, BuildingStructure nextB) {
+private double getDistance(BuildingStructure currentB, BuildingStructure nextB) {
     double x1 = currentB.getX();
     double x2 = nextB.getX();
     double y1 = currentB.getY();

@@ -1,4 +1,8 @@
+package unimap;
+
 import java.util.*;
+
+
 
 //This class creates the structure for a building.
 //The methods allow properties of the building to be set as well as returned.

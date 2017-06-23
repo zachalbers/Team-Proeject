@@ -1,13 +1,19 @@
+package unimap;
+
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.*;
 
+
+
+
+
 public class MapData {
 
 java.util.HashMap<String,BuildingStructure> buildings = new HashMap<String,BuildingStructure>();
 java.util.List<String[]> settings = Collections.synchronizedList(new ArrayList<String[]>());
-String mapName;
+private String mapName;
 
 // Constructor that takes in the name of the file to read and reads the file.
 public MapData(String mapName) {
@@ -23,7 +29,7 @@ public void readFile() {
 	int lineCount = 0;
 
     try {
-        FileReader reader = new FileReader("./Map-Files/" + mapName);
+        FileReader reader = new FileReader("./unimap/Map-Files/" + mapName);
         BufferedReader bufferedReader = new BufferedReader(reader);
 
         // Will read every line until the end of the file is reached
@@ -58,8 +64,8 @@ public void readFile() {
             }
 
         }
-
         reader.close();
+
 		if (buildings.size() == 0) {
 			throw new Exception("Incorrect Format. No buildings found in " + mapName);
 		}
@@ -77,7 +83,12 @@ public void readFile() {
 
 	}
 
-
 }
+
+
+
+
+
+
 
 }

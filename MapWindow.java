@@ -1,3 +1,5 @@
+package unimap;
+
 
 import java.awt.*;
 import java.awt.event.*;
@@ -15,9 +17,9 @@ java.util.HashMap<String, ImageIcon> imageList = new HashMap<String, ImageIcon>(
 java.util.List<String> pathList = Collections.synchronizedList(new ArrayList<String>());
 java.util.HashMap<String,BuildingStructure> buildings = new HashMap<String,BuildingStructure>();
 java.util.List<String[]> settings = Collections.synchronizedList(new ArrayList<String[]>());
-Color backgroundColor; Color pathColor; Color buildingColor;
-Boolean willDraw;
-String time;
+private Color backgroundColor; private Color pathColor; private Color buildingColor;
+private Boolean willDraw;
+private String time;
 
 
 public MapWindow(java.util.List<String> pathList, HashMap<String,BuildingStructure> buildings, java.util.List<String[]> settings,String time) {
@@ -34,7 +36,7 @@ public MapWindow(java.util.List<String> pathList, HashMap<String,BuildingStructu
 
 }
 
-public void setSettings(){
+private void setSettings(){
 	String[] bdColor = settings.get(0);
 	String[] pColor = settings.get(1);
 	String[] bgColor = settings.get(2);
@@ -51,17 +53,17 @@ public void setSettings(){
 	settings.remove(0);
 }
 
-public void getIcons(){
-	File folder = new File("./Icon-Files");
+private void getIcons(){
+	File folder = new File("./unimap/Icon-Files");
 	File[] listOfFiles = folder.listFiles();
 	for (File file : listOfFiles) {
-		imageList.put(file.getName(), new ImageIcon("./Icon-Files/" + file.getName()) );
+		imageList.put(file.getName(), new ImageIcon("./unimap/Icon-Files/" + file.getName()) );
 	}
 }
 
 
 // method that draws the buildings and its names
-public void paintComponent(Graphics g){
+protected void paintComponent(Graphics g){
 
 
 	g.setColor(backgroundColor);
@@ -85,7 +87,7 @@ public void paintComponent(Graphics g){
 }
 
 
-public void drawAllBuildings(Graphics2D g2) {
+private void drawAllBuildings(Graphics2D g2) {
 	for (String currentName : buildings.keySet()) {
 		BuildingStructure currentB = buildings.get(currentName);
 		String nameOfBuilding = currentB.getAbbreviation();
@@ -105,7 +107,7 @@ public void drawAllBuildings(Graphics2D g2) {
 	}
 }
 
-public void drawOutline(Graphics2D g2) {
+private void drawOutline(Graphics2D g2) {
 	for (String currentName : pathList) {
 		BuildingStructure currentB = buildings.get(currentName);
 
@@ -120,7 +122,7 @@ public void drawOutline(Graphics2D g2) {
 	}
 }
 
-public void drawPath(Graphics2D g2) {
+private void drawPath(Graphics2D g2) {
 	for (int i = 0; i<(pathList.size() - 1); i++ ) {
 		int x1 = (int)buildings.get(pathList.get(i)).getX() + buildings.get(pathList.get(i)).getLength()/2;
 		int x2 = (int)buildings.get(pathList.get(i+1)).getX() + buildings.get(pathList.get(i+1)).getLength()/2;
@@ -133,7 +135,7 @@ public void drawPath(Graphics2D g2) {
 	}
 }
 
-public void drawMapLegend(Graphics g2) {
+private void drawMapLegend(Graphics g2) {
 	int LX = Integer.parseInt(settings.get(0)[0]);
 	int LY = Integer.parseInt(settings.get(0)[1]);
 	BuildingStructure locationBuilding = buildings.get(pathList.get(0));
@@ -162,10 +164,10 @@ public void drawMapLegend(Graphics g2) {
 	g2.drawString("Path", LX + 50, LY + 40);
 
 
-	imageList.get("currentlocation2.png").paintIcon(this, g2, LX + 10, LY +50);
+	imageList.get("destination2.png").paintIcon(this, g2, LX + 10, LY +50);
 	g2.drawString("Location", LX + 40, LY + 70);
 
-	imageList.get("destination2.png").paintIcon(this, g2, LX + 120, LY +50);
+	imageList.get("currentlocation2.png").paintIcon(this, g2, LX + 120, LY +50);
 	g2.drawString("Destination", LX + 150, LY + 70);
 
 	imageList.get("atm.png").paintIcon(this, g2, LX + 10, LY +78);
@@ -196,7 +198,7 @@ public void drawMapLegend(Graphics g2) {
 	g2.drawString("Theatre", LX + 40, LY + 208);
 
 	imageList.get("toilet.png").paintIcon(this, g2, LX + 120, LY +192);
-	g2.drawString("Toilet", LX + 148, LY + 212);
+	g2.drawString("Bathroom", LX + 148, LY + 212);
 
 	imageList.get("tourist.png").paintIcon(this, g2, LX + 10, LY +215);
 	g2.drawString("Tour Spot", LX + 40, LY + 238);
@@ -211,8 +213,8 @@ public void drawMapLegend(Graphics g2) {
 	}
 
 	// Draws icons at location and destination.
-	imageList.get("currentlocation.png").paintIcon(this, g2, (int)locationBuilding.getX(), 780 - (int)locationBuilding.getY() );
-	imageList.get("destination.png").paintIcon(this, g2, (int)destinationBuilding.getX(), 780 - (int)destinationBuilding.getY() );
+	imageList.get("destination.png").paintIcon(this, g2, (int)locationBuilding.getX(), 780 - (int)locationBuilding.getY() );
+	imageList.get("currentlocation.png").paintIcon(this, g2, (int)destinationBuilding.getX(), 780 - (int)destinationBuilding.getY() );
 
 }
 

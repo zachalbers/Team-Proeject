@@ -15,46 +15,45 @@
 // At the end of each building put "END_OF_BUILDING"
 
 
-
 // Start of building files
 
 
 Science B
 SB
-Mac Hall/Science A/Earth Science
-800
-490
+MacEwan Hall/Science A/Earth Science
+790
+580
 56
 70
 END_OF_BUILDING
 
 
-Mac Hall
-MC
-MacEwan Student Centre/Science B
+MacEwan Hall
+MH
+MacEwan Student Centre/Science B/Taylor Institute
 700
-410
-56
-35
+530
+80
+80
 END_OF_BUILDING
 
 
 MacEwan Student Centre
 MSC
-Mac Hall/Kinesiology B
+MacEwan Hall/Kinesiology B
 570
-370
-119
-35
+490
+70
+120
 END_OF_BUILDING
 
 
 Kinesiology B
 KNB
 MacEwan Student Centre/Kinesiology A/Olympic Oval
-380
-340
-56
+430
+540
+100
 119
 END_OF_BUILDING
 
@@ -63,17 +62,17 @@ Kinesiology A
 KNA
 Kinesiology B/Hotel Alma
 440
-270
-56
+425
+100
 112
 END_OF_BUILDING
 
 
 Hotel Alma
 HA
-Kinesiology A
-480
-120
+Kinesiology A/Dining Centre
+430
+310
 42
 56
 END_OF_BUILDING
@@ -82,18 +81,18 @@ END_OF_BUILDING
 Olympic Oval
 OO
 Kinesiology B
-180
-250
-84
-105
+310
+460
+90
+110
 END_OF_BUILDING
 
 
 Calgary Centre for Innovative Technology
 CCIT
 Schulich School of Engineering A-G
-400
-600
+490
+700
 28
 70
 END_OF_BUILDING
@@ -102,8 +101,8 @@ END_OF_BUILDING
 Schulich School of Engineering A-G
 ENG A-G
 Calgary Centre for Innovative Technology/Information and Communication Technologies
-550
-590
+580
+710
 105
 133
 END_OF_BUILDING
@@ -112,78 +111,79 @@ END_OF_BUILDING
 Information and Communication Technologies
 ICT
 Schulich School of Engineering A-G/Earth Science
-720
-570
+730
+680
 42
-35
+100
 END_OF_BUILDING
 
 
 Earth Science
 ES
-Information and Communication Technologies/Science B/Math Science
+Information and Communication Technologies/Science B/Math Science/Energy.Enviroment.Experietial Learning
 840
-580
-42
+680
+60
 49
 END_OF_BUILDING
+
 
 Science A
 SA
 Science B/Science Theatres
-930
+870
 540
 35
-84
+70
 END_OF_BUILDING
 
 
 Math Science
 MS
 Earth Science/Science Theatres
-960
-550
-21
-63
+910
+630
+35
+73
 END_OF_BUILDING
 
 
 Science Theatres
 ST
 Math Science/Science A/Social Science
-1020
-510
-35
+950
+570
+60
 91
 END_OF_BUILDING
 
 
 Social Science
 SS
-Science Theatres/Science A/Administration
-1050
-460
-21
-35
+Science Theatres/Science A/Administration/Biological Sciences
+950
+495
+36
+22
 END_OF_BUILDING
 
 
 Administration
 AD
 Social Science/Professional Faculties
-1030
-370
-56
+920
+450
+60
 35
 END_OF_BUILDING
 
 
 Professional Faculties
 PF
-Administration/Education Classroom Block
-962
-290
-28
+Administration/Education Classroom Block/Murray Fraiser Hall
+855
+375
+32
 98
 END_OF_BUILDING
 
@@ -191,23 +191,160 @@ END_OF_BUILDING
 Education Classroom Block
 EDC
 Professional Faculties/Education Tower
-992
-220
-14
-35
+870
+330
+50
+40
 END_OF_BUILDING
 
 
 Education Tower
 EDT
-Education Classroom Block
-1038
-260
-14
-21
+Education Classroom Block/Scurfield Hall
+915
+330
+30
+30
 END_OF_BUILDING
 
 
+Murray Fraiser Hall
+MFH
+Mackimmie Library Tower/Craigie Hall C-G (Univercity Theatre)/Professional Faculties
+800
+365
+40
+40
+END_OF_BUILDING
+
+
+Mackimmie Library Tower
+MT
+Murray Fraiser Hall/Mackimmie Library Block/Taylor Family Digital Library
+800
+415
+40
+40
+END_OF_BUILDING
+
+
+Mackimmie Library Block
+MB
+Mackimmie Library Tower/Taylor Family Digital Library
+800
+465
+40
+40
+END_OF_BUILDING
+
+
+Taylor Family Digital Library
+TFDL
+Mackimmie Library Tower/Mackimmie Library Block/Craigie Hall C-G (Univercity Theatre)
+740
+435
+80
+40
+END_OF_BUILDING
+
+
+Craigie Hall C-G (Univercity Theatre)
+CH
+Taylor Family Digital Library/Murray Fraiser Hall/Reeve Theatre/Art Building
+720
+340
+20
+60
+END_OF_BUILDING
+
+
+Reeve Theatre
+RT
+Rozsa Centre/Craigie Hall C-G (Univercity Theatre)
+680
+340
+30
+30
+END_OF_BUILDING
+
+
+Rozsa Centre
+RC
+Reeve Theatre
+645
+340
+30
+30
+END_OF_BUILDING
+
+Art Building
+AB
+Craigie Hall C-G (Univercity Theatre)
+645
+290
+50
+65
+END_OF_BUILDING
+
+
+Dining Centre
+DC
+Hotel Alma
+375
+300
+45
+45
+END_OF_BUILDING
+
+
+Taylor Institute
+TI
+MacEwan Hall
+700
+580
+30
+30
+END_OF_BUILDING
+
+
+Energy.Enviroment.Experietial Learning 
+EEEL
+Earth Science
+750
+730
+30
+60
+END_OF_BUILDING
+
+
+Biological Sciences
+BI
+Social Science
+1055
+540
+40
+50
+END_OF_BUILDING
+
+
+Scurfield Hall
+SH
+Education Tower/Child Care Centre
+950
+330
+40
+60
+END_OF_BUILDING
+
+
+Child Care Centre
+CC
+Scurfield Hall
+1000
+375
+20
+20
+END_OF_BUILDING
 
 
 
@@ -231,16 +368,58 @@ END_OF_All_BUILDINGS
 true
 
 //Add parameters for Map legend location from top left corner (x y length height)
-0 50 350 280
+0 0 325 300
 
 
 
+//MSC
+shop.png 570 490
 
+//HA
+hotel.png 430 310
 
-food.png 220 250
-train.png 500 500
+//ENG A-G
+//toilet.png 0 0
 
-atm.png 400 400
+//OO
+//toilet.png 0 0
+
+//Science B
+//toilet.png 0 0
+
+MT
+//toilet.png 0 0
+
+MH
+//toilet.png 0 0
+
+//theatre.png 0 0
+
+//TFDL
+library.png 740 435
+
+//ES
+library.png 840 680
+
+//MFH
+library.png 800 365
+
+//ICT
+food.png 730 680
+
+//MH
+food.png 700 530
+
+//MSC
+food.png 590 490
+
+//DC
+food.png 375 300
+
+train.png 1250 400
+
+//MH
+atm.png 700 490
 
 
 

@@ -1,3 +1,4 @@
+package unimap;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
@@ -7,16 +8,6 @@ import javax.swing.DefaultListCellRenderer;
 import javax.swing.filechooser.FileNameExtensionFilter;
 
 
-
-
-
-
-
-
-
-import javax.sound.sampled.AudioInputStream;
-import javax.sound.sampled.AudioSystem;
-import javax.sound.sampled.Clip;
 
 
 public class GUI {
@@ -60,7 +51,7 @@ public String getFileName(){
 	  JFileChooser fc= new JFileChooser();
 	  FileNameExtensionFilter filter = new FileNameExtensionFilter(".txt", "txt");
 	  fc.setFileFilter(filter);
-	  fc.setCurrentDirectory(new File("./Map-Files"));
+	  fc.setCurrentDirectory(new File("./unimap/Map-Files"));
 	  fc.setDialogTitle("Choose map file");
 	  fc.setApproveButtonText("Select Map");
 	  fc.setAcceptAllFileFilterUsed(false);
@@ -123,7 +114,7 @@ public void makeButtons(){
 	GO.setContentAreaFilled(false);
 	GO.setBorderPainted(false);
 	this.go = GO;
-	goimage = new ImageIcon("./Gui-Icon-Files/go.jpg");
+	goimage = new ImageIcon("./unimap/Gui-Icon-Files/go.jpg");
 	golabel = new JLabel(goimage);
 	golabel.setLayout(null);
 	golabel.setBounds(110,375,130,130);
@@ -133,7 +124,7 @@ public void makeButtons(){
 	exit.setContentAreaFilled(false);
 	exit.setBorderPainted(false);
 	this.EXIT=exit;
-	exitimage = new ImageIcon("./Gui-Icon-Files/exitbutton.png");
+	exitimage = new ImageIcon("./unimap/Gui-Icon-Files/exitbutton.png");
 	exitlabel = new JLabel(exitimage);
 	exitlabel.setLayout(null);
 	exitlabel.setBounds(110,515,130,130);
@@ -156,31 +147,31 @@ public void makeLabels(){
 	transportLabel.setBounds(300,380,350,20);
 	transportLabel.setFont(new Font("Algerian", Font.BOLD, 20));
 	this.transportlabel=transportLabel;
-	walkicon = new ImageIcon("./Gui-Icon-Files/walk.jpg");
+	walkicon = new ImageIcon("./unimap/Gui-Icon-Files/walk.jpg");
 	walklabel = new JLabel(walkicon);
 	walklabel.setLayout(null);
 	walklabel.setBounds(300,430,80,80);
-	runicon = new ImageIcon("./Gui-Icon-Files/run.jpg");
+	runicon = new ImageIcon("./unimap/Gui-Icon-Files/run.jpg");
 	runlabel = new JLabel(runicon);
 	runlabel.setLayout(null);
 	runlabel.setBounds(400,430,80,80);
-	skateicon = new ImageIcon("./Gui-Icon-Files/skateboard.jpg");
+	skateicon = new ImageIcon("./unimap/Gui-Icon-Files/skateboard.jpg");
 	skatelabel = new JLabel(skateicon);
 	skatelabel.setLayout(null);
 	skatelabel.setBounds(500,430,80,80);
-	questionicon = new ImageIcon("./Gui-Icon-Files/questionmark.jpg");
+	questionicon = new ImageIcon("./unimap/Gui-Icon-Files/questionmark.jpg");
 	questionlabel = new JLabel(questionicon);
 	questionlabel.setLayout(null);
 	questionlabel.setBounds(600,430,80,80);
-	uofcicon = new ImageIcon("./Gui-Icon-Files/logo2.png");
+	uofcicon = new ImageIcon("./unimap/Gui-Icon-Files/logo2.png");
 	uofclabel = new JLabel(uofcicon);
 	uofclabel.setLayout(null);
 	uofclabel.setBounds(840,75,450,560);
-	curicon = new ImageIcon("./Gui-Icon-Files/currentloc.png");
+	curicon = new ImageIcon("./unimap/Gui-Icon-Files/currentloc.png");
 	cur = new JLabel(curicon);
 	cur.setLayout(null);
 	cur.setBounds(720,100,78,78);
-	desicon = new ImageIcon("./Gui-Icon-Files/des.jpg");
+	desicon = new ImageIcon("./unimap/Gui-Icon-Files/des.jpg");
 	des = new JLabel(desicon);
 	des.setLayout(null);
 	des.setBounds(720,230,78,78);
