@@ -120,7 +120,7 @@ END_OF_BUILDING
 
 Earth Science
 ES
-Information and Communication Technologies/Science B/Math Science/Energy.Enviroment.Experietial Learning
+Information and Communication Technologies/Science B/Math Science/EEEL
 840
 680
 60
@@ -307,7 +307,7 @@ MacEwan Hall
 END_OF_BUILDING
 
 
-Energy.Enviroment.Experietial Learning 
+EEEL
 EEEL
 Earth Science
 750
