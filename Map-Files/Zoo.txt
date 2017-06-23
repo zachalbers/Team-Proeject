@@ -82,7 +82,7 @@ END_OF_BUILDING
 Moose
 Moose
 Deer/Wolf/Squirl/Elk/Ram
-310
+390
 530
 40
 40
@@ -458,11 +458,14 @@ END_OF_All_BUILDINGS
 
 
 // Is there a map legend? (true/false)
-false
+true
 
 //Add parameters for Map legend location from top left corner (x y length height)
-1050 50 200 400
+0 0 350 270
 
-currentlocation.jpg 200 200
+//bathroom near otter
+toilet.png 100 400 
+
+
 
 

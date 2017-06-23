@@ -47,7 +47,7 @@ Double finalDistance;
 
 // constructor for GUI:
 public GUI(){
-	playsound(./Sounds/the_map.wav);
+	playsound("./Sounds/the_map.wav");
 	makeButtons();
 	makeDropdownMenu();
 	makeLabels();
@@ -287,16 +287,18 @@ public void actionListeners(){
 		public void actionPerformed(ActionEvent e) {
 			playsound("./Sounds/exitbutton.wav");
 			try {
-			Thread.sleep(1000);
-			} catch (InterruptedException e1) {
-			e1.printStackTrace();
+			 Thread.sleep(1000);
+			}
+			 catch (InterruptedException e1) {
+			 e1.printStackTrace();
+		 }
 			System.exit(0);
 		}
 	});
 
 	go.addActionListener(new ActionListener() {
 		public void actionPerformed(ActionEvent e) {
-			playsound(./Sounds/letsgo.wav);
+			playsound("./Sounds/letsgo.wav");
 			getPath();
 			openWindow();
 		}
