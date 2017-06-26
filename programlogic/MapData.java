@@ -1,5 +1,9 @@
-package unimap.programlogic;
+/*
+This class takes in the name of the txt file and reads in the buildings from the file and saves them to a HashMap of buildings.
+It also reads in the settings (colors and map legend) for that particular map and saves them to the 'settings' list.
+*/
 
+package unimap.programlogic;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;

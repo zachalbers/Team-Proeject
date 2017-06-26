@@ -1,43 +1,49 @@
+/*
+This class takes in a hashmap of the buildings of the selected map text file.
+The public 'pathfind' method takes in the location and destiantion and returns a list of the the buildings from the location to the destination.
+The public 'getFinalDistance' method returns the distance of the route.
+*/
+
+
 package unimap.programlogic;
-
 import java.util.ArrayList;
-
 import java.lang.Object;
 import java.util.*;
 
+
 public class Pathfinder {
-
-public Pathfinder(HashMap<String,BuildingStructure> buildings) {
-	this.buildings = buildings;
-}
-
 
 private java.util.HashMap<String,BuildingStructure> buildings = new HashMap<String,BuildingStructure>();
 private List<String> pathList = Collections.synchronizedList(new ArrayList<String>());
 private double finalDistance;
 
 
-// Returns a list of all the building names the path goes through
+public Pathfinder(HashMap<String,BuildingStructure> buildings) {
+	this.buildings = buildings;
+}
+
+
+// This method will iterate through each building's connections from the location to
+// the destination to find the shortest distance.
+// If a path leads to a dead end, it will backtrack until a path is found.
 public List<String> pathfind(String locationString, String destinationString) {
+	pathList.clear(); // Clears any previous buidlings from previous uses.
 
     finalDistance = 0;
-
     BuildingStructure location = buildings.get(locationString);
     BuildingStructure destination = buildings.get(destinationString);
 
-    BuildingStructure neighborObj = location;
-    BuildingStructure currentBuilding = location;
-    BuildingStructure bestBuilding = location;
+    BuildingStructure currentBuilding = location; // The current building on the path from which the next building will be determined.
+	BuildingStructure neighborObj = location; // The current connection of 'currentBuilding' that will have its distance calcutlated.
+    BuildingStructure bestBuilding = location; // The 'neighborObj' with the shortest distance to the destination.
 
-    // Contains the final list of buildings from the location to the destination.
-    pathList.clear();
-    // Contain buildings that have already been travelled on.
-    List<String>  closedPaths= Collections.synchronizedList(new ArrayList<String>());
+    List<String>  closedPaths= Collections.synchronizedList(new ArrayList<String>()); // Contain buildings that have already been travelled on.
 
     pathList.add(location.getBuildingName());
     closedPaths.add(location.getBuildingName());
 
 	try {
+		// The loop will continue to iterate until the name of the current building equals the destination.
 	    while ( !currentBuilding.getBuildingName().equals(destination.getBuildingName()) ) {
 	        String changeCheck = bestBuilding.getBuildingName();
 	        double bestDistance = 100000;     // Infinity
@@ -60,7 +66,7 @@ public List<String> pathfind(String locationString, String destinationString) {
 	            pathList.remove(pathList.size()-1);
 	            currentBuilding = buildings.get(pathList.get(pathList.size()-1));
 
-	            // Otherwise, it will add the closest building to the path list.
+	        // Otherwise, it will add the closest building to the path list.
 	        } else {
 	            pathList.add(bestBuilding.getBuildingName());
 	            closedPaths.add(bestBuilding.getBuildingName());
@@ -68,6 +74,9 @@ public List<String> pathfind(String locationString, String destinationString) {
 	        }
 	    }
 	} catch (ArrayIndexOutOfBoundsException e) {
+		System.out.println("Error: Cannot find connection at building " + currentBuilding.getBuildingName() );
+		System.exit(0);
+	} catch (NullPointerException e) {
 		System.out.println("Error: Cannot find connection at building " + currentBuilding.getBuildingName() );
 		System.exit(0);
 	}
@@ -93,8 +102,6 @@ public double getFinalDistance() {
  	}
   	return  finalDistance;
 }
-
-
 
 
 }

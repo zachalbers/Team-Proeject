@@ -1,21 +1,22 @@
-//This class creates the structure for a building.
-//The methods allow properties of the building to be set as well as returned.
+/*
+This class creates the structure for a building.
+The methods allow properties of the building to be set as well as returned.
 
+*/
 
 package unimap.programlogic;
-
 import java.util.*;
 
 
 public class BuildingStructure {
 
-int height = 0;
-int length = 0;
-double xCoord = 0;
-double yCoord = 0;
-String buildingName = "";
-String abbreviation = "";
-String[] connections = {};
+private int height = 0;
+private int length = 0;
+private double xCoord = 0;
+private double yCoord = 0;
+private String buildingName = "";
+private String abbreviation = "";
+private String[] connections = {};
 
 
 public BuildingStructure(String buildingName, String abbreviation, String connections,
@@ -30,77 +31,72 @@ public BuildingStructure(String buildingName, String abbreviation, String connec
     setLength(length);
 }
 
-public BuildingStructure() {
-
-}
-
-
-
-// sets x,y for building location on map
+// sets x for building location on map
 public void setX(String xCoord) {
     this.xCoord = Double.parseDouble(xCoord);
 }
 
-
+// sets y for building location on map
 public void setY(String yCoord) {
     this.yCoord = Double.parseDouble(yCoord);
 }
-
 
 // return x coordinate of building
 public double getX() {
     return xCoord;
 }
+
 // return y coordinate of building
 public double getY() {
     return yCoord;
 }
-// Give building obj a name to be referanced for input
+
+// Give building obj a name to be referenced for input
 public void setBuildingName(String name) {
     buildingName = name;
 }
-// return name of building
+
+// returns name of building
 public String getBuildingName() {
     return buildingName;
 }
 
-// sets building connections for pathfinder
+// sets building connections
 public void setConnections(String newConnections) {
     connections = newConnections.split("/");
 }
 
-// return connections for pathfinder
+// return connections
 public String[] getConnections() {
     return connections;
 }
 
-// return Building hight for map
+// returns length
 public int getLength(){
     return length;
 }
 
-// sets Height for map
+// sets height
 public void setLength(String length){
     this.length = Integer.parseInt(length);
 }
-// return Building width for map
+// returns height
 public int getHeight(){
     return height;
 }
-// sets width for map
+// sets height
 public void setHeight(String height){
     this.height = Integer.parseInt(height);
 }
-// return abbreviation for building
+
+// returns abbreviation
 public String getAbbreviation(){
     return abbreviation;
 }
-// sets abbreviations for building objects
+// sets abbreviation
 public void setAbbreviation(String abbreviation){
     this.abbreviation = abbreviation;
 }
-
-
 
 
 }
