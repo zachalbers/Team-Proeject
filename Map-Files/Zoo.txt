@@ -36,7 +36,7 @@ END_OF_BUILDING
 
 Otter
 Otter
-Buffalo/Crane
+Buffalo/Crane/Deer
 100
 400
 40
@@ -63,7 +63,7 @@ END_OF_BUILDING
 
 Deer
 Deer
-Crane/Moose/Elk/Ram
+Crane/Moose/Elk/Ram/Otter
 210
 480
 40
@@ -164,7 +164,7 @@ Mountain Goat
 Mountain Goat
 Penguin/Black Ram
 460
-290
+300
 40
 40
 END_OF_BUILDING
@@ -189,7 +189,7 @@ END_OF_BUILDING
 
 Path2
 Path2
-Zaboomafoo/Wild Pig/Bird/Girrafe/Orangitang/Bugs/Path
+Zaboomafoo/Wild Pig/Girrafe/Orangitang/Path
 650
 750
 200
@@ -307,9 +307,9 @@ END_OF_BUILDING
 
 Bird
 Bird
-Path2/Wild Pig
+Wild Pig
 860
-440
+540
 40
 40
 END_OF_BUILDING
@@ -318,7 +318,7 @@ Wild Pig
 Wild Pig
 Path2/Lama/Gorilla/Bird
 840
-500
+600
 40
 40
 END_OF_BUILDING
@@ -327,16 +327,16 @@ Lama
 Lama
 Wild Pig/Flammingo/Wtf
 900
-500
+600
 40
 40
 END_OF_BUILDING
 
 Flammingo
 Flammingo
-Lama/Gorilla/Orangitang
+Lama/Gorilla
 900
-580
+680
 40
 40
 END_OF_BUILDING
@@ -345,16 +345,16 @@ Gorilla
 Gorilla
 Flammingo/Orangitang/Wild Pig
 780
-580
+680
 40
 40
 END_OF_BUILDING
 
 Orangitang
 Orangitang
-Gorilla/Flammingo/Path2
+Gorilla/Path2
 760
-660
+760
 40
 40
 END_OF_BUILDING
@@ -363,16 +363,16 @@ Wtf
 Wtf
 Bugs/Dragon/Monkey/Lama
 1000
-440
+610
 40
 40
 END_OF_BUILDING
 
 Bugs
 Bugs
-Wtf/Path2
-950
-550
+Wtf
+1000
+700
 40
 40
 END_OF_BUILDING
@@ -381,7 +381,7 @@ Dragon
 Dragon
 Wtf/Rino
 1000
-360
+550
 40
 40
 END_OF_BUILDING
@@ -390,7 +390,7 @@ Rino
 Rino
 Dragon/Leapord
 1080
-360
+580
 40
 40
 END_OF_BUILDING
@@ -399,7 +399,7 @@ Leapord
 Leapord
 Rino/Monkey/OrangePanda
 1160
-400
+600
 40
 40
 END_OF_BUILDING
@@ -408,7 +408,7 @@ Monkey
 Monkey
 Leapord/Wtf
 1160
-480
+660
 40
 40
 END_OF_BUILDING
@@ -417,7 +417,7 @@ OrangePanda
 OrangePanda
 Leapord/Tiger
 1220
-350
+600
 40
 40
 END_OF_BUILDING
@@ -425,8 +425,8 @@ END_OF_BUILDING
 Tiger
 Tiger
 OrangePanda/OldGoat
-1259
-400
+1249
+650
 40
 40
 END_OF_BUILDING
@@ -434,8 +434,8 @@ END_OF_BUILDING
 OldGoat
 OldGoat
 Tiger
-1259
-480
+1249
+720
 40
 40
 END_OF_BUILDING
@@ -464,8 +464,4 @@ true
 0 0 350 270
 
 //bathroom near otter
-toilet.png 100 400 
-
-
-
-
+toilet.png 100 400
