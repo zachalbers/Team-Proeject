@@ -1,7 +1,7 @@
 /*
 This class takes in a hashmap of the buildings of the selected map text file.
 The public 'pathfind' method takes in the location and destiantion and returns a list of the the buildings from the location to the destination.
-The public 'getFinalDistance' method returns the distance of the route.
+The public 'getDistanceStr' method returns the distance of the route as String.
 */
 
 
@@ -95,13 +95,41 @@ private double getDistance(BuildingStructure currentB, BuildingStructure nextB) 
     return Math.sqrt( (difX + difY) );
 }
 
-// Returns the distance from the start position to the final destintaion.
-public double getFinalDistance() {
-    for (int i =0; i<(pathList.size() - 1); i++) {
-        finalDistance += getDistance(buildings.get(pathList.get(i)), buildings.get(pathList.get(i+1)) );
- 	}
-  	return  finalDistance;
+
+// Calculates the time the user takes depending on the travel method they select and returns the time as a String.
+public String getDistanceStr(String travelMethod){
+
+
+	//The distance from the start position to the final destintaion.
+	for (int i =0; i<(pathList.size() - 1); i++) {
+		finalDistance += getDistance(buildings.get(pathList.get(i)), buildings.get(pathList.get(i+1)) );
+	}
+
+
+	int minutes;
+	int seconds;
+	String time;
+	switch (travelMethod) {
+		case "Walk" : seconds = (int)(finalDistance / 1.4);
+					break;
+		case "Run" : seconds = (int)(finalDistance / 2.69);
+					break;
+		case "Skate" : seconds = (int)(finalDistance / 3.2);
+					break;
+		case "Bike" : seconds = (int)(finalDistance / 4.29);
+					break;
+		default : seconds = 0;
+	}
+	minutes = seconds / 60;
+	seconds = seconds % 60;
+	time = travelMethod + " time: " + Integer.toString(minutes) + " min " + Integer.toString(seconds) + " sec";
+	return time;
 }
+
+
+
+
+
 
 
 }

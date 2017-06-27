@@ -28,21 +28,22 @@ public class GUI {
 //instance variables
 MapData mapData = new MapData(getFileName());
 
-String[] buildingNames = mapData.buildings.keySet().toArray(new String[mapData.buildings.keySet().size()]);
+private String[] buildingNames = mapData.buildings.keySet().toArray(new String[mapData.buildings.keySet().size()]);
 
-java.util.List<String> pathList = Collections.synchronizedList(new ArrayList<String>());
-String [] transportmethod = {"Walk", "Run","Skate","Bike",};
-String startpoint, endpoint, names, travelMethod="Walk";
+public java.util.List<String> pathList = Collections.synchronizedList(new ArrayList<String>());
+private String [] transportmethod = {"Walk", "Run","Skate","Bike",};
+private String startpoint, endpoint, names, travelMethod = "Walk";
 
-JButton go, exit;
-JLabel currentlabel, destinationlabel, transportlabel, questionlabel, golabel;
-JLabel exitlabel, walklabel, runlabel, skatelabel, uofclabel, cur, des;
-ImageIcon goimage, exitimage, walkicon, runicon, desicon;
-ImageIcon curicon, uofcicon, skateicon, questionicon;
+private JButton go, exit;
+private JLabel currentlabel, destinationlabel, transportlabel, questionlabel, golabel;
+private JLabel exitlabel, walklabel, runlabel, skatelabel, uofclabel, cur, des;
+private ImageIcon goimage, exitimage, walkicon, runicon, desicon;
+private ImageIcon curicon, uofcicon, skateicon, questionicon;
 
-JComboBox<String> currentbox; JComboBox<String> destinationbox; JComboBox<String> transportbox;
-JFrame MenuWindow; JPanel MenuPanel;
-Double finalDistance;
+private JComboBox<String> currentbox, destinationbox, transportbox;
+private JFrame MenuWindow;
+private JPanel MenuPanel;
+private String finalDistance;
 
 
 // constructor for GUI:
@@ -57,7 +58,7 @@ public GUI(){
 }
 
 //Prompts the user to enter what map they want to use and returns the name of the map as a String
-public String getFileName(){
+private String getFileName(){
 	  JFileChooser fc= new JFileChooser();
 	  FileNameExtensionFilter filter = new FileNameExtensionFilter(".txt", "txt");
 	  fc.setFileFilter(filter);
@@ -82,16 +83,16 @@ public String getFileName(){
 
 
 // Creates a new Pathfinder instance and gets the pathList and finalDistance.
-public void getPath(){
+private void getPath(){
 	Pathfinder finder = new Pathfinder(mapData.buildings);
 	pathList = finder.pathfind(startpoint, endpoint);
-	finalDistance = finder.getFinalDistance();
+	finalDistance = finder.getDistanceStr(travelMethod);
 }
 
 // Opens the Map Window.
-public void openWindow(){
+private void openWindow(){
 	JFrame Frame = new JFrame("Title");
-	MapWindow window = new MapWindow(pathList, mapData.buildings, mapData.settings, getDistance());
+	MapWindow window = new MapWindow(pathList, mapData.buildings, mapData.settings, finalDistance);
 	Frame.add(window);
 	Frame.setSize(1300, 800);
 	Frame.setVisible(true);
@@ -99,7 +100,7 @@ public void openWindow(){
 }
 
 // Initializes the screen
-public void initializeScreen(){
+private void initializeScreen(){
 	JFrame menuwindow = new JFrame("UNIMAP - Helping you Find your Way");
 	menuwindow.setVisible(true);
 	menuwindow.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -113,12 +114,12 @@ public void initializeScreen(){
 }
 
 // Adds the panel that contains all components to the window.
-public void startGUI(){
+private void startGUI(){
 	MenuWindow.add(MenuPanel);
 }
 
 // Makes the button components of the GUI.
-public void makeButtons(){
+private void makeButtons(){
 	JButton go = new JButton("");
 	go.setBounds(110,375,110,110);
 	go.setOpaque(false);
@@ -142,7 +143,7 @@ public void makeButtons(){
 }
 
 // Makes the label components of the GUI.
-public void makeLabels(){
+private void makeLabels(){
 	JLabel currentLabel = new JLabel("Current Location: ");
 	currentLabel.setLayout(null);
 	currentLabel.setBounds(110,77,250,20);
@@ -189,7 +190,7 @@ public void makeLabels(){
 }
 
 // Makes the dropdown components of the GUI.
-public void makeDropdownMenu(){
+private void makeDropdownMenu(){
 	Arrays.sort(buildingNames);
 	startpoint=buildingNames[0];
 	endpoint=buildingNames[0];
@@ -205,7 +206,7 @@ public void makeDropdownMenu(){
 }
 
 // Adds all the GUI components to the panel.
-public void addComponents(){
+private void addComponents(){
 	MenuPanel.add(exit);
 	MenuPanel.add(go);
 	MenuPanel.add(destinationbox);
@@ -226,31 +227,9 @@ public void addComponents(){
 }
 
 
-// Calculates the time the user takes depending on the travel method they select and returns the time as a String.
-public String getDistance(){
-	int minutes;
-	int seconds;
-	String time;
-	switch (travelMethod) {
-		case "Walk" : seconds = (int)(finalDistance / 1.4);
-					break;
-		case "Run" : seconds = (int)(finalDistance / 2.69);
-					break;
-		case "Skate" : seconds = (int)(finalDistance / 3.2);
-					break;
-		case "Bike" : seconds = (int)(finalDistance / 4.29);
-					break;
-		default : seconds = 0;
-	}
-	minutes = seconds / 60;
-	seconds = seconds % 60;
-	time = travelMethod + " time: " + Integer.toString(minutes) + " min " + Integer.toString(seconds) + " sec";
-	return time;
-}
-
 
 // Manages action listeners for the components of the GUI.
-public void actionListeners(){
+private void actionListeners(){
 	currentbox.addActionListener(new ActionListener() {
 		public void actionPerformed(ActionEvent e) {
 			startpoint = (String) currentbox.getSelectedItem();

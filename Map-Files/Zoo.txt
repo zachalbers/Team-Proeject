@@ -181,14 +181,14 @@ END_OF_BUILDING
 Path
 Path
 Black Ram/Lynx/Dino1/Dino2/Path2
-600
+650
 500
 500
 10
 END_OF_BUILDING
 
 Path2
-Path2
+Path
 Zaboomafoo/Wild Pig/Girrafe/Orangitang/Path
 650
 750
