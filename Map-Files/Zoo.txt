@@ -325,7 +325,7 @@ END_OF_BUILDING
 
 Lama
 Lama
-Wild Pig/Flammingo/Wtf
+Wild Pig/Flammingo/Fish
 900
 600
 40
@@ -359,8 +359,8 @@ Gorilla/Path2
 40
 END_OF_BUILDING
 
-Wtf
-Wtf
+Fish
+Fish
 Bugs/Dragon/Monkey/Lama
 1000
 610
@@ -370,7 +370,7 @@ END_OF_BUILDING
 
 Bugs
 Bugs
-Wtf
+Fish
 1000
 700
 40
@@ -379,7 +379,7 @@ END_OF_BUILDING
 
 Dragon
 Dragon
-Wtf/Rino
+Fish/Rino
 1000
 550
 40
@@ -406,7 +406,7 @@ END_OF_BUILDING
 
 Monkey
 Monkey
-Leapord/Wtf
+Leapord/Fish
 1160
 660
 40
