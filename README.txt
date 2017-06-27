@@ -7,9 +7,9 @@ Steps.
 1. Download the Zip file from Group 8's D2L dropbox 
 2. Extract the Zip file
 3. Open Terminal
-4. Navigate to your extracted file's directory 
-5. To compile type javac unimap/**/*.java in Terminal
-6. To run type java unimap.userinterface.GUI in Terminal
+4. Navigate to your extracted file's directory using the Terminal
+5. To compile type “javac unimap/**/*.java” in Terminal
+6. To run type ‘java unimap.userinterface.GUI” in Terminal
 
 
 II. Developper Info
