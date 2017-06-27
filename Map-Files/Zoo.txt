@@ -448,13 +448,13 @@ END_OF_All_BUILDINGS
 
 
 // Enter the building color as a HEX code:
-138 143 63
+102 102 153
 
 // Enter the path color as a HEX code:
 193 110 110
 
 // Enter the background color as a Hex code:
-0 200 0
+0 204 102
 
 
 // Is there a map legend? (true/false)
@@ -465,3 +465,73 @@ true
 
 //bathroom near otter
 toilet.png 100 400
+
+//library near otter
+library.png 100 350
+
+//theatre1
+theatre.png 300 420
+
+//theatre2
+theatre.png 470 290
+
+//bathroom near penguin
+toilet.png 510 200
+
+//food under pengeuin 
+food.png 550 150
+
+//bathroom under pengeuin 
+toilet.png 530 150
+
+//shop under pengeuin 
+shop.png 570 150
+
+//mall under pengeuin 
+mall.png 570 120
+
+//hospital under pengeuin 
+hospital.png 530 120
+
+//tourist under pengeuin 
+tourist.png 550 120
+
+//tourist1
+tourist.png 550 500
+
+//tourist2
+tourist.png 750 200
+
+//tourist3 
+tourist.png 900 860
+
+//tourist4
+tourist.png 550 400
+
+//tourist5
+tourist.png 200 240
+
+//tourist6
+tourist.png 1000 700
+
+//tourist7
+tourist.png 750 600
+
+//tourist8 
+tourist.png 900 680
+
+//shoppingcentre1
+mall.png 500 500
+
+//shoppingcentre2
+mall.png 500 350
+
+//shoppingcentre3
+mall.png 1000 600
+
+//shoppingcentre4
+mall.png 1200 700
+
+//shoppingcentre5
+mall.png 210 470
+
