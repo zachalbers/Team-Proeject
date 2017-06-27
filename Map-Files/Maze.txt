@@ -30,11 +30,12 @@ b2
 50
 100
 30
+30
 END_OF_BUILDING
 
 
 b2
-
+ 
 b1/b3
 90
 100
@@ -44,7 +45,7 @@ END_OF_BUILDING
 
 
 b3
-
+ 
 b2/b4
 90
 140
@@ -54,7 +55,7 @@ END_OF_BUILDING
 
 
 b4
-
+ 
 b3/b5
 90
 180
@@ -64,7 +65,7 @@ END_OF_BUILDING
 
 
 b5
-
+ 
 b4/b6
 90
 220
@@ -74,7 +75,7 @@ END_OF_BUILDING
 
 
 b6
-
+ 
 b5/b7
 90
 260
@@ -84,7 +85,7 @@ END_OF_BUILDING
 
 
 b7
-
+ 
 b6/b8
 90
 300
@@ -94,7 +95,7 @@ END_OF_BUILDING
 
 
 b8
-
+ 
 b7/b9
 90
 340
@@ -104,7 +105,7 @@ END_OF_BUILDING
 
 
 b9
-
+ 
 b8/b10
 130
 340
@@ -114,7 +115,7 @@ END_OF_BUILDING
 
 
 b10
-
+ 
 b9/b11
 170
 340
@@ -124,7 +125,7 @@ END_OF_BUILDING
 
 
 b11
-
+ 
 b10/b12
 170
 380
@@ -134,7 +135,7 @@ END_OF_BUILDING
 
 
 b12
-
+ 
 b11/b13
 170
 420
@@ -144,7 +145,7 @@ END_OF_BUILDING
 
 
 b13
-
+ 
 b12/b14
 130
 420
@@ -153,7 +154,7 @@ b12/b14
 END_OF_BUILDING
 
 b14
-
+ 
 b13/b15
 90
 420
@@ -163,7 +164,7 @@ END_OF_BUILDING
 
 
 b15
-
+ 
 b14/b16
 90
 460
@@ -173,7 +174,7 @@ END_OF_BUILDING
 
 
 b16
-
+ 
 b15/b17
 90
 500
@@ -183,7 +184,7 @@ END_OF_BUILDING
 
 
 b17
-
+ 
 b16/b18
 90
 540
@@ -194,7 +195,7 @@ END_OF_BUILDING
 
 // Turning right. Top right corner block.
 b18
-
+ 
 b17/b19
 90
 580
@@ -204,7 +205,7 @@ END_OF_BUILDING
 
 
 b19
-
+ 
 b18/b20
 130
 580
@@ -214,7 +215,7 @@ END_OF_BUILDING
 
 
 b20
-
+ 
 b19/b21
 170
 580
@@ -224,7 +225,7 @@ END_OF_BUILDING
 
 
 b21
-
+ 
 b20/b22
 210
 580
@@ -234,7 +235,7 @@ END_OF_BUILDING
 
 
 b22
-
+ 
 b21/b23
 250
 580
@@ -244,7 +245,7 @@ END_OF_BUILDING
 
 
 b23
-
+ 
 b22/b24
 290
 580
@@ -255,7 +256,7 @@ END_OF_BUILDING
 
 // Connection goes down.
 b24
-
+ 
 b23/b25/b41
 330
 580
@@ -265,7 +266,7 @@ END_OF_BUILDING
 
 
 b25
-
+ 
 b24/b26
 330
 620
@@ -275,7 +276,7 @@ END_OF_BUILDING
 
 
 b26
-
+ 
 b25/b27
 330
 660
@@ -285,7 +286,7 @@ END_OF_BUILDING
 
 
 b27
-
+ 
 b26/b28
 370
 660
@@ -296,7 +297,7 @@ END_OF_BUILDING
 
 
 b28
-
+ 
 b27/b29
 410
 660
@@ -306,7 +307,7 @@ END_OF_BUILDING
 
 
 b29
-
+ 
 b28/b30
 450
 660
@@ -316,7 +317,7 @@ END_OF_BUILDING
 
 
 b30
-
+ 
 b29/b31
 490
 660
@@ -326,7 +327,7 @@ END_OF_BUILDING
 
 
 b31
-
+ 
 b30/b32
 490
 620
@@ -336,7 +337,7 @@ END_OF_BUILDING
 
 
 b32
-
+ 
 b31/b33
 490
 580
@@ -346,7 +347,7 @@ END_OF_BUILDING
 
 
 b33
-
+ 
 b32/b34
 530
 580
@@ -356,7 +357,7 @@ END_OF_BUILDING
 
 
 b34
-
+ 
 b33/b35
 570
 580
@@ -366,7 +367,7 @@ END_OF_BUILDING
 
 
 b35
-
+ 
 b34/b36
 610
 580
@@ -376,7 +377,7 @@ END_OF_BUILDING
 
 
 b36
-
+ 
 b35/b37/b39
 650
 580
@@ -386,7 +387,7 @@ END_OF_BUILDING
 
 
 b37
-
+ 
 b36/b38
 690
 580
@@ -396,7 +397,7 @@ END_OF_BUILDING
 
 
 b38
-
+ 
 b37
 730
 580
@@ -406,7 +407,7 @@ END_OF_BUILDING
 
 
 b39
-
+ 
 b36/b40
 650
 620
@@ -416,7 +417,7 @@ END_OF_BUILDING
 
 
 b40
-
+ 
 b39
 650
 660
@@ -429,7 +430,7 @@ END_OF_BUILDING
 // Back to location 24
 
 b41
-
+ 
 b24/b42
 330
 540
@@ -439,7 +440,7 @@ END_OF_BUILDING
 
 
 b42
-
+ 
 b41/b43
 330
 500
@@ -449,7 +450,7 @@ END_OF_BUILDING
 
 
 b43
-
+ 
 b42/b44
 370
 500
@@ -459,7 +460,7 @@ END_OF_BUILDING
 
 
 b44
-
+ 
 b43/b45/b47
 410
 500
@@ -469,7 +470,7 @@ END_OF_BUILDING
 
 
 b45
-
+ 
 b44/b46
 410
 540
@@ -479,7 +480,7 @@ END_OF_BUILDING
 
 
 b46
-
+ 
 b45
 410
 580
@@ -489,7 +490,7 @@ END_OF_BUILDING
 
 
 b47
-
+ 
 b44/b48
 410
 460
@@ -499,7 +500,7 @@ END_OF_BUILDING
 
 
 b48
-
+ 
 b47/b49
 410
 420
@@ -509,7 +510,7 @@ END_OF_BUILDING
 
 
 b49
-
+ 
 b48/b50
 450
 420
@@ -520,7 +521,7 @@ END_OF_BUILDING
 
 // Connects below.
 b50
-
+ 
 b49/b51/b61
 490
 420
@@ -530,7 +531,7 @@ END_OF_BUILDING
 
 
 b51
-
+ 
 b50/b52
 490
 460
@@ -540,7 +541,7 @@ END_OF_BUILDING
 
 
 b52
-
+ 
 b51/b53
 490
 500
@@ -550,7 +551,7 @@ END_OF_BUILDING
 
 
 b53
-
+ 
 b52/b54
 530
 500
@@ -560,7 +561,7 @@ END_OF_BUILDING
 
 
 b54
-
+ 
 b53/b55
 570
 500
@@ -570,7 +571,7 @@ END_OF_BUILDING
 
 
 b55
-
+ 
 b54/b56
 570
 460
@@ -580,7 +581,7 @@ END_OF_BUILDING
 
 
 b56
-
+ 
 b55/b57
 570
 420
@@ -591,7 +592,7 @@ END_OF_BUILDING
 
 
 b57
-
+ 
 b56/b58
 610
 420
@@ -601,7 +602,7 @@ END_OF_BUILDING
 
 
 b58
-
+ 
 b57/b59
 650
 420
@@ -611,7 +612,7 @@ END_OF_BUILDING
 
 
 b59
-
+ 
 b58/b60
 690
 420
@@ -621,7 +622,7 @@ END_OF_BUILDING
 
 
 b60
-
+ 
 b59
 730
 420
@@ -634,7 +635,7 @@ END_OF_BUILDING
 // Back to b50
 
 b61
-
+ 
 b50/b62
 490
 380
@@ -645,7 +646,7 @@ END_OF_BUILDING
 
 // Go right.
 b62
-
+ 
 b61/b63/b71
 490
 340
@@ -655,7 +656,7 @@ END_OF_BUILDING
 
 
 b63
-
+ 
 b62/b64
 450
 340
@@ -665,7 +666,7 @@ END_OF_BUILDING
 
 
 b64
-
+ 
 b63/b65/b67
 410
 340
@@ -675,7 +676,7 @@ END_OF_BUILDING
 
 
 b65
-
+ 
 b64/b66
 410
 300
@@ -685,7 +686,7 @@ END_OF_BUILDING
 
 
 b66
-
+ 
 b65
 410
 260
@@ -695,7 +696,7 @@ END_OF_BUILDING
 
 
 b67
-
+ 
 b64/b68
 370
 340
@@ -705,7 +706,7 @@ END_OF_BUILDING
 
 
 b68
-
+ 
 b67/b69
 330
 340
@@ -716,7 +717,7 @@ END_OF_BUILDING
 
 
 b69
-
+ 
 b68/b70
 330
 380
@@ -726,7 +727,7 @@ END_OF_BUILDING
 
 
 b70
-
+ 
 b69
 330
 420
@@ -736,7 +737,7 @@ END_OF_BUILDING
 
 
 b71
-
+ 
 b62/b72
 530
 340
@@ -746,7 +747,7 @@ END_OF_BUILDING
 
 
 b72
-
+ 
 b71/b73
 570
 340
@@ -756,7 +757,7 @@ END_OF_BUILDING
 
 
 b73
-
+ 
 b72/b74
 610
 340
@@ -767,7 +768,7 @@ END_OF_BUILDING
 
 // Go down. Add connection
 b74
-
+ 
 b73/b75
 650
 340
@@ -777,7 +778,7 @@ END_OF_BUILDING
 
 
 b75
-
+ 
 b74/b76
 690
 340
@@ -787,7 +788,7 @@ END_OF_BUILDING
 
 
 b76
-
+ 
 b75/b77
 730
 340
@@ -798,7 +799,7 @@ END_OF_BUILDING
 
 
 b77
-
+ 
 b76/b78
 730
 300
@@ -808,7 +809,7 @@ END_OF_BUILDING
 
 
 b78
-
+ 
 b77/b79
 730
 260
@@ -818,7 +819,7 @@ END_OF_BUILDING
 
 
 b79
-
+ 
 b78/b80
 730
 220
@@ -828,7 +829,7 @@ END_OF_BUILDING
 
 
 b80
-
+ 
 b79/b81
 730
 180
@@ -838,7 +839,7 @@ END_OF_BUILDING
 
 
 b81
-
+ 
 b80/b82
 770
 180
@@ -849,7 +850,7 @@ END_OF_BUILDING
 
 // Go up.
 b82
-
+ 
 b81/b83/b85
 810
 180
@@ -859,7 +860,7 @@ END_OF_BUILDING
 
 
 b83
-
+ 
 b82/b84
 810
 140
@@ -869,7 +870,7 @@ END_OF_BUILDING
 
 
 b84
-
+ 
 b83
 810
 100
@@ -879,7 +880,7 @@ END_OF_BUILDING
 
 
 b85
-
+ 
 b82/b86
 810
 220
@@ -889,7 +890,7 @@ END_OF_BUILDING
 
 
 b86
-
+ 
 b85/b87
 810
 260
@@ -899,7 +900,7 @@ END_OF_BUILDING
 
 
 b87
-
+ 
 b86/b88
 810
 300
@@ -909,7 +910,7 @@ END_OF_BUILDING
 
 
 b88
-
+ 
 b87/b89
 810
 340
@@ -919,7 +920,7 @@ END_OF_BUILDING
 
 
 b89
-
+ 
 b88/b90
 810
 380
@@ -929,7 +930,7 @@ END_OF_BUILDING
 
 
 b90
-
+ 
 b89/b91
 810
 420
@@ -939,7 +940,7 @@ END_OF_BUILDING
 
 
 b91
-
+ 
 b90/b92
 810
 460
@@ -950,7 +951,7 @@ END_OF_BUILDING
 
 // Go up.
 b92
-
+ 
 b91/b93/b97
 810
 500
@@ -960,7 +961,7 @@ END_OF_BUILDING
 
 
 b93
-
+ 
 b92/b94
 770
 500
@@ -970,7 +971,7 @@ END_OF_BUILDING
 
 
 b94
-
+ 
 b93/b95
 730
 500
@@ -980,7 +981,7 @@ END_OF_BUILDING
 
 
 b95
-
+ 
 b94/b96
 690
 500
@@ -990,7 +991,7 @@ END_OF_BUILDING
 
 
 b96
-
+ 
 b95
 650
 500
@@ -1001,7 +1002,7 @@ END_OF_BUILDING
 
 // Back to b92.
 b97
-
+ 
 b92/b98
 810
 540
@@ -1011,7 +1012,7 @@ END_OF_BUILDING
 
 
 b98
-
+ 
 b97/b99
 810
 580
@@ -1021,7 +1022,7 @@ END_OF_BUILDING
 
 
 b99
-
+ 
 b98/b100
 810
 620
@@ -1031,7 +1032,7 @@ END_OF_BUILDING
 
 
 b100
-
+ 
 b99/b101
 810
 660

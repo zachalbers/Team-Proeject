@@ -11,8 +11,6 @@ import java.util.*;
 
 
 
-
-
 public class MapData {
 
 public java.util.HashMap<String,BuildingStructure> buildings = new HashMap<String,BuildingStructure>();
@@ -76,7 +74,6 @@ public void readFile() {
 		if (settings.size() < 4) {
 			throw new Exception("Incorrect Format. Not enough setting parameters in " + mapName);
 		}
-
 
     } catch (IOException e) {
 		System.out.println("Error: "+ e.getMessage() +" at line " + lineCount);

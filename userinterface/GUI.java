@@ -1,3 +1,14 @@
+/*
+This class contains the main method from which the program is run.
+It contains the file chooser GUI which has the user select a valid text file, and then creates an instance of MapData to get the map info.
+It also contains the main window from which the user selects the location, destination, and transport method.
+These variables are then used to initiate the 'Pathfinder' instance and its 'getFinalDistance' and 'pathfind' methods.
+These parameters along with the Hashmap of buildings are passed into MapWindow, which is drawn once the user clicks go.
+*/
+
+
+
+
 package unimap.userinterface;
 import javax.swing.*;
 import java.awt.*;
@@ -21,16 +32,13 @@ String[] buildingNames = mapData.buildings.keySet().toArray(new String[mapData.b
 
 java.util.List<String> pathList = Collections.synchronizedList(new ArrayList<String>());
 String [] transportmethod = {"Walk", "Run","Skate","Bike",};
-String startpoint; String endpoint; String names; String travelMethod="Walk";
+String startpoint, endpoint, names, travelMethod="Walk";
 
-JButton go; JButton EXIT;
-
-JLabel currentlabel; JLabel destinationlabel; JLabel transportlabel;
-JLabel questionlabel; JLabel golabel; JLabel exitlabel; JLabel walklabel;
-JLabel runlabel;JLabel skatelabel;JLabel uofclabel; JLabel cur;JLabel des;
-
-ImageIcon goimage; ImageIcon exitimage; ImageIcon walkicon; ImageIcon runicon; ImageIcon desicon;
-ImageIcon curicon; ImageIcon uofcicon; ImageIcon skateicon; ImageIcon questionicon;
+JButton go, exit;
+JLabel currentlabel, destinationlabel, transportlabel, questionlabel, golabel;
+JLabel exitlabel, walklabel, runlabel, skatelabel, uofclabel, cur, des;
+ImageIcon goimage, exitimage, walkicon, runicon, desicon;
+ImageIcon curicon, uofcicon, skateicon, questionicon;
 
 JComboBox<String> currentbox; JComboBox<String> destinationbox; JComboBox<String> transportbox;
 JFrame MenuWindow; JPanel MenuPanel;
@@ -73,14 +81,14 @@ public String getFileName(){
   	  }
 
 
-//gets the buildings user has to go through from start to end point
+// Creates a new Pathfinder instance and gets the pathList and finalDistance.
 public void getPath(){
 	Pathfinder finder = new Pathfinder(mapData.buildings);
 	pathList = finder.pathfind(startpoint, endpoint);
 	finalDistance = finder.getFinalDistance();
 }
 
-// initializes the map window when user clicks go button :
+// Opens the Map Window.
 public void openWindow(){
 	JFrame Frame = new JFrame("Title");
 	MapWindow window = new MapWindow(pathList, mapData.buildings, mapData.settings, getDistance());
@@ -90,7 +98,7 @@ public void openWindow(){
 	Frame.setResizable(false);
 }
 
-//initializes the screen:
+// Initializes the screen
 public void initializeScreen(){
 	JFrame menuwindow = new JFrame("UNIMAP - Helping you Find your Way");
 	menuwindow.setVisible(true);
@@ -104,19 +112,19 @@ public void initializeScreen(){
 	menupanel.setLayout(null);
 }
 
-// adds the panel that contains all components to the window:
+// Adds the panel that contains all components to the window.
 public void startGUI(){
 	MenuWindow.add(MenuPanel);
 }
 
-// makes the button components of the gui
+// Makes the button components of the GUI.
 public void makeButtons(){
-	JButton GO = new JButton("");
-	GO.setBounds(110,375,110,110);
-	GO.setOpaque(false);
-	GO.setContentAreaFilled(false);
-	GO.setBorderPainted(false);
-	this.go = GO;
+	JButton go = new JButton("");
+	go.setBounds(110,375,110,110);
+	go.setOpaque(false);
+	go.setContentAreaFilled(false);
+	go.setBorderPainted(false);
+	this.go = go;
 	goimage = new ImageIcon("./unimap/Gui-Icon-Files/go.jpg");
 	golabel = new JLabel(goimage);
 	golabel.setLayout(null);
@@ -126,14 +134,14 @@ public void makeButtons(){
 	exit.setOpaque(false);
 	exit.setContentAreaFilled(false);
 	exit.setBorderPainted(false);
-	this.EXIT=exit;
+	this.exit=exit;
 	exitimage = new ImageIcon("./unimap/Gui-Icon-Files/exitbutton.png");
 	exitlabel = new JLabel(exitimage);
 	exitlabel.setLayout(null);
 	exitlabel.setBounds(110,515,130,130);
 }
 
-// makes the label components of the gui
+// Makes the label components of the GUI.
 public void makeLabels(){
 	JLabel currentLabel = new JLabel("Current Location: ");
 	currentLabel.setLayout(null);
@@ -180,7 +188,7 @@ public void makeLabels(){
 	des.setBounds(720,230,78,78);
 }
 
-// makes the dropdown components of the gui
+// Makes the dropdown components of the GUI.
 public void makeDropdownMenu(){
 	Arrays.sort(buildingNames);
 	startpoint=buildingNames[0];
@@ -196,9 +204,9 @@ public void makeDropdownMenu(){
 	this.transportbox=transport;
 }
 
-// adds all the gui components to the panel
+// Adds all the GUI components to the panel.
 public void addComponents(){
-	MenuPanel.add(EXIT);
+	MenuPanel.add(exit);
 	MenuPanel.add(go);
 	MenuPanel.add(destinationbox);
 	MenuPanel.add(currentbox);
@@ -218,7 +226,7 @@ public void addComponents(){
 }
 
 
-// Calculates the time the user takes depending on the travel method they select and returns the time as a String
+// Calculates the time the user takes depending on the travel method they select and returns the time as a String.
 public String getDistance(){
 	int minutes;
 	int seconds;
@@ -241,7 +249,7 @@ public String getDistance(){
 }
 
 
-// Manages action listeners for the components of the gui
+// Manages action listeners for the components of the GUI.
 public void actionListeners(){
 	currentbox.addActionListener(new ActionListener() {
 		public void actionPerformed(ActionEvent e) {
@@ -261,7 +269,7 @@ public void actionListeners(){
 		}
 	});
 
-	EXIT.addActionListener(new ActionListener() {
+	exit.addActionListener(new ActionListener() {
 		public void actionPerformed(ActionEvent e) {
 			System.exit(0);
 		}
@@ -276,7 +284,7 @@ public void actionListeners(){
 
 }
 
-// Main method of the program
+// Main method of the program.
 public static void main(String[] args) {
 	GUI userInfo = new GUI();
 }

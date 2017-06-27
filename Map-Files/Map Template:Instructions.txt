@@ -14,9 +14,21 @@
 //    Connections (the names of the connected buildings separated by a "/")
 //    X Coordinate
 //    Y Coordinate
-//    Height (width)
+//    Height
 //    Length
 // At the end of each building put "END_OF_BUILDING"
+
+// Once all buildings have been entered, enter the settings
+// 	The building color as a HEX code
+// 	The path color as a HEX code
+// 	The background color as a Hex code
+// 	Is there a map legend? (true/false)
+//	parameters for Map legend location from top left corner (x y length height)
+
+//	Add any additional icons (name_of_icon.png x y) 
+
+
+
 
 
 
@@ -32,7 +44,6 @@ b2
 200
 80
 80
-554
 END_OF_BUILDING
 
 
@@ -44,16 +55,6 @@ b1
 80
 80
 END_OF_BUILDING
-
-b3
-Another Building
-b3
-500
-500
-80
-80
-END_OF_BUILDING
-
 
 
 END_OF_All_BUILDINGS
@@ -72,23 +73,13 @@ END_OF_All_BUILDINGS
 100 100 100
 
 // Is there a map legend? (true/false)
-false
+true
 
 
 //Add parameters for Map legend location from top left corner (x y length height)
-//900 50 400 480
+900 50 350 480
 
 
 
-//Shop.jpg 200 200
 
-//Shop.jpg 250 250
-
-//Shop.jpg 300 300
-
-
-//Restaurant.jpg 400 400
-
-//Restaurant.jpg 450 450
-
-//currentlocation.png 450 450
+atm.png 450 450
