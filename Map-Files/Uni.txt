@@ -192,7 +192,7 @@ Education Classroom Block
 EDC
 Professional Faculties/Education Tower
 870
-330
+320
 50
 40
 END_OF_BUILDING
@@ -202,7 +202,7 @@ Education Tower
 EDT
 Education Classroom Block/Scurfield Hall
 915
-330
+320
 30
 30
 END_OF_BUILDING
@@ -212,7 +212,7 @@ Murray Fraiser Hall
 MFH
 Mackimmie Library Tower/Craigie Hall C-G (Univercity Theatre)/Professional Faculties
 800
-365
+355
 40
 40
 END_OF_BUILDING
@@ -232,7 +232,7 @@ Mackimmie Library Block
 MB
 Mackimmie Library Tower/Taylor Family Digital Library
 800
-465
+475
 40
 40
 END_OF_BUILDING
@@ -421,8 +421,3 @@ train.png 1250 400
 
 //MH
 atm.png 700 490
-
-
-
-
-
