@@ -61,18 +61,17 @@ public GUI(){
 	startGUI();
 }
 
-//the best part
-public void playsound(String soundfilepath) {
-
-    try{
-   this.soundfilepath = soundfilepath;
-   AudioInputStream audioInputStream =AudioSystem.getAudioInputStream(new File(soundfilepath).getAbsoluteFile());
-  Clip clip = AudioSystem.getClip();
-  clip.open(audioInputStream);
-  clip.start();
- }
-catch(Exception ex)
-{ System.out.println("There is an error with the audio file"); }
+// Audio method.
+private void playsound(String soundfilepath) {
+    try {
+   		this.soundfilepath = soundfilepath;
+   		AudioInputStream audioInputStream =AudioSystem.getAudioInputStream(new File(soundfilepath).getAbsoluteFile());
+  		Clip clip = AudioSystem.getClip();
+  		clip.open(audioInputStream);
+  		clip.start();
+ 	} catch(Exception ex) {
+		System.out.println("There is an error with the audio file");
+	}
 }
 
 //Prompts the user to enter what map they want to use and returns the name of the map as a String
