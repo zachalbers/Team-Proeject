@@ -19,6 +19,9 @@ import javax.swing.DefaultListCellRenderer;
 import javax.swing.filechooser.FileNameExtensionFilter;
 import unimap.programlogic.*;
 
+import javax.sound.sampled.AudioInputStream;
+import javax.sound.sampled.AudioSystem;
+import javax.sound.sampled.Clip;
 
 
 
@@ -44,10 +47,11 @@ private JComboBox<String> currentbox, destinationbox, transportbox;
 private JFrame MenuWindow;
 private JPanel MenuPanel;
 private String finalDistance;
-
+private String soundfilepath;
 
 // constructor for GUI:
 public GUI(){
+	playsound("./unimap/Sounds/the_map.wav");
 	makeButtons();
 	makeDropdownMenu();
 	makeLabels();
@@ -55,6 +59,20 @@ public GUI(){
 	addComponents();
 	actionListeners();
 	startGUI();
+}
+
+//the best part
+public void playsound(String soundfilepath) {
+
+    try{
+   this.soundfilepath = soundfilepath;
+   AudioInputStream audioInputStream =AudioSystem.getAudioInputStream(new File(soundfilepath).getAbsoluteFile());
+  Clip clip = AudioSystem.getClip();
+  clip.open(audioInputStream);
+  clip.start();
+ }
+catch(Exception ex)
+{ System.out.println("There is an error with the audio file"); }
 }
 
 //Prompts the user to enter what map they want to use and returns the name of the map as a String
