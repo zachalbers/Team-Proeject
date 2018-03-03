@@ -1,22 +1,20 @@
+# UniMap
+
 I. Running the program
 -------------------------
 Note: UniMap has been tested to run on MacOS, Linux, and Windows
 
 Steps.
-
-1. Download the Zip file from Group 8's D2L dropbox 
-2. Extract the Zip file
-3. Open Terminal
-4. Navigate to your extracted file's directory using the Terminal
-5. To compile type “javac unimap/**/*.java” in Terminal
-6. To run type ‘java unimap.userinterface.GUI” in Terminal
+1. Navigate to your extracted file's directory using the Terminal
+2. To compile type “javac unimap/**/*.java” in Terminal
+3. To run type ‘java unimap.userinterface.GUI” in Terminal
 
 
-II. Developper Info
+II. Developer Info
 -------------------
 Group:8
 Tutorial:03
-Menmbers:1)Muhammad Usman Khawar
+Members:1)Muhammad Usman Khawar
 	 2)Tristan Randall
 	 3)Zachariah Albers
 	 4)Mahir Shahriar
